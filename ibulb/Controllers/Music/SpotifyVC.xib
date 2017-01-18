@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpotifyVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBr-jh-Etc">
+                    <rect key="frame" x="21" y="8" width="284" height="356"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="356" id="eyN-o8-PEr"/>
+                    </constraints>
+                    <string key="text">Spotify Premium lets you listen to 
+millions of songs ad-free - the 
+artists you love, the latest hits and 
+discoveries just for you. Simply hit 
+play to hear any song you like, at 
+the highest sound quality. millions 
+of songs. 
+Your new device has Spotify 
+Connect built in. 
+You'll need Spotify Premium to use 
+Connect. Learn more at 
+spotify.com/connect 
+O Play any song in Spotify app. 
+O Tap the song image in the 
+bottom left of the screen. 
+@ Tap the Connect icon 
+@ Pick your speaker from the list.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLC-sm-7W3">
+                    <rect key="frame" x="68" y="424" width="184" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Eek-Bv-QLz"/>
+                        <constraint firstAttribute="width" constant="184" id="uZU-Z6-ZGa"/>
+                    </constraints>
+                    <state key="normal" title="RUN NOW" backgroundImage="03">
+                        <color key="titleColor" red="0.86274509799999999" green="0.76078431369999999" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="run:" destination="-1" eventType="touchUpInside" id="EVz-RI-o6s"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tLC-sm-7W3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PeI-Ee-e7O"/>
+                <constraint firstAttribute="trailing" secondItem="rBr-jh-Etc" secondAttribute="trailing" constant="15" id="aUu-R3-uw0"/>
+                <constraint firstItem="rBr-jh-Etc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="hI6-SK-0us"/>
+                <constraint firstItem="rBr-jh-Etc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="jTB-WN-ggf"/>
+                <constraint firstAttribute="bottom" secondItem="tLC-sm-7W3" secondAttribute="bottom" constant="35" id="yiK-Up-brb"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="609" y="182"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="03" width="183" height="45"/>
+    </resources>
+</document>

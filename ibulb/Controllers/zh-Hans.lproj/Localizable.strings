@@ -1,0 +1,16 @@
+/* 
+  File.strings
+  ibulb
+
+  Created by Interest on 16/3/11.
+  Copyright © 2016年 Interest. All rights reserved.
+*/
+"test1"="帮助";
+"test2"="主页";
+"test3"="设置";
+"test4"="修改名称";
+"test5"="取消";
+"test6"="修改";
+"test7"="断开设备";
+"test8"="已保存";
+"test9"="请输入内容";

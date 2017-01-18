@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="midCell" id="gTV-IL-0wX" customClass="VifaMidCell">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="150"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="27" translatesAutoresizingMaskIntoConstraints="NO" id="Rws-qj-FRs">
+                        <rect key="frame" x="114" y="23" width="92" height="59"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="59" id="7DF-Fg-8Vv"/>
+                            <constraint firstAttribute="width" constant="92" id="up6-XB-ata"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0B-iw-x7m">
+                        <rect key="frame" x="114" y="83" width="92" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="92" id="fa3-M1-qw7"/>
+                            <constraint firstAttribute="height" constant="44" id="vna-LW-Fgd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.0" green="0.74509803919999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Rws-qj-FRs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="23" id="SSJ-KR-ahV"/>
+                <constraint firstItem="Rws-qj-FRs" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="css-fw-Xw1"/>
+                <constraint firstItem="i0B-iw-x7m" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="lkg-07-ubF"/>
+                <constraint firstItem="i0B-iw-x7m" firstAttribute="top" secondItem="Rws-qj-FRs" secondAttribute="bottom" constant="1" id="pfT-GU-ei2"/>
+            </constraints>
+            <size key="customSize" width="321" height="168"/>
+            <connections>
+                <outlet property="namelab" destination="i0B-iw-x7m" id="YBv-oQ-Hpx"/>
+            </connections>
+            <point key="canvasLocation" x="275.5" y="214"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="27" width="152" height="111"/>
+    </resources>
+</document>

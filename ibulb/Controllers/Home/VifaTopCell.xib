@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="vitfaTop" id="gTV-IL-0wX" customClass="VifaTopCell">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="350"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="295" height="350"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="44" translatesAutoresizingMaskIntoConstraints="NO" id="lk2-q3-N9K">
+                        <rect key="frame" x="28" y="110" width="250" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="250" id="E6G-3s-Y6G"/>
+                            <constraint firstAttribute="height" constant="70" id="L35-Zx-P3z"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsM-Ul-l8O">
+                        <rect key="frame" x="55" y="264" width="196" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="SBR-rV-8cd"/>
+                            <constraint firstAttribute="width" constant="196" id="VpY-qv-rQB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl8-gB-jgv">
+                        <rect key="frame" x="21" y="15" width="50" height="39"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="39" id="grU-cZ-HpB"/>
+                            <constraint firstAttribute="width" constant="50" id="xEe-Qt-acU"/>
+                        </constraints>
+                        <state key="normal" image="home_music"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0n-zB-o3f">
+                        <rect key="frame" x="229" y="15" width="50" height="39"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="EAb-Ge-KD2"/>
+                            <constraint firstAttribute="height" constant="39" id="Kun-ar-KRq"/>
+                        </constraints>
+                        <state key="normal" image="43"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="lsM-Ul-l8O" secondAttribute="bottom" constant="63" id="1bZ-Z3-9EY"/>
+                <constraint firstItem="Fl8-gB-jgv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="21" id="2VL-33-jrP"/>
+                <constraint firstAttribute="trailing" secondItem="U0n-zB-o3f" secondAttribute="trailing" constant="16" id="V0q-g7-maA"/>
+                <constraint firstItem="lk2-q3-N9K" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ax0-Zk-21r"/>
+                <constraint firstItem="U0n-zB-o3f" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="iHU-68-KnN"/>
+                <constraint firstItem="lk2-q3-N9K" firstAttribute="top" secondItem="Fl8-gB-jgv" secondAttribute="bottom" constant="56" id="jN2-ri-6VC"/>
+                <constraint firstItem="Fl8-gB-jgv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="jSK-9d-gK4"/>
+                <constraint firstItem="lsM-Ul-l8O" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="oMg-Zk-cCz"/>
+            </constraints>
+            <size key="customSize" width="259" height="261"/>
+            <connections>
+                <outlet property="donebtn" destination="U0n-zB-o3f" id="Uqd-WY-lZH"/>
+                <outlet property="namelab" destination="lsM-Ul-l8O" id="ujr-eK-jTS"/>
+                <outlet property="playbtn" destination="Fl8-gB-jgv" id="Lfq-UX-eba"/>
+            </connections>
+            <point key="canvasLocation" x="485.5" y="313.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="43" width="37" height="37"/>
+        <image name="44" width="247" height="68"/>
+        <image name="home_music" width="34" height="34"/>
+    </resources>
+</document>

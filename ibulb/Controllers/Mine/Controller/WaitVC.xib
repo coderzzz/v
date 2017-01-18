@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WaitVC">
+            <connections>
+                <outlet property="imgv" destination="6Ee-r8-gwS" id="KM3-GP-X73"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="6Ee-r8-gwS">
+                    <rect key="frame" x="132" y="138" width="56" height="57"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="57" id="W6n-OC-pVr"/>
+                        <constraint firstAttribute="width" constant="56" id="wDv-ZG-4Ba"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you want to go back and retry? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvU-Gu-sDo">
+                    <rect key="frame" x="22" y="289" width="277" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="B9L-DA-0Oy"/>
+                        <constraint firstAttribute="width" constant="277" id="V4X-P9-gqk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a52-jN-maD">
+                    <rect key="frame" x="20" y="19" width="280" height="98"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="2Cv-QG-ZrK"/>
+                        <constraint firstAttribute="height" constant="98" id="GgM-Ab-6tN"/>
+                    </constraints>
+                    <string key="text">Wait for your speaker to connect to 
+Wi-Fi network. Please do not turn off 
+the speaker during the process. Wait 
+patiently. It usually finishes within 
+60 secs.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwI-Me-hbo">
+                    <rect key="frame" x="80" y="229" width="160" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Sfr-gN-WVJ"/>
+                        <constraint firstAttribute="width" constant="160" id="hDB-7H-zvY"/>
+                    </constraints>
+                    <state key="normal" title="CANCEL " backgroundImage="03">
+                        <color key="titleColor" red="0.88235294119999996" green="0.7843137255" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="aciton:" destination="-1" eventType="touchUpInside" id="DJk-ZD-gRg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="6Ee-r8-gwS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4YJ-Wv-Jww"/>
+                <constraint firstItem="6Ee-r8-gwS" firstAttribute="top" secondItem="a52-jN-maD" secondAttribute="bottom" constant="21" id="Npr-FL-8eC"/>
+                <constraint firstItem="hvU-Gu-sDo" firstAttribute="top" secondItem="pwI-Me-hbo" secondAttribute="bottom" constant="15" id="d7H-e2-f2D"/>
+                <constraint firstItem="a52-jN-maD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gsc-66-2iT"/>
+                <constraint firstItem="pwI-Me-hbo" firstAttribute="top" secondItem="6Ee-r8-gwS" secondAttribute="bottom" constant="34" id="iac-K9-CnT"/>
+                <constraint firstItem="pwI-Me-hbo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nNC-uo-oed"/>
+                <constraint firstItem="hvU-Gu-sDo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ro3-ES-B4D"/>
+                <constraint firstItem="a52-jN-maD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="tbH-K8-yG5"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="01" width="40" height="54"/>
+        <image name="03" width="183" height="45"/>
+    </resources>
+</document>

@@ -1,0 +1,16 @@
+/* 
+  File.strings
+  ibulb
+
+  Created by Interest on 16/3/11.
+  Copyright © 2016年 Interest. All rights reserved.
+*/
+"test1"="Help";
+"test2"="Homepage";
+"test3"="Settings";
+"test4"="ChangeName";
+"test5"="Cancle";
+"test6"="Done";
+"test7"="DidFailToConnect";
+"test8"="Saved";
+"test9"="Please enter the content";

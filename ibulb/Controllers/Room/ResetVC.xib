@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResetVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8c-Mi-WgV">
+                    <rect key="frame" x="26" y="13" width="268" height="124"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="124" id="153-Jm-xx6"/>
+                        <constraint firstAttribute="width" constant="268" id="IAN-s5-FyH"/>
+                    </constraints>
+                    <string key="text">Are you sure you want to set the xxxx speaker to factory default (all user defined settings and network settings will be lost)? </string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sv-KQ-rTZ">
+                    <rect key="frame" x="45" y="145" width="231" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="CFd-JH-InF"/>
+                        <constraint firstAttribute="width" constant="231" id="eXR-iy-HpI"/>
+                    </constraints>
+                    <state key="normal" title="NOT NOW" backgroundImage="03">
+                        <color key="titleColor" red="0.86274509799999999" green="0.76078431369999999" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="action:" destination="-1" eventType="touchUpInside" id="JSK-Wi-4jT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9r-ej-f1h">
+                    <rect key="frame" x="45" y="223" width="231" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="231" id="d8L-Sg-Iko"/>
+                        <constraint firstAttribute="height" constant="48" id="eox-cy-E2g"/>
+                    </constraints>
+                    <state key="normal" title="YES RESET" backgroundImage="03">
+                        <color key="titleColor" red="0.86274509799999999" green="0.76078431369999999" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="L8c-Mi-WgV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="13" id="3E1-Xc-oX6"/>
+                <constraint firstItem="E9r-ej-f1h" firstAttribute="top" secondItem="9Sv-KQ-rTZ" secondAttribute="bottom" constant="30" id="CaQ-dm-m7J"/>
+                <constraint firstItem="E9r-ej-f1h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Eht-Ex-ilu"/>
+                <constraint firstItem="9Sv-KQ-rTZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Tbj-xC-o8g"/>
+                <constraint firstItem="9Sv-KQ-rTZ" firstAttribute="top" secondItem="L8c-Mi-WgV" secondAttribute="bottom" constant="8" id="Xaf-LN-O3F"/>
+                <constraint firstItem="L8c-Mi-WgV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Xbl-dD-zL1"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="269" y="167"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="03" width="183" height="45"/>
+    </resources>
+</document>

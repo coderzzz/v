@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditVC">
+            <connections>
+                <outlet property="headview" destination="L3c-J1-5dq" id="48r-CS-Er7"/>
+                <outlet property="tableview" destination="HcW-KJ-mme" id="7yN-RK-esg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HcW-KJ-mme">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="6nM-aX-JFV"/>
+                        <outlet property="delegate" destination="-1" id="WCb-Kn-JAN"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="HcW-KJ-mme" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6RR-uP-Z1v"/>
+                <constraint firstAttribute="bottom" secondItem="HcW-KJ-mme" secondAttribute="bottom" id="HpO-Wp-IA5"/>
+                <constraint firstAttribute="trailing" secondItem="HcW-KJ-mme" secondAttribute="trailing" id="Scv-iv-c7W"/>
+                <constraint firstItem="HcW-KJ-mme" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="phm-ij-0hF"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <view contentMode="scaleToFill" id="L3c-J1-5dq">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibz-kf-WhX">
+                    <rect key="frame" x="8" y="8" width="304" height="47"/>
+                    <string key="text">You can replace DR P3 radio preset 
+by navigating to the category </string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ibz-kf-WhX" firstAttribute="top" secondItem="L3c-J1-5dq" secondAttribute="top" constant="8" id="2qR-5e-Rxy"/>
+                <constraint firstItem="ibz-kf-WhX" firstAttribute="leading" secondItem="L3c-J1-5dq" secondAttribute="leading" constant="8" id="aqw-s1-VJh"/>
+                <constraint firstAttribute="trailing" secondItem="ibz-kf-WhX" secondAttribute="trailing" constant="8" id="loQ-tU-hAb"/>
+                <constraint firstAttribute="bottom" secondItem="ibz-kf-WhX" secondAttribute="bottom" constant="8" id="mnt-z8-D1x"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="407" y="442.5"/>
+        </view>
+    </objects>
+</document>

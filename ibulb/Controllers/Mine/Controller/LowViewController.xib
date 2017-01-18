@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LowViewController">
+            <connections>
+                <outlet property="lab" destination="8F8-2f-C59" id="p4x-tg-BYI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WI-FI STRENGTH " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAA-zS-uOB">
+                    <rect key="frame" x="73" y="173" width="174" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="4zc-x9-unj"/>
+                        <constraint firstAttribute="width" constant="174" id="kZy-gR-2Ch"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAz-rT-zAt">
+                    <rect key="frame" x="20" y="227" width="281" height="1"/>
+                    <color key="backgroundColor" red="0.72336632010000002" green="0.72336632010000002" blue="0.72336632010000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="hsr-Jt-iSa"/>
+                        <constraint firstAttribute="width" constant="281" id="k1n-XW-37P"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="highlightedColor" red="0.72336632010000002" green="0.72336632010000002" blue="0.72336632010000002" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gR7-HD-3nl">
+                    <rect key="frame" x="74" y="431" width="172" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="ARh-mM-Pc3"/>
+                        <constraint firstAttribute="width" constant="172" id="Rrd-uN-TcL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="NEXT" backgroundImage="03">
+                        <color key="titleColor" red="0.88235294119999996" green="0.7843137255" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="next:" destination="-1" eventType="touchUpInside" id="NPn-J4-t9A"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q76-8Q-vOX">
+                    <rect key="frame" x="20" y="236" width="281" height="58"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="281" id="b25-Es-1T0"/>
+                        <constraint firstAttribute="height" constant="58" id="htT-Zv-3zt"/>
+                    </constraints>
+                    <string key="text">Wi-Fi Strength of your speaker is 
+low, it can affect your streaming 
+experience.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="04" translatesAutoresizingMaskIntoConstraints="NO" id="Mkh-ci-3un">
+                    <rect key="frame" x="84" y="45" width="152" height="107"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="152" id="TdG-HR-kkC"/>
+                        <constraint firstAttribute="height" constant="107" id="kd6-hH-xBh"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F8-2f-C59">
+                    <rect key="frame" x="74" y="202" width="173" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="eOs-i2-kuE"/>
+                        <constraint firstAttribute="width" constant="173" id="ppP-Vr-DU8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Change to another Wi-Fi AP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Is-ya-ZYo">
+                    <rect key="frame" x="54" y="379" width="213" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="nj2-hl-Vkp"/>
+                        <constraint firstAttribute="width" constant="213" id="yFk-CG-aky"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icY-sP-ldc">
+                    <rect key="frame" x="54" y="320" width="213" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="qlp-B9-5e7"/>
+                        <constraint firstAttribute="width" constant="213" id="wmW-Vv-RZX"/>
+                    </constraints>
+                    <string key="text">1 Please move your speaker 
+closer to Router </string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dAA-zS-uOB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2Ab-eH-NAa"/>
+                <constraint firstItem="8F8-2f-C59" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6Vv-Ut-8WE"/>
+                <constraint firstItem="Q76-8Q-vOX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BoG-D6-RVv"/>
+                <constraint firstItem="Mkh-ci-3un" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="HYP-k8-ZJ5"/>
+                <constraint firstItem="8Is-ya-ZYo" firstAttribute="top" secondItem="icY-sP-ldc" secondAttribute="bottom" constant="15" id="KwP-nj-dY6"/>
+                <constraint firstItem="icY-sP-ldc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="R6K-Yu-5gd"/>
+                <constraint firstItem="icY-sP-ldc" firstAttribute="top" secondItem="Q76-8Q-vOX" secondAttribute="bottom" constant="26" id="YLy-Vb-nly"/>
+                <constraint firstItem="8F8-2f-C59" firstAttribute="top" secondItem="dAA-zS-uOB" secondAttribute="bottom" constant="8" id="bow-QR-k6V"/>
+                <constraint firstItem="gR7-HD-3nl" firstAttribute="top" secondItem="8Is-ya-ZYo" secondAttribute="bottom" constant="8" id="dks-Kz-DBS"/>
+                <constraint firstItem="dAA-zS-uOB" firstAttribute="top" secondItem="Mkh-ci-3un" secondAttribute="bottom" constant="21" id="eJH-8E-GVS"/>
+                <constraint firstItem="Mkh-ci-3un" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="h1c-bm-lGN"/>
+                <constraint firstItem="jAz-rT-zAt" firstAttribute="top" secondItem="8F8-2f-C59" secondAttribute="bottom" constant="4" id="hGO-w5-GrL"/>
+                <constraint firstItem="8Is-ya-ZYo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lce-YD-fLc"/>
+                <constraint firstItem="Q76-8Q-vOX" firstAttribute="top" secondItem="jAz-rT-zAt" secondAttribute="bottom" constant="8" id="r34-YF-e7Y"/>
+                <constraint firstItem="jAz-rT-zAt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wIZ-Hb-cKB"/>
+                <constraint firstItem="gR7-HD-3nl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yKW-Re-blI"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="288" y="119"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="03" width="183" height="45"/>
+        <image name="04" width="152" height="107"/>
+    </resources>
+</document>
