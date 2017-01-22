@@ -49,7 +49,7 @@
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
-     _volumelab.text = [NSString stringWithFormat:@"%.2f%%",sender.value];
+     _volumelab.text = [NSString stringWithFormat:@"%.f%%",sender.value];
     [UPnPDevice(infoDic[@"uuid"]) sendVolume:sender.value result:^(NSDictionary *result) {
         
        
@@ -99,7 +99,7 @@
             //volume
             _volumeProgress.value = [result[@"OutCurrentVolume"] floatValue];
             
-            _volumelab.text = [NSString stringWithFormat:@"%.2f%%",[result[@"OutCurrentVolume"] floatValue]];
+            _volumelab.text = [NSString stringWithFormat:@"%.f%%",[result[@"OutCurrentVolume"] floatValue]];
             if ([result[@"InternetAccess"] intValue] == 1) {
                 
                 _connectlab.text = @"CONNECTED";
@@ -124,16 +124,17 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mycell"];
-    if (!cell) {
+
         
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"mycell"];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    cell.textLabel.text = list[indexPath.row];
-    
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"mycell"];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    UILabel *textlab = [[UILabel alloc]initWithFrame:CGRectMake(34, 0, 200, 50)];
+    textlab.font = [UIFont systemFontOfSize:16];
+    [cell.contentView addSubview:textlab];
+    textlab.text = list[indexPath.row];
+
     
     return cell;
 }

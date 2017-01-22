@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpotifyVC">
             <connections>
+                <outlet property="lab" destination="rBr-jh-Etc" id="qmg-Vt-757"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,28 +16,8 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBr-jh-Etc">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBr-jh-Etc">
                     <rect key="frame" x="21" y="8" width="284" height="356"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="356" id="eyN-o8-PEr"/>
-                    </constraints>
-                    <string key="text">Spotify Premium lets you listen to 
-millions of songs ad-free - the 
-artists you love, the latest hits and 
-discoveries just for you. Simply hit 
-play to hear any song you like, at 
-the highest sound quality. millions 
-of songs. 
-Your new device has Spotify 
-Connect built in. 
-You'll need Spotify Premium to use 
-Connect. Learn more at 
-spotify.com/connect 
-O Play any song in Spotify app. 
-O Tap the song image in the 
-bottom left of the screen. 
-@ Tap the Connect icon 
-@ Pick your speaker from the list.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -54,13 +35,25 @@ bottom left of the screen.
                         <action selector="run:" destination="-1" eventType="touchUpInside" id="EVz-RI-o6s"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="don’t show this agin。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZz-eJ-7rT">
+                    <rect key="frame" x="40" y="395" width="241" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="241" id="ECB-90-bR4"/>
+                        <constraint firstAttribute="height" constant="21" id="tMu-8R-7gb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="tLC-sm-7W3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PeI-Ee-e7O"/>
+                <constraint firstItem="WZz-eJ-7rT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="STx-bq-ZD8"/>
                 <constraint firstAttribute="trailing" secondItem="rBr-jh-Etc" secondAttribute="trailing" constant="15" id="aUu-R3-uw0"/>
                 <constraint firstItem="rBr-jh-Etc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="hI6-SK-0us"/>
                 <constraint firstItem="rBr-jh-Etc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="jTB-WN-ggf"/>
+                <constraint firstItem="tLC-sm-7W3" firstAttribute="top" secondItem="WZz-eJ-7rT" secondAttribute="bottom" constant="8" id="tLr-DI-79X"/>
                 <constraint firstAttribute="bottom" secondItem="tLC-sm-7W3" secondAttribute="bottom" constant="35" id="yiK-Up-brb"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

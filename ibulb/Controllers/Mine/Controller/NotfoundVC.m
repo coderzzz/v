@@ -16,7 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSMutableArray *images = [NSMutableArray array];
+    for (int a = 0; a<36; a++) {
+        
+        UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%d白色",a]];
+        [images addObject:img];
+        
+    }
+    
+    self.imgv.animationImages = images;
+    self.imgv.animationDuration = 2;
+    self.imgv.animationRepeatCount = 99999999;
+    [self.imgv startAnimating];
 }
 - (IBAction)action:(id)sender {
     

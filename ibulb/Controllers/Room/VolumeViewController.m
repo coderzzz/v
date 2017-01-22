@@ -19,19 +19,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.lab.text = [NSString stringWithFormat:@"%.2f%%",self.value];
+    self.lab.text = [NSString stringWithFormat:@"%.f%%",self.value];
     self.slider.value = self.value;
 }
 - (IBAction)changeVolume:(UISlider *)sender {
     
-    self.lab.text = [NSString stringWithFormat:@"%.2f%%",sender.value];
+    self.lab.text = [NSString stringWithFormat:@"%.f%%",sender.value];
 }
 
 - (void)back{
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didUpdateStartupVolume:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didUpdateStartupVolume:type:)]) {
         
-        [self.delegate didUpdateStartupVolume:self.slider.value];
+        [self.delegate didUpdateStartupVolume:self.slider.value type:self.type];
         
     }
     [self.navigationController popViewControllerAnimated:YES];

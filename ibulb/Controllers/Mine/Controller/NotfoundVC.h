@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface NotfoundVC : BaseViewController
+@property (weak, nonatomic) IBOutlet UIImageView *imgv;
 
 @end

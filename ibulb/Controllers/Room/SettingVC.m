@@ -73,12 +73,6 @@
     list = [@[@[@"Name",@"Startup Volume",@"LED intensity"],@[@"Check for new",@"Set to Factory Default"]]mutableCopy];
     
 }
-
-
-
-
-
-
 #pragma mark Action
 
 
@@ -91,27 +85,41 @@
 
 
 #pragma mark VolumeViewControllerDelegate
-- (void)didUpdateStartupVolume:(float)value{
+- (void)didUpdateStartupVolume:(float)value type:(NSString *)type{
     
-    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSDictionary *infoDic = [delegate.devices firstObject];
-    [UPnPDevice(infoDic[@"uuid"]) sendVolume:value result:^(NSDictionary *result) {
+    if ([type isEqualToString:@"1"]) {
         
-        if([result[@"statuscode"] intValue] != 0)
-        {
-            return;
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
+        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSDictionary *infoDic = [delegate.devices firstObject];
+        [UPnPDevice(infoDic[@"uuid"]) sendVolume:value result:^(NSDictionary *result) {
             
-            NSArray *ary = [contenlist firstObject];
-            NSString *volume = [NSString stringWithFormat:@"%.2f%%",value];
-            contenlist = [@[@[ary[0],volume,ary[2]],@[@"",@""]]mutableCopy];
-            [self.tableview reloadData];
+            if([result[@"statuscode"] intValue] != 0)
+            {
+                return;
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                NSArray *ary = [contenlist firstObject];
+                NSString *volume = [NSString stringWithFormat:@"%.f%%",value];
+                contenlist = [@[@[ary[0],volume,ary[2]],@[@"",@""]]mutableCopy];
+                [self.tableview reloadData];
+                
+            });
             
-        });
+            
+        }];
 
-     
-    }];
+    }
+    else{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+           
+            NSArray *ary = [contenlist firstObject];
+            NSString *led = [NSString stringWithFormat:@"%.f%%",value];
+            contenlist = [@[@[ary[0],ary[1],led],@[@"",@""]]mutableCopy];
+            [self.tableview reloadData];
+        });
+    }
 }
 
 #pragma mark RenameVCDelegate
@@ -153,7 +161,7 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 60)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 10)];
     view.backgroundColor = [UIColor clearColor];
     
     return view;
@@ -161,12 +169,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 60.f;
+    return 10.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 40;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -185,6 +193,17 @@
         
         VolumeViewController *vc = [[VolumeViewController alloc]init];
         vc.title = @"Startup Volume";
+        vc.type = @"1";
+        vc.value = [contenlist[indexPath.section][indexPath.row] floatValue];
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (indexPath.row == 2 && indexPath.section ==0) {
+        
+        VolumeViewController *vc = [[VolumeViewController alloc]init];
+        vc.title = @"LED";
+        vc.type = @"2";
         vc.value = [contenlist[indexPath.section][indexPath.row] floatValue];
         vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];

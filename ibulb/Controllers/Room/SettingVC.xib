@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KpF-mo-4k5">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <rect key="frame" x="40" y="0.0" width="241" height="489"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="0md-yX-kr6"/>
@@ -27,9 +27,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="KpF-mo-4k5" secondAttribute="trailing" id="G9y-Dc-rLp"/>
-                <constraint firstItem="KpF-mo-4k5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jI2-Qq-cN2"/>
-                <constraint firstAttribute="bottom" secondItem="KpF-mo-4k5" secondAttribute="bottom" id="qNw-EI-eJN"/>
+                <constraint firstAttribute="trailing" secondItem="KpF-mo-4k5" secondAttribute="trailing" constant="39" id="G9y-Dc-rLp"/>
+                <constraint firstItem="KpF-mo-4k5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="jI2-Qq-cN2"/>
+                <constraint firstAttribute="bottom" secondItem="KpF-mo-4k5" secondAttribute="bottom" constant="15" id="qNw-EI-eJN"/>
                 <constraint firstItem="KpF-mo-4k5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sVg-L8-t21"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

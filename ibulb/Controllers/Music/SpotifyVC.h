@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface SpotifyVC : BaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *lab;
 
 @end

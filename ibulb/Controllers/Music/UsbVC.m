@@ -160,8 +160,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.textLabel.text = list[indexPath.row][@"title"];
-    cell.textLabel.minimumScaleFactor = 0.1;
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+//    cell.textLabel.minimumScaleFactor = 0.1;
+//    cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@-%@",list[indexPath.row][@"artist"],list[indexPath.row][@"album"]];
     return cell;
 }

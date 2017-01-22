@@ -12,10 +12,11 @@
 
 @required
 
-- (void)didUpdateStartupVolume:(float)value;
+- (void)didUpdateStartupVolume:(float)value type:(NSString *)type;
 
 @end
 @interface VolumeViewController : BaseViewController
 @property (nonatomic, weak) id<VolumeViewControllerDelegate>delegate;
 @property (nonatomic, assign) float value;
+@property (nonatomic, copy) NSString *type;
 @end

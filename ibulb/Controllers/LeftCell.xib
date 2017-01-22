@@ -56,7 +56,7 @@
             <connections>
                 <outlet property="slider" destination="GSC-3a-4K9" id="OVV-ac-vWz"/>
             </connections>
-            <point key="canvasLocation" x="323" y="466"/>
+            <point key="canvasLocation" x="564" y="352"/>
         </tableViewCell>
     </objects>
     <resources>

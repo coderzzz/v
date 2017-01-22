@@ -28,6 +28,7 @@
         self.edgesForExtendedLayout =  UIRectEdgeNone;
         self.navigationItem.leftBarButtonItem = self.commonbackItem;
         
+        
     }
     return self;
 }
@@ -36,6 +37,7 @@
     if (_commonbackItem  == nil) {
         
         UIButton *blogItem         = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+        blogItem.imageEdgeInsets = UIEdgeInsetsMake(0,-25, 0, 0);
         [blogItem setImage:[UIImage imageNamed:@"05"] forState:UIControlStateNormal];
         [blogItem addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         _commonbackItem = [[UIBarButtonItem alloc]initWithCustomView:blogItem];

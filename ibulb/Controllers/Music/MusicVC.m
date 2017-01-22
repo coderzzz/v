@@ -61,11 +61,21 @@
     
     if (sender.tag == 0) {
         
-        SpotifyVC *vc = [[SpotifyVC alloc]init];
-        vc.title = @"SPOTIFY";
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
         
+        if ([[NSUserDefaults standardUserDefaults]boolForKey:@"Spotify"]) {
+            
+            NSURL *myUrl = [NSURL URLWithString:@"Spotify://"];
+            [[UIApplication sharedApplication] openURL:myUrl];
+            
+        }
+        else{
+            
+            SpotifyVC *vc = [[SpotifyVC alloc]init];
+            vc.title = @"SPOTIFY";
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
     }
     else if (sender.tag == 1){
         
