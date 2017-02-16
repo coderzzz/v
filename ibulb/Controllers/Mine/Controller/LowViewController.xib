@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,7 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LowViewController">
             <connections>
+                <outlet property="conlab" destination="Q76-8Q-vOX" id="kjT-tm-IuV"/>
                 <outlet property="lab" destination="8F8-2f-C59" id="p4x-tg-BYI"/>
+                <outlet property="lab1" destination="icY-sP-ldc" id="Ig5-C0-WJf"/>
+                <outlet property="lab2" destination="8Is-ya-ZYo" id="rcV-oD-tJg"/>
+                <outlet property="nextbtn" destination="gR7-HD-3nl" id="Ov4-sm-iE9"/>
+                <outlet property="tilab" destination="dAA-zS-uOB" id="ciI-Zd-Vzq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

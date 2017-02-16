@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,8 +8,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicVC">
             <connections>
                 <outlet property="contentview" destination="ctr-fJ-mgM" id="4V6-6k-M4a"/>
+                <outlet property="ilab" destination="nVu-vy-Dg6" id="BxZ-CV-SND"/>
+                <outlet property="locallab" destination="FUA-77-GDI" id="UWo-vw-6dh"/>
+                <outlet property="nlab" destination="k3o-fW-38X" id="gr4-Sa-92I"/>
                 <outlet property="scrollview" destination="zxi-g9-hxd" id="BtM-xa-pJ2"/>
+                <outlet property="slab" destination="3sT-o6-x5x" id="YoS-Xq-J99"/>
                 <outlet property="songlab" destination="aZj-95-lgr" id="vpf-6U-4cD"/>
+                <outlet property="ulab" destination="SYb-Kr-Efx" id="vOV-uc-Oi6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -115,16 +120,6 @@
                         <action selector="localAction:" destination="-1" eventType="touchUpInside" id="NwN-Tu-BQN"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3o-fW-38X">
-                    <rect key="frame" x="20" y="95" width="193" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="Net Music Storage ">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="localAction:" destination="-1" eventType="touchUpInside" id="djs-R4-K4e"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZj-95-lgr">
                     <rect key="frame" x="195" y="60" width="106" height="21"/>
                     <constraints>
@@ -145,6 +140,16 @@
                     <state key="normal" image="118"/>
                     <connections>
                         <action selector="btnAction:" destination="-1" eventType="touchUpInside" id="lB1-1w-jH7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3o-fW-38X">
+                    <rect key="frame" x="20" y="95" width="193" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Net Music Storage ">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="localAction:" destination="-1" eventType="touchUpInside" id="djs-R4-K4e"/>
                     </connections>
                 </button>
             </subviews>

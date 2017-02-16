@@ -9,6 +9,7 @@
 #import "WifiVC.h"
 
 @interface WifiVC ()
+@property (weak, nonatomic) IBOutlet UILabel *lab;
 
 @end
 
@@ -16,11 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"Error"
-                                                  message:@"Your mobile phone is not\nconnected to the Wifi Network.\nYou can go to Settings to connect."
+    self.lab.text = NSLocalizedString(@"Make sure your iPhone is connected to Wi-Fi network. Click the image above to go to your Wifi Settings", nil);
+    UIAlertView *view = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Error", nil)
+                                                  message:NSLocalizedString(@"Your mobile phone is not\nconnected to the Wifi Network.\nYou can go to Settings to connect.", nil)
                                                  delegate:nil
-                                        cancelButtonTitle:@"Cancel"
-                                        otherButtonTitles:@"OK", nil];
+                                        cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                        otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
     [view show];
 }
 

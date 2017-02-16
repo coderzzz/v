@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,7 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WaitVC">
             <connections>
+                <outlet property="btn" destination="pwI-Me-hbo" id="LpH-Of-Dqz"/>
+                <outlet property="butlab" destination="hvU-Gu-sDo" id="T1U-ct-tvb"/>
                 <outlet property="imgv" destination="6Ee-r8-gwS" id="KM3-GP-X73"/>
+                <outlet property="toplab" destination="a52-jN-maD" id="qDa-WO-HOM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,6 +36,19 @@
                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwI-Me-hbo">
+                    <rect key="frame" x="80" y="229" width="160" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Sfr-gN-WVJ"/>
+                        <constraint firstAttribute="width" constant="160" id="hDB-7H-zvY"/>
+                    </constraints>
+                    <state key="normal" title="CANCEL " backgroundImage="03">
+                        <color key="titleColor" red="0.88235294119999996" green="0.7843137255" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="aciton:" destination="-1" eventType="touchUpInside" id="DJk-ZD-gRg"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a52-jN-maD">
                     <rect key="frame" x="20" y="19" width="280" height="98"/>
                     <constraints>
@@ -48,19 +64,6 @@ patiently. It usually finishes within
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwI-Me-hbo">
-                    <rect key="frame" x="80" y="229" width="160" height="45"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="Sfr-gN-WVJ"/>
-                        <constraint firstAttribute="width" constant="160" id="hDB-7H-zvY"/>
-                    </constraints>
-                    <state key="normal" title="CANCEL " backgroundImage="03">
-                        <color key="titleColor" red="0.88235294119999996" green="0.7843137255" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="aciton:" destination="-1" eventType="touchUpInside" id="DJk-ZD-gRg"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

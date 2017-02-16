@@ -70,7 +70,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    list = [@[@[@"Name",@"Startup Volume",@"LED intensity"],@[@"Check for new",@"Set to Factory Default"]]mutableCopy];
+    list = [@[@[NSLocalizedString(@"Name", nil),NSLocalizedString(@"Startup Volume", nil),NSLocalizedString(@"LED intensity", nil)],@[NSLocalizedString(@"Check for new", nil),NSLocalizedString(@"Set to Factory Default", nil)]]mutableCopy];
     
 }
 #pragma mark Action
@@ -183,7 +183,7 @@
     if (indexPath.row == 0 && indexPath.section ==0) {
         
         RenameVC *vc = [[RenameVC alloc]init];
-        vc.title = @"RENAME YOUR PRODUCT";
+        vc.title = NSLocalizedString(@"RENAME YOUR PRODUCT", nil);
         vc.isRename = YES;
         vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
@@ -192,7 +192,7 @@
     if (indexPath.row == 1 && indexPath.section ==0) {
         
         VolumeViewController *vc = [[VolumeViewController alloc]init];
-        vc.title = @"Startup Volume";
+        vc.title = NSLocalizedString(@"Startup Volume", nil);
         vc.type = @"1";
         vc.value = [contenlist[indexPath.section][indexPath.row] floatValue];
         vc.delegate = self;
@@ -202,7 +202,7 @@
     if (indexPath.row == 2 && indexPath.section ==0) {
         
         VolumeViewController *vc = [[VolumeViewController alloc]init];
-        vc.title = @"LED";
+        vc.title = NSLocalizedString(@"LED intensity", nil);
         vc.type = @"2";
         vc.value = [contenlist[indexPath.section][indexPath.row] floatValue];
         vc.delegate = self;
@@ -213,14 +213,14 @@
     if (indexPath.row == 0 && indexPath.section ==1){
         
         Firmware *vc = [[Firmware alloc]initWithFirmware:firmware needUpdate:[needUpdate boolValue]];
-        vc.title = @"NEW FIRMWARE";
+        vc.title = NSLocalizedString(@"NEW FIRMWARE", nil);
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     if (indexPath.row == 1 && indexPath.section ==1){
         
         ResetVC *vc = [[ResetVC alloc]init];
-        vc.title = @"FACTORY RESET";
+        vc.title = NSLocalizedString(@"FACTORY RESET", nil);
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }

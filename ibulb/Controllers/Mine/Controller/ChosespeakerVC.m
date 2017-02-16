@@ -73,7 +73,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     PressVC *vc = [[PressVC alloc]init];
-    vc.title = @"PRESS THE BUTTON";
+    vc.title = NSLocalizedString(@"PRESS THE BUTTON", nil);
     vc.password = self.password;
     [self.navigationController pushViewController:vc animated:YES];
 }

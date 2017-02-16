@@ -58,8 +58,7 @@
             }
         }
         else{
-            
-            
+
             MPMediaPropertyPredicate *artistNamePredicate =[MPMediaPropertyPredicate predicateWithValue:name forProperty:property];
             MPMediaQuery *myArtistQuery = [[MPMediaQuery alloc] init];
             [myArtistQuery addFilterPredicate: artistNamePredicate];
@@ -148,7 +147,7 @@
         AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
         NSDictionary *infoDic = [delegate.devices firstObject];
         [UPnPDevice(infoDic[@"uuid"]) CreateQueue:queuecontext result:^(NSDictionary *result) {
-            if([result[@"statuscode"] intValue] != 0)
+            if([result[@"statuscode"] intValue]!= 0)
             {
                 return;
             }
@@ -310,7 +309,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"NOW PLAY";
+    self.title = NSLocalizedString(@"NOW PLAY", nil);
     allsec = 0;
     [[WiimuUPnP sharedInstance] addObserver:self];
 }
@@ -473,6 +472,7 @@
     NSDictionary *infoDic = [delegate.devices firstObject];
     [UPnPDevice(infoDic[@"uuid"]) SetQueueLoopMode:wiimu_queue_listrepeat result:^(NSDictionary *result) {
         
+    
     }];
 }
 - (IBAction)prevAction:(id)sender {

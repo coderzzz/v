@@ -16,6 +16,7 @@
 @interface LeftVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) IBOutlet UIView *headview;
+@property (weak, nonatomic) IBOutlet UILabel *alab;
 
 @end
 
@@ -66,6 +67,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"SPEAKER GROUP EMMA'S ROOM";
+    self.alab.text = NSLocalizedString(@"ADD MORE", nil);
     UINib *nib = [UINib nibWithNibName:@"LeftCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"leftCell"];
     [self.tableview setTableFooterView:self.headview];

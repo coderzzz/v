@@ -23,7 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    list = [@[@"Playlists",@"Artists",@"Albums",@"Songs"]mutableCopy];
+    
+    
+    
+    list = [@[NSLocalizedString(@"Playlists", nil),NSLocalizedString(@"Artists", nil),NSLocalizedString(@"Albums", nil),NSLocalizedString(@"Songs", nil)]mutableCopy];
 }
 
 

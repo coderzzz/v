@@ -42,7 +42,7 @@
                     
                     if (!(artistName.length>0)) {
                         
-                        artistName = @"unknow";
+                        artistName = NSLocalizedString(@"unknow", nil);
                     }
                     
                     [list addObject:artistName];

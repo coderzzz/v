@@ -33,28 +33,18 @@
     [self.scrollview addSubview:self.contentview];
     [self getAllmusics];
     
-    
-//    MPMediaQuery *myPlaylistsQuery = [MPMediaQuery playlistsQuery];
-//    NSArray *playlists = [myPlaylistsQuery collections];
-//    for (MPMediaPlaylist *playlist in playlists) {
-//        NSLog (@"%@", [playlist valueForProperty: MPMediaPlaylistPropertyName]);
-//        
-//        NSArray *songs = [playlist items];
-//        for (MPMediaItem *song in songs) {
-//            NSString *songTitle =
-//            [song valueForProperty: MPMediaItemPropertyTitle];
-//            NSLog (@"\t\t%@", songTitle);
-//        }
-//    }
-    
+    self.locallab.text = NSLocalizedString(@"LOCAL MUSIC", nil);
+    [self.ilab setTitle:NSLocalizedString(@"iPhone Music", nil) forState:UIControlStateNormal];
+    [self.nlab setTitle:NSLocalizedString(@"Net Music Storage", nil) forState:UIControlStateNormal];
+    [self.ulab setTitle:NSLocalizedString(@"USB Disk", nil) forState:UIControlStateNormal];
+    self.slab.text = NSLocalizedString(@"STREAMING SERVICE", nil);
 }
 
 - (void)getAllmusics{
     
     MPMediaQuery *everything = [[MPMediaQuery alloc] init];
-    NSLog(@"Logging items from a generic query...");
     NSArray *itemsFromGenericQuery = [everything items];
-    self.songlab.text =[NSString stringWithFormat:@"%lu songs",(unsigned long)itemsFromGenericQuery.count];
+    self.songlab.text =[NSString stringWithFormat:@"%lu %@",(unsigned long)itemsFromGenericQuery.count,NSLocalizedString(@"songs", nil)];
 }
 
 - (IBAction)btnAction:(UIButton *)sender {
@@ -95,7 +85,7 @@
     if (sender.tag == 0) {
         
         IphoneVC *vc = [[IphoneVC alloc]init];
-        vc.title = @"IPHONE MUSIC";
+        vc.title = NSLocalizedString(@"iPhone Music", nil);
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
         
@@ -103,7 +93,7 @@
     else if (sender.tag == 2){
         
         UsbVC *vc = [[UsbVC alloc]init];
-        vc.title = @"USB DISK";
+        vc.title = NSLocalizedString(@"USB Disk", nil);
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }

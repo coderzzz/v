@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSMutableArray *dataSource;
 @property (strong, nonatomic) IBOutlet UIView *keyview;
 @property (weak, nonatomic) IBOutlet UIButton *savebtn;
+@property (weak, nonatomic) IBOutlet UILabel *tlab;
+@property (weak, nonatomic) IBOutlet UILabel *nlab;
 
 @end
 
@@ -35,9 +37,9 @@
     [super viewDidLoad];
     
     [self.tf becomeFirstResponder];
-    self.dataSource = [@[@[@"31",@"BATHROM"],@[@"32",@"KITCHEN"],
-                         @[@"33",@"BEDROM"],@[@"34",@"STUDY"],
-                         @[@"35",@"LIVINGROM"],@[@"36",@"GARAGE"]]mutableCopy];
+    self.dataSource = [@[@[@"31",NSLocalizedString(@"BATHROM",nil)],@[@"32",NSLocalizedString(@"KITCHEN",nil)],
+                         @[@"33",NSLocalizedString(@"BEDROM",nil)],@[@"34",NSLocalizedString(@"STUDY",nil)],
+                         @[@"35",NSLocalizedString(@"LIVINGROM",nil)],@[@"36",NSLocalizedString(@"GARAGE",nil)]]mutableCopy];
     [self setupUI];
 }
 
@@ -47,7 +49,10 @@
     UINib *nib = [UINib nibWithNibName:@"CoupenCell" bundle:nil];
     [self.collectview registerNib:nib forCellWithReuseIdentifier:@"CouCell"];
     self.tf.inputAccessoryView = self.keyview;
-    self.title = @"RENAME YOUR PRODUCT";
+    self.title = NSLocalizedString(@"RENAME YOUR PRODUCT", nil);
+    self.tf.placeholder = NSLocalizedString(@"please enter Name", nil);
+    self.tlab.text =NSLocalizedString(@"You can change your product's default name or choose a preset name.", nil);
+    self.nlab.text = NSLocalizedString(@"Name", nil);
     self.savebtn.layer.masksToBounds = YES;
     self.savebtn.layer.cornerRadius = 5;
     self.savebtn.layer.borderColor = [[UIColor colorWithRed:207.0/255.0 green:150.0/255.0 blue:92.0/255.0 alpha:1] CGColor];

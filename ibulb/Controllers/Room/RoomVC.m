@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *connectlab;
 @property (weak, nonatomic) IBOutlet UILabel *volumelab;
 @property (weak, nonatomic) IBOutlet UISlider *volumeProgress;
+@property (weak, nonatomic) IBOutlet UILabel *ilab;
+@property (weak, nonatomic) IBOutlet UILabel *vlabv;
 
 
 @end
@@ -41,7 +43,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableview setTableHeaderView:self.headview];
-    list = [@[@"Tuning and Placement",@"Information",@"Settings"]mutableCopy];
+    
+    self.ilab.text = NSLocalizedString(@"INTERNET", nil);
+    self.vlabv.text =NSLocalizedString(@"Volumn", nil);
+    
+    list = [@[NSLocalizedString(@"Tuning and Placement", nil),NSLocalizedString(@"Information", nil),NSLocalizedString(@"Settings", nil)]mutableCopy];
 }
 
 #pragma mark Action
@@ -102,11 +108,11 @@
             _volumelab.text = [NSString stringWithFormat:@"%.f%%",[result[@"OutCurrentVolume"] floatValue]];
             if ([result[@"InternetAccess"] intValue] == 1) {
                 
-                _connectlab.text = @"CONNECTED";
+                _connectlab.text = NSLocalizedString(@"CONNECTED", nil);
             }
             else{
                 
-                _connectlab.text = @"UNCONNECTED";
+                _connectlab.text = NSLocalizedString(@"UNCONNECTED", nil);
             }
 
         });

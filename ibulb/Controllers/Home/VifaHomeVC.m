@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    list = [@[@"SET UP NEW SPEAKER",@"GROUP ALL",@"PAUSE ALL"]mutableCopy];
+    list = [@[NSLocalizedString(@"SET UP NEW SPEAKER", nil),NSLocalizedString(@"GROUP ALL", nil),NSLocalizedString(@"PAUSE ALL", nil)]mutableCopy];
     self.popTableview.frame = CGRectMake(ScreenWidth-250-20, 0, 250, 185);
     self.popTableview.hidden = YES;
     self.popTableview.backgroundColor = BaseColor;
@@ -108,7 +108,7 @@
             }
             else if (distance >25){
                 
-                UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"组网" message:@"确定是否组网？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                UIAlertView *view = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"grouping", nil) message:NSLocalizedString(@"grouping？", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
                 view.tag = indexPath.row;
                 [view show];
             }

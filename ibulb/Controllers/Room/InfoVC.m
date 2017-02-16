@@ -28,8 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    list = [@[@"Model",@"Source",@"Battery Level",@"Light Dimming",@"Wi-Fi Strength",@"Startup Volume",@"ID",@"MAC",@"Firmware"]mutableCopy];
+
+    list = [@[NSLocalizedString(@"Model", nil),NSLocalizedString(@"Source", nil),NSLocalizedString(@"Battery Level", nil),NSLocalizedString(@"Light Dimming", nil),NSLocalizedString(@"Wi-Fi Strength", nil),NSLocalizedString(@"Startup Volume", nil),@"ID",@"MAC",NSLocalizedString(@"Firmware", nil)]mutableCopy];
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
@@ -43,8 +43,6 @@
         NSError *err;
         NSDictionary *dic =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
         if (!err) {
-            
-           
             NSString *mode = dic[@"DeviceName"];
             NSString *source = @"WI-FI";
             NSString *battery = [NSString stringWithFormat:@"%@%%",dic[@"battery"]];

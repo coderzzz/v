@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,6 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotfoundVC">
             <connections>
                 <outlet property="imgv" destination="EVK-sy-tIV" id="ofb-9i-bkO"/>
+                <outlet property="nearlab" destination="H6W-c5-ppI" id="FrT-SW-3pg"/>
+                <outlet property="notfoundlab" destination="GQz-Vf-2Fy" id="lJX-f7-RFW"/>
+                <outlet property="searchlab" destination="GhA-Vv-KYf" id="lQf-Jb-Rf0"/>
+                <outlet property="setupbtn" destination="cLb-hY-dwn" id="4z5-xa-wyK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,16 +27,6 @@
                         <constraint firstAttribute="height" constant="57" id="UvH-8f-5K5"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCHING " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhA-Vv-KYf">
-                    <rect key="frame" x="88" y="119" width="145" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="145" id="0Ee-1e-lGt"/>
-                        <constraint firstAttribute="height" constant="21" id="Br1-zl-6wP"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vifa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPb-6E-QRO">
                     <rect key="frame" x="88" y="424" width="145" height="21"/>
                     <constraints>
@@ -88,6 +82,16 @@ SPEAKER ?</string>
                         <action selector="action:" destination="-1" eventType="touchUpInside" id="XAz-tR-47I"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCHING " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhA-Vv-KYf">
+                    <rect key="frame" x="88" y="119" width="145" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="145" id="0Ee-1e-lGt"/>
+                        <constraint firstAttribute="height" constant="21" id="Br1-zl-6wP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

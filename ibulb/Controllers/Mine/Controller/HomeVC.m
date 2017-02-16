@@ -18,6 +18,9 @@
 #import "BaseNavigationController.h"
 /**********************************************/
 #import "WiimuUPnP.h"
+
+
+
 @interface HomeVC ()<WiimuUPnPObserver>
 {
     NSMutableArray * dataArray;
@@ -28,6 +31,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
+   
+    
     [super viewWillAppear:animated];
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW,(int64_t)(10 * NSEC_PER_SEC));
     dispatch_after(time, dispatch_get_main_queue(), ^{
@@ -36,7 +41,7 @@
         if (!(ap.length>0)) {
             
             WifiVC *vc = [[WifiVC alloc]init];
-            vc.title = @"SETTINGS- WI-Fi";
+            vc.title = NSLocalizedString(@"SETTINGS- WI-Fi", nil);
             [self.navigationController pushViewController:vc animated:YES];
         }
         else if (dataArray.count>0){
@@ -82,8 +87,14 @@
 
 }
 
+
+- (void)test:(void(^)(id obj))success{
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     [[WiimuUPnP sharedInstance] start];
     dataArray = [NSMutableArray array];
@@ -103,6 +114,11 @@
     self.imgv.animationRepeatCount = 99999999;
     [self.imgv startAnimating];
     
+    self.slab.text = NSLocalizedString(@"Searching", nil);
+    self.nlab.text = NSLocalizedString(@"FOR SPEAKERS NEARBY", nil);
+    self.searchinglab.text =NSLocalizedString(@"Searching", nil);
+    
+
 }
 
 
@@ -133,7 +149,7 @@
     else{
         
         WifiVC *vc = [[WifiVC alloc]init];
-        vc.title = @"SETTINGS- WI-Fi";
+        vc.title = NSLocalizedString(@"SETTINGS- WI-Fi", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

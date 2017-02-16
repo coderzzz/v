@@ -18,6 +18,9 @@
 #import "WiimuUPnP.h"
 #import "GlobalInfo.h"
 @interface ResetVC ()
+@property (weak, nonatomic) IBOutlet UILabel *clab;
+@property (weak, nonatomic) IBOutlet UIButton *nbtn;
+@property (weak, nonatomic) IBOutlet UIButton *yben;
 
 @end
 
@@ -25,7 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.clab.text = NSLocalizedString(@"Are you sure you want to set the xxxx speaker to factory default (all user defined settings and network settings will be lost)? ", nil);
+    [self.nbtn setTitle:NSLocalizedString(@"NOT NOW", nil) forState:UIControlStateNormal];
+    [self.yben setTitle:NSLocalizedString(@"YES RESET", nil) forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

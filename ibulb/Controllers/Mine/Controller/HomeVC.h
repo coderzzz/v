@@ -10,5 +10,8 @@
 
 @interface HomeVC : BaseViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imgv;
+@property (weak, nonatomic) IBOutlet UILabel *slab;
+@property (weak, nonatomic) IBOutlet UILabel *nlab;
+@property (weak, nonatomic) IBOutlet UILabel *searchinglab;
 
 @end

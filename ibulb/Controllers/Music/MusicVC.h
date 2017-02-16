@@ -9,5 +9,11 @@
 #import "BaseViewController.h"
 
 @interface MusicVC : BaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *locallab;
+@property (weak, nonatomic) IBOutlet UIButton *ilab;
+@property (weak, nonatomic) IBOutlet UIButton *nlab;
+
+@property (weak, nonatomic) IBOutlet UIButton *ulab;
+@property (weak, nonatomic) IBOutlet UILabel *slab;
 
 @end

@@ -21,7 +21,6 @@
 }
 #pragma mark ViewLife cyle
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

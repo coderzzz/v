@@ -18,6 +18,11 @@
     NSMutableArray * dataArray;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *imgv;
+@property (weak, nonatomic) IBOutlet UILabel *toplab;
+@property (weak, nonatomic) IBOutlet UILabel *butlab;
+
+@property (weak, nonatomic) IBOutlet UIButton *btn;
+
 @end
 
 @implementation WaitVC
@@ -41,6 +46,9 @@
     self.imgv.animationDuration = 2;
     self.imgv.animationRepeatCount = 99999999;
     [self.imgv startAnimating];
+    self.toplab.text = NSLocalizedString(@"Wait for your speaker to connect to Wi-Fi network. Please do not turn off the speaker during the process. Wait patiently. It usually finishes within 60 secs.", nil);
+    [self.btn setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
+    self.butlab.text = NSLocalizedString(@"If you want to go back and retry? ", nil);
     
 }
 - (IBAction)aciton:(id)sender {

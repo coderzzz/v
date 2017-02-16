@@ -9,6 +9,8 @@
 #import "NewFirVC.h"
 #import "UpdateVC.h"
 @interface NewFirVC ()
+@property (weak, nonatomic) IBOutlet UILabel *clab;
+@property (weak, nonatomic) IBOutlet UIButton *fbtn;
 
 @end
 
@@ -16,13 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.fbtn setTitle:NSLocalizedString(@"FIRMWARE UPDATE", nil) forState:UIControlStateNormal];
+    self.clab.text = NSLocalizedString(@"The new firmware avaliable", nil);
     // Do any additional setup after loading the view from its nib.
 }
 
 - (IBAction)btnAction:(id)sender {
     
     UpdateVC *vc = [[UpdateVC alloc]init];
-    vc.title = @"UPDATING";
+    vc.title = NSLocalizedString(@"UPDATING", nil);
     [self.navigationController pushViewController:vc animated:YES];
 }
 

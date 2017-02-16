@@ -77,24 +77,24 @@
         
       
         VifaHomeVC *helpvc = [[VifaHomeVC alloc]initWithNibName:nil bundle:nil];
-        helpvc.title = @"VIFA HOME";
+        helpvc.title = NSLocalizedString(@"VIFA HOME", nil);
         BaseNavigationController *helpnav = [[BaseNavigationController alloc]initWithRootViewController:helpvc];
         helpnav.tabBarItem =item1;
        
         
         
         MusicVC *homevc = [[MusicVC alloc]initWithNibName:nil bundle:nil];
-        homevc.title = @"MUSIC.BEDROOM";
+        homevc.title =NSLocalizedString(@"MUSIC.BEDROOM", nil);;
         BaseNavigationController *homenav = [[BaseNavigationController alloc]initWithRootViewController:homevc];
         homenav.tabBarItem =item2;
         
         RadioVC *setvc = [[RadioVC alloc]initWithNibName:nil bundle:nil];
-        setvc.title = @"RADIO PRESETS";
+        setvc.title = NSLocalizedString(@"RADIO PRESETS", nil);
         BaseNavigationController *setnav = [[BaseNavigationController alloc]initWithRootViewController:setvc];
         setnav.tabBarItem =item3;
         
         RoomVC *roomvc = [[RoomVC alloc]initWithNibName:nil bundle:nil];
-        roomvc.title = @"ROOM";
+        roomvc.title =NSLocalizedString(@"ROOM", nil);
         BaseNavigationController *roomnav = [[BaseNavigationController alloc]initWithRootViewController:roomvc];
         roomnav.tabBarItem =item4;
         

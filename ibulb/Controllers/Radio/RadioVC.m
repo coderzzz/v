@@ -119,6 +119,9 @@
 //                NSString *first = [NSString stringWithFormat:@"%@&amp;",ary[0]];
 //                NSString *radioUrl = [NSString stringWithFormat:@"%@%@",first,ary[1]];
                 NSString *image = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/PicUrl",a] error:nil] firstObject] stringValue];
+                if (!image) {
+                    image = @"";
+                }
                 if (!(radioName.length>0)) {
                     radioName = @"";
                     [keyList addObject:@[@"",@"",@""]];
@@ -264,7 +267,7 @@
 - (void)more{
     
     EditVC *vc = [[EditVC alloc]init];
-    vc.title = @"EDIT PRESETS";
+    vc.title = NSLocalizedString(@"EDIT PRESETS", nil);
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

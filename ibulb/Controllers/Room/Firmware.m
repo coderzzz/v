@@ -42,7 +42,7 @@
     self = [super init];
     if (self) {
         
-        firm = [NSString stringWithFormat:@"Your speaker has the firmware version %@",firmware];
+        firm = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"Your speaker has the firmware version", nil),firmware];
         need = needUpdate;
         
     }
@@ -54,7 +54,7 @@
     if (need) {
      
         NewFirVC *vc = [[NewFirVC alloc]init];
-        vc.title = @"NEW FIRMWARE";
+        vc.title = NSLocalizedString(@"NEW FIRMWARE", nil);
         [self.navigationController pushViewController:vc animated:YES];
         
     }

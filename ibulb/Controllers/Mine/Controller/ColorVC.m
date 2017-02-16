@@ -13,6 +13,10 @@
 @interface ColorVC ()
 @property (weak, nonatomic) IBOutlet CircleView *circleview;
 @property (weak, nonatomic) IBOutlet UILabel *lab;
+@property (weak, nonatomic) IBOutlet UILabel *wlab;
+@property (weak, nonatomic) IBOutlet UILabel *plab;
+@property (weak, nonatomic) IBOutlet UIButton *nextbtn;
+
 @property (weak, nonatomic) IBOutlet UIImageView *colorview;
 
 @end
@@ -25,16 +29,27 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"A MATTER OF COLOR";
+    self.title = NSLocalizedString(@"A MATTER OF COLOR", nil);
+    self.wlab.text =NSLocalizedString(@"What color is your Copenhagen speaker? ", nil);
+    self.plab.text =NSLocalizedString(@"Please, spin the wheel to select it.", nil);
+    
+    [self.nextbtn setTitle:NSLocalizedString(@"NEXT", nil) forState:UIControlStateNormal];
     self.circleview.target = self;
     self.circleview.selector = @selector(endtracking);
     self.colorview.layer.masksToBounds = YES;
     self.colorview.layer.cornerRadius = 190/2;
     
+    void (^block)(void) = ^{
+        
+        
+    };
+    block();
+    
     
 //    colorlist =@[@"F1E3BE",@"CBD9E5",@"DAE9EF",@"8E8D8C",@"FFFFFF",@"8A9182",@"7A8894",@"FFFFFF",@"DADFE0",@"EDE1DF",@"767C61"];
     
     colorlist =@[@"F0CD71",@"92B4D2",@"B6DCEB",@"605F5E",@"CBCAC7",@"6A755F",@"535F6B",@"D2D1C8",@"A4B3B7",@"E1BBB3",@"585F3D"];
+
     selectColor =colorlist[0];
     self.colorview.backgroundColor =[self colorWithHexString:selectColor];
 }

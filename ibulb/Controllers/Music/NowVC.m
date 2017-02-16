@@ -17,6 +17,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
 @property (weak, nonatomic) IBOutlet UIButton *btn3;
 
+@property (weak, nonatomic) IBOutlet UILabel *slab;
+@property (weak, nonatomic) IBOutlet UILabel *olab;
+
+
+
 @end
 
 @implementation NowVC
@@ -46,8 +51,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Now Play";
+    self.title = NSLocalizedString(@"Now Play", nil);
     btnList = @[_btn1,_btn2,_btn3];
+    
+    self.slab.text = NSLocalizedString(@"Save this Radio to your", nil);
+    self.olab.text = NSLocalizedString(@"one of the fav radio presets?", nil);
     
     keyList = [NSMutableArray array];
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -104,10 +112,9 @@
             [self hideHud];
             if([result[@"statuscode"] intValue] != 0)
             {
-                NSLog(@"设置失败");
-                [self showHudWithString:@"设置失败"];
+                [self showHudWithString:NSLocalizedString(@"success", nil)];
             }else{
-                [self showHudWithString:@"设置成功"];
+                [self showHudWithString:NSLocalizedString(@"failure", nil)];
                 [sender setTitle:[NSString stringWithFormat:@"%ld %@",(long)sender.tag+1,currentName] forState:UIControlStateNormal];
             }
             

@@ -5,12 +5,108 @@
   Created by Interest on 16/3/11.
   Copyright © 2016年 Interest. All rights reserved.
 */
-"test1"="Help";
-"test2"="Homepage";
-"test3"="Settings";
-"test4"="ChangeName";
-"test5"="Cancle";
-"test6"="Done";
-"test7"="DidFailToConnect";
-"test8"="Saved";
-"test9"="Please enter the content";
+
+"SETTINGS- WI-Fi" = "SETTINGS- WI-Fi";
+"Error" = "Error";
+"Your mobile phone is not\nconnected to the Wifi Network.\nYou can go to Settings to connect." = "Your mobile phone is not\nconnected to the Wifi Network.\nYou can go to Settings to connect.";
+"Make sure your iPhone is connected to Wi-Fi network. Click the image above to go to your Wifi Settings" = "Make sure your iPhone is connected to Wi-Fi network. Click the image above to go to your Wifi Settings";
+"Cancel" = "Cancel";
+"OK" = "OK";
+"Searching" = "Searching";
+"FOR SPEAKERS NEARBY" = "FOR SPEAKERS NEARBY ";
+"NOT FOUND ANY DEVICE\nADD A NEW VIP-A HOME\nSPEAKER ?" = "NOT FOUND ANY DEVICE\nADD A NEW VIP-A HOME\nSPEAKER ?";
+"SETUP WIZARD" = "SETUP WIZARD";
+"NETWORK CONFIGURATION" = "NETWORK CONFIGURATION";
+"Your speaker will be configured to the same network as your mobil device." = "Your speaker will be configured to the same network as your mobil device.";
+"NEXT" = "NEXT";
+"It is important that the speaker has a reliable connection to your router. You can placing the speaker and your phone near the router during the setup process. Check if your router is configuredfor 2.4 GHz, if in doubt, go to your mobil phone's Wi-Fi settings." = "It is important that the speaker has a reliable connection to your router. You can placing the speaker and your phone near the router during the setup process. Check if your router is configuredfor 2.4 GHz, if in doubt, go to your mobil phone's Wi-Fi settings.";
+"Name" = "Name";
+"Password" = "Password";
+"Show Password" = "Show Password";
+"CHOOSE YOUR SPEAKER TYPE" = "CHOOSE YOUR SPEAKER TYPE";
+"PRESS THE BUTTON" = "PRESS THE BUTTON";
+"Make sure your product is plugged into a power outlet. Long Press the connect button (>3s) until you see the status LED blink yellow. " = "Make sure your product is plugged into a power outlet. Long Press the connect button (>3s) until you see the status LED blink yellow. ";
+"PLEASE WAIT" = "PLEASE WAIT";
+"Wait for your speaker to connect to Wi-Fi network. Please do not turn off the speaker during the process. Wait patiently. It usually finishes within 60 secs." = "Wait for your speaker to connect to Wi-Fi network. Please do not turn off the speaker during the process. Wait patiently. It usually finishes within 60 secs.";
+"If you want to go back and retry? " = "If you want to go back and retry? ";
+"don’t show this agin。" = "don’t show this agin。";
+"RUN NOW" = "RUN NOW";
+"You can replace DR P3 radio preset by navigating to the category" = "You can replace DR P3 radio preset by navigating to the category";
+"Save this Radio to your" = "Save this Radio to your";
+"one of the fav radio presets?" = "one of the fav radio presets?";
+"ADD MORE" = "ADD MORE";
+"SUCCESS" = "SUCCESS";
+"You can change your product's default name or choose a preset name." = "You can change your product's default name or choose a preset name.";
+"please enter Name" = "please enter Name";
+"WI-FI STRENGTH " = "WI-FI STRENGTH ";
+"Wi-Fi Strength of your speaker is low, it can affect your streaming experience." = "Wi-Fi Strength of your speaker is low, it can affect your streaming experience.";
+"1 Please move your speaker closer to Router " = "1 Please move your speaker closer to Router ";
+"2 Change to another Wi-Fi AP" = "2 Change to another Wi-Fi AP";
+"What color is your Copenhagen speaker? " = "What color is your Copenhagen speaker? ";
+"Please, spin the wheel to select it." = "Please, spin the wheel to select it.";
+"A MATTER OF COLOR" = "A MATTER OF COLOR";
+"RENAME YOUR PRODUCT" = "RENAME YOUR PRODUCT";
+"BATHROM" = "BATHROM";
+"KITCHEN" = "KITCHEN";
+"BEDROM" = "BEDROM";
+"STUDY" = "STUDY";
+
+
+"INTERNET" = "INTERNET";
+"CONNECTED" = "CONNECTED";
+"Volumn" = "Volumn";
+"UNCONNECTED" = "UNCONNECTED";
+
+
+
+
+"LIVINGROM" = "LIVINGROM";
+"GARAGE" = "GARAGE";
+"VIFA HOME" = "VIFA HOME";
+"MUSIC.BEDROOM" = "MUSIC.BEDROOM";
+"RADIO PRESETS" = "RADIO PRESETS";
+"ROOM" = "ROOM";
+"SET UP NEW SPEAKER" = "SET UP NEW SPEAKER";
+"GROUP ALL" = "GROUP ALL";
+"PAUSE ALL" = "PAUSE ALL";
+"grouping" = "grouping";
+"grouping？" = "grouping？";
+"SPEAKER GROUP EMMA'S ROOM" = "SPEAKER GROUP EMMA'S ROOM";
+"songs" = "songs";
+"LOCAL MUSIC" = "LOCAL MUSIC";
+"iPhone Music" = "iPhone Music";
+"Net Music Storage" = "Net Music Storage";
+"USB Disk" = "USB Disk";
+"STREAMING SERVICE" = "STREAMING SERVICE";
+"Spotify Premium lets you listen to millions of songs ad-free - the artists you love, the latest hits and discoveries just for you. Simply hit play to hear any song you like, at the highest sound quality. millions of songs. Your new device has Spotify Connect built in. You'll need Spotify Premium to use Connect. Learn more at spotify.com/connect O Play any song in Spotify app. O Tap the song image in the bottom left of the screen. @ Tap the Connect icon @ Pick your speaker from the list." = "Spotify Premium lets you listen to millions of songs ad-free - the artists you love, the latest hits and discoveries just for you. Simply hit play to hear any song you like, at the highest sound quality. millions of songs. Your new device has Spotify Connect built in. You'll need Spotify Premium to use Connect. Learn more at spotify.com/connect O Play any song in Spotify app. O Tap the song image in the bottom left of the screen. @ Tap the Connect icon @ Pick your speaker from the list.";
+"Playlists" = "Playlists";
+"Artists" = "Artists";
+"Albums" = "Albums";
+"Songs" = "Songs";
+"unknow" = "unknow";
+"Now Play" ="Now Play";
+"success" = "success";
+"failure" = "failure";
+"EDIT PRESETS" = "EDIT PRESETS";
+"Information" = "Information";
+"Settings" = "Settings";
+"Tuning and Placement" = "Tuning and Placement";
+"Model" = "Model";
+"Source" = "Source";
+"Battery Level" = "Battery Level";
+"Light Dimming" = "Light Dimming";
+"Wi-Fi Strength" = "Wi-Fi Strength";
+"Startup Volume" = "Startup Volume";
+"Firmware" = "Firmware";
+"LED intensity" = "LED intensity";
+"Check for new" = "Check for new";
+"Set to Factory Default" = "Set to Factory Default";
+"FACTORY RESET" = "FACTORY RESET";
+"NEW FIRMWARE" = "NEW FIRMWARE";
+"Your speaker has the firmware version" = "Your speaker has the firmware version";
+"Are you sure you want to set the xxxx speaker to factory default (all user defined settings and network settings will be lost)? " = "Are you sure you want to set the xxxx speaker to factory default (all user defined settings and network settings will be lost)? ";
+"NOT NOW" = "NOT NOW";
+"YES RESET" = "YES RESET";
+"The new firmware avaliable" = "The new firmware avaliable";
+"FIRMWARE UPDATE" = "FIRMWARE UPDATE";
+"UPDATING" = "UPDATING";

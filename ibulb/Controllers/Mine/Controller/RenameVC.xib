@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
@@ -10,8 +10,10 @@
             <connections>
                 <outlet property="collectview" destination="G8z-8M-HWa" id="dBQ-dJ-oyE"/>
                 <outlet property="keyview" destination="FKg-Ln-do6" id="BwA-Yt-5JE"/>
+                <outlet property="nlab" destination="cTA-fy-10l" id="Jim-j5-nFq"/>
                 <outlet property="savebtn" destination="rnO-2g-EDk" id="93M-3h-C1M"/>
                 <outlet property="tf" destination="Txj-AM-n9j" id="qRD-MQ-pWc"/>
+                <outlet property="tlab" destination="rsL-27-Mr2" id="wCF-jQ-R5l"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,6 +49,16 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="please enter Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-AM-n9j">
+                    <rect key="frame" x="112" y="83" width="192" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="192" id="RPB-39-Vvs"/>
+                        <constraint firstAttribute="height" constant="30" id="btw-Xf-S19"/>
+                    </constraints>
+                    <color key="textColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="G8z-8M-HWa">
                     <rect key="frame" x="16" y="161" width="288" height="343"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -61,16 +73,6 @@
                         <outlet property="delegate" destination="-1" id="bcN-7V-e6c"/>
                     </connections>
                 </collectionView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="please enter Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-AM-n9j">
-                    <rect key="frame" x="112" y="83" width="192" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="192" id="RPB-39-Vvs"/>
-                        <constraint firstAttribute="height" constant="30" id="btw-Xf-S19"/>
-                    </constraints>
-                    <color key="textColor" red="0.40781933069229126" green="0.40781933069229126" blue="0.40781933069229126" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

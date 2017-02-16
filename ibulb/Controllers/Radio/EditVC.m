@@ -11,6 +11,7 @@
 @interface EditVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) IBOutlet UIView *headview;
+@property (weak, nonatomic) IBOutlet UILabel *ylabn;
 
 @end
 
@@ -24,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.ylabn.text = NSLocalizedString(@"You can replace DR P3 radio preset by navigating to the category", nil);
     [self.tableview setTableHeaderView:self.headview];
     list = [@[@"Tuneln"]mutableCopy];
 }
