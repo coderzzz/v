@@ -64,14 +64,14 @@
         });
         
     }];
-
+   
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     list = [@[@[NSLocalizedString(@"Name", nil),NSLocalizedString(@"Startup Volume", nil),NSLocalizedString(@"LED intensity", nil)],@[NSLocalizedString(@"Check for new", nil),NSLocalizedString(@"Set to Factory Default", nil)]]mutableCopy];
-    
+   
 }
 #pragma mark Action
 

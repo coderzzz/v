@@ -75,6 +75,7 @@
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices lastObject];
     [[NSUserDefaults standardUserDefaults]setObject:selectColor forKey:infoDic[@"uuid"]];
+    [[NSUserDefaults standardUserDefaults]setObject:self.type forKey:[NSString stringWithFormat:@"type%@",infoDic[@"uuid"]]];
     [[NSUserDefaults standardUserDefaults]synchronize];
     RenameVC *vc = [[RenameVC alloc]init];
     [self.navigationController pushViewController:vc animated:YES];

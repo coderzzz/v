@@ -10,5 +10,9 @@
 
 @interface LeftCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UIButton *btn;
+@property (weak, nonatomic) IBOutlet UIButton *leftbtn;
+@property (weak, nonatomic) IBOutlet UIButton *rightbtn;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgv;
 @end

@@ -30,6 +30,35 @@
 {
     [super viewWillAppear:animated];
     progess = [NSMutableArray array];
+    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSMutableArray *temp = [delegate.devices copy];
+    self.list = [NSMutableArray array];
+    
+
+    for (int a = 0; a<temp.count; a++) {
+        
+        NSDictionary *dic = temp[a];
+        NSString *isgroup = [NSString stringWithFormat:@"%@",dic[@"grouping"]];
+        if (a == 0) {
+            
+            [self.list addObject:dic];
+        }
+        else if ([isgroup isEqualToString:@"1"]){
+            
+            [self.list addObject:dic];
+        }else{
+            
+            break;
+        }
+    }
+    
+    
+    [self.tableview reloadData];
+    
+   
+    
+    
+    
     for (NSDictionary *infoDic in self.list) {
     
         [UPnPDevice(infoDic[@"uuid"]) GetInfoEx:^(NSDictionary *result) {
@@ -71,7 +100,7 @@
     UINib *nib = [UINib nibWithNibName:@"LeftCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"leftCell"];
     [self.tableview setTableFooterView:self.headview];
-    [self.tableview reloadData];
+    
 }
 
 - (void)back{
@@ -90,6 +119,22 @@
     Netconfig *vc = [[Netconfig alloc]init];
     vc.title = @"NETWORK CONFIGURATION";
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)left:(UIButton *)btn{
+    
+     NSDictionary *dic = self.list[btn.tag];
+     [UPnPDevice(dic [@"uuid"]) sendChangeChannel:wiimu_channel_left result:^(NSDictionary *result) {
+         
+     }];
+}
+
+- (void)right:(UIButton *)btn{
+    
+    NSDictionary *dic = self.list[btn.tag];
+    [UPnPDevice(dic [@"uuid"]) sendChangeChannel:wiimu_channel_right result:^(NSDictionary *result) {
+        
+    }];
 }
 
 - (void)changeValue:(UISlider *)slider{
@@ -162,6 +207,21 @@
         cell.slider.value = [progess[indexPath.row] floatValue];
         
     }
+    NSDictionary *dic = self.list[indexPath.row];
+    NSString *type =[[NSUserDefaults standardUserDefaults]objectForKey:[NSString stringWithFormat:@"type%@",dic[@"uuid"]]];
+    if ([type isEqualToString:@"1"]) {
+        
+        cell.imgv.image = [UIImage imageNamed:@"19"];
+    
+    }else{
+        
+        cell.imgv.image = [UIImage imageNamed:@"04-1"];
+    }
+    cell.leftbtn.tag = indexPath.row;
+    cell.rightbtn.tag = indexPath.row;
+    
+    [cell.leftbtn addTarget:self action:@selector(left:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.rightbtn addTarget:self action:@selector(right:) forControlEvents:UIControlEventTouchUpInside];
     cell.slider.tag = indexPath.row;
     [cell.slider addTarget:self action:@selector(changeValue:) forControlEvents:UIControlEventValueChanged];
     return cell;

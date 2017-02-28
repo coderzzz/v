@@ -29,9 +29,10 @@
     self.imgv.animationRepeatCount = 99999999;
     [self.imgv startAnimating];
     self.searchlab.text = NSLocalizedString(@"Searching", nil);
-    self.nearlab.text =NSLocalizedString(@"FOR SPEAKERS NEARBY", nil);
-    self.notfoundlab.text =NSLocalizedString(@"NOT FOUND ANY DEVICE\nADD A NEW VIP-A HOME\nSPEAKER ?", nil);
+    self.nearlab.text = NSLocalizedString(@"FOR SPEAKERS NEARBY", nil);
+    self.notfoundlab.text = NSLocalizedString(@"NOT FOUND ANY DEVICE\nADD A NEW VIP-A HOME\nSPEAKER ?", nil);
     [self.setupbtn setTitle:NSLocalizedString(@"SETUP WIZARD", nil) forState:UIControlStateNormal];
+    
 }
 - (IBAction)action:(id)sender {
     

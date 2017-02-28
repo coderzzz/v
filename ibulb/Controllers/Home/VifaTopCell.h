@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playbtn;
 @property (weak, nonatomic) IBOutlet UIButton *donebtn;
 @property (weak, nonatomic) IBOutlet UILabel *namelab;
+@property (weak, nonatomic) IBOutlet UIImageView *bgimgv;
+@property (weak, nonatomic) IBOutlet UIButton *btn;
 
 @end

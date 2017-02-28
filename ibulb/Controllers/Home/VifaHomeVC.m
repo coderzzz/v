@@ -14,7 +14,10 @@
 #import "WiimuUPnP.h"
 #import "Netconfig.h"
 #import "AFHttp.h"
-@interface VifaHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateFlowLayout,UIAlertViewDelegate>
+#import "UIImageView+WebCache.h"
+#import "PlayVC.h"
+#import "DDXMLElementAdditions.h"
+@interface VifaHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateFlowLayout,UIAlertViewDelegate,WiimuUPnPObserver,UIGestureRecognizerDelegate>
 @property (strong, nonatomic) NSMutableArray *dataSource;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectview;
 @property (strong, nonatomic) IBOutlet UITableView *popTableview;
@@ -29,6 +32,7 @@
     NSMutableArray *list;
     CGPoint startpoint;
     CGPoint currentpoint;
+    UITapGestureRecognizer *tap;
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -39,7 +43,17 @@
     self.dataSource = [delegate.devices mutableCopy];
     
     [self.collectview reloadData];
+    
+    
+    
+    [[WiimuUPnP sharedInstance] addObserver:self];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [[WiimuUPnP sharedInstance] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -54,7 +68,7 @@
     self.popTableview.layer.borderWidth = 1.f;
     [self.view addSubview:self.popTableview];
     
-    [[AFHttp shareInstanced]connectToHost];
+
     UINib *nib = [UINib nibWithNibName:@"VifaTopCell" bundle:nil];
     [self.collectview registerNib:nib forCellWithReuseIdentifier:@"vitfaTop"];
     
@@ -71,6 +85,17 @@
     self.collectview.frame = CGRectMake(40, 0, ScreenWidth-80, ScreenHeight-64);
     UILongPressGestureRecognizer *ges = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longpress:)];
     [self.collectview addGestureRecognizer:ges];
+    
+    
+    
+}
+
+- (void)hidepop{
+    
+    if (!self.popTableview.isHidden) {
+        self.popTableview.hidden = YES;
+        [self.view removeGestureRecognizer:tap];
+    }
     
 }
 
@@ -126,12 +151,6 @@
             break;
     }
 }
-
-
-
-
-
-
 - (void)showLeft{
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -139,9 +158,10 @@
 }
 
 - (void)showgroup{
-    self.popTableview.hidden = !self.popTableview.hidden;
-    
-
+    tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hidepop)];
+    tap.delegate =self;
+    [self.view addGestureRecognizer:tap];
+    self.popTableview.hidden = NO;
 }
 
 - (void)updateUI{
@@ -157,8 +177,48 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             //play state
             playing = [result[@"OutCurrentTransportState"] isEqualToString:@"PLAYING"];
-
+            
+            VifaTopCell *cell  =(VifaTopCell *)[self.collectview cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        
+            DDXMLDocument *xmlDoc = [[DDXMLDocument alloc] initWithXMLString:result[@"OutTrackMetaData"] options:0 error:nil];
+            if (!xmlDoc)
+            {
+                return;
+            }
+            
+            DDXMLElement *trackItem = [[xmlDoc rootElement] elementForName:@"item"];
+           
+            if([NSURL URLWithString:[[trackItem elementForName:@"upnp:albumArtURI"] stringValue]] != nil && playing)
+            {
+                NSString *uri =[[trackItem elementForName:@"upnp:albumArtURI"] stringValue];
+                
+                [cell.bgimgv sd_setImageWithURL:[NSURL URLWithString:uri]placeholderImage:[UIImage imageNamed:@"121"]];
+                
+                cell.btn.hidden = YES;
+            
+            }
+            else{
+                
+//                cell.bgimgv = nil;
+                cell.btn.hidden = NO;
+            }
+            if (playing) {
+                
+                [cell.playbtn setImage:[UIImage imageNamed:@"142"] forState:UIControlStateNormal];
+            }else{
+                cell.bgimgv.image = nil;
+                [cell.playbtn setImage:[UIImage imageNamed:@"home_music"] forState:UIControlStateNormal];
+            }
         });
+        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            NSString *title =[[trackItem elementForName:@"dc:title"] stringValue];
+//            NSString *artist =[[trackItem elementForName:@"upnp:artist"] stringValue];
+//            _titlelab.text = [NSString stringWithFormat:@"%@\n%@",title,artist];
+//            
+//        });
+
     }];
     
 }
@@ -185,6 +245,24 @@
     playing = !playing;
 
     
+}
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    
+    if ([touch.view isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
+        return NO;
+    }
+    return YES;
+}
+#pragma mark - WiimuUPnPObserver methods
+
+- (void)UPnPDeviceEvent:(id<WiimuDeviceProtocol>)device event:(NSString *)event
+{
+    NSLog(@"%@",event);
+    [self updateUI];
+ 
 }
 #pragma mark Uialert
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -227,16 +305,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     NSDictionary *dic = self.dataSource[indexPath.row];
-    NSString *colorstr;
     UIColor *color;
     
-    if ([dic[@"grouping"] boolValue]){
-        NSDictionary *masterdic = self.dataSource[0];
-        colorstr = [[NSUserDefaults standardUserDefaults]objectForKey:masterdic[@"uuid"]];
-    }
-    else{
-        colorstr = [[NSUserDefaults standardUserDefaults]objectForKey:dic[@"uuid"]];
-    }
+    
+    NSString *type =[[NSUserDefaults standardUserDefaults]objectForKey:[NSString stringWithFormat:@"type%@",dic[@"uuid"]]];
+    NSString *colorstr = [[NSUserDefaults standardUserDefaults]objectForKey:dic[@"uuid"]];
     if (colorstr.length>0) {
         
         color = [self colorWithHexString:colorstr];
@@ -251,6 +324,16 @@
         VifaTopCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"vitfaTop" forIndexPath:indexPath];
         [cell.playbtn addTarget:self action:@selector(play) forControlEvents:UIControlEventTouchUpInside];
         cell.namelab.text = dic[@"name"];
+        if ([type isEqualToString:@"1"]) {
+            
+            [cell.btn setImage:[UIImage imageNamed:@"44"] forState:UIControlStateNormal];
+        }
+        else{
+            [cell.btn setImage:[UIImage imageNamed:@"157"] forState:UIControlStateNormal];
+        }
+   
+        cell.donebtn.hidden = ![dic[@"grouping"] boolValue];
+      
         cell.backgroundColor = color;
         return cell;
     }
@@ -259,14 +342,15 @@
         VifaMidCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"midCell" forIndexPath:indexPath];
         cell.namelab.text =dic[@"name"];
         cell.backgroundColor = color;
-//        if (indexPath.row %2 ==0) {
-//            
-//            cell.backgroundColor = [UIColor colorWithRed:151/225.0 green:181.0/255.0 blue:211/255.0 alpha:1];
-//        }
-//        else{
-//            
-//            cell.backgroundColor = [UIColor colorWithRed:237/225.0 green:197.0/255.0 blue:87/255.0 alpha:1];
-//        }
+        cell.groupbtn.hidden = ![dic[@"grouping"] boolValue];
+        if ([type isEqualToString:@"1"]) {
+            
+            
+            cell.imgv.image = [UIImage imageNamed:@"44"];
+        }
+        else{
+            cell.imgv.image = [UIImage imageNamed:@"157"];
+        }
         return cell;
     }
     
@@ -287,6 +371,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.row == 0 && playing) {
+        
+        PlayVC *vc = [[PlayVC alloc]initWithHome:YES];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
 }
 #pragma mark UICollectionViewDelegateFlowLayout

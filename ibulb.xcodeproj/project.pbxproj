@@ -802,10 +802,10 @@
 			children = (
 				E24A201E1C3E3C4A009711C2 /* TabBarViewController.h */,
 				E24A201F1C3E3C4A009711C2 /* TabBarViewController.m */,
+				E284E5671C92AEBB00D4C89D /* Localizable.strings */,
 				E267C8DB1DC33ED4008A604D /* LeftVC.h */,
 				E267C8DC1DC33ED4008A604D /* LeftVC.m */,
 				E267C8DD1DC33ED4008A604D /* LeftVC.xib */,
-				E284E5671C92AEBB00D4C89D /* Localizable.strings */,
 				E2E1C0271DCC6B0B0057C18D /* LeftCell.h */,
 				E2E1C0281DCC6B0B0057C18D /* LeftCell.m */,
 				E2E1C0291DCC6B0B0057C18D /* LeftCell.xib */,

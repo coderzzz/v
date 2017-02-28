@@ -15,4 +15,6 @@
 - (id)initWithPlayQueue:(NSString *)queueName playIndex:(int)index;
 
 - (id)initWithRadioModel:(NSDictionary *)model;
+
+- (id)initWithHome:(BOOL)ishome;
 @end

@@ -31,6 +31,8 @@
 
     list = [@[NSLocalizedString(@"Model", nil),NSLocalizedString(@"Source", nil),NSLocalizedString(@"Battery Level", nil),NSLocalizedString(@"Light Dimming", nil),NSLocalizedString(@"Wi-Fi Strength", nil),NSLocalizedString(@"Startup Volume", nil),@"ID",@"MAC",NSLocalizedString(@"Firmware", nil)]mutableCopy];
     
+
+    
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
     [UPnPDevice(infoDic[@"uuid"]) GetControlDeviceInfo:^(NSDictionary *result) {
@@ -49,6 +51,7 @@
             NSString *light = @"70%";
             NSString *wifi = @"Excellen";
             NSString *volume = [NSString stringWithFormat:@"%@%%",result[@"volume"]];
+            
             NSString *d =dic[@"ssid"];
             NSString *mac = dic[@"MAC"];
             NSString *firmware = dic[@"firmware"];

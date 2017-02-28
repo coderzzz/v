@@ -60,6 +60,18 @@
     ChosespeakerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"chose"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.row == 1) {
+        
+        cell.img1.hidden = YES;
+        cell.imag2.hidden = NO;
+        cell.lab.text = @"stockholm 2.0";
+    }
+    else{
+        
+        cell.img1.hidden = NO;
+        cell.imag2.hidden = YES;
+        cell.lab.text = @"COPENHAGEN 2.0";
+    }
     return cell;
 }
 
@@ -75,6 +87,7 @@
     PressVC *vc = [[PressVC alloc]init];
     vc.title = NSLocalizedString(@"PRESS THE BUTTON", nil);
     vc.password = self.password;
+    vc.type = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

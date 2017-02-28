@@ -29,12 +29,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.clab.text = NSLocalizedString(@"Are you sure you want to set the xxxx speaker to factory default (all user defined settings and network settings will be lost)? ", nil);
+    NSLocalizedString(@"firmware", nil);
     [self.nbtn setTitle:NSLocalizedString(@"NOT NOW", nil) forState:UIControlStateNormal];
     [self.yben setTitle:NSLocalizedString(@"YES RESET", nil) forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 

@@ -25,7 +25,7 @@
 "Show Password" = "Show Password";
 "CHOOSE YOUR SPEAKER TYPE" = "CHOOSE YOUR SPEAKER TYPE";
 "PRESS THE BUTTON" = "PRESS THE BUTTON";
-"Make sure your product is plugged into a power outlet. Long Press the connect button (>3s) until you see the status LED blink yellow. " = "Make sure your product is plugged into a power outlet. Long Press the connect button (>3s) until you see the status LED blink yellow. ";
+"Make sure your product is plugged into a power outlet. Long Press the connect button (>3s) until you see the status LED blink yellow. " = "connect button until you see the status LED blink yellow ";
 "PLEASE WAIT" = "PLEASE WAIT";
 "Wait for your speaker to connect to Wi-Fi network. Please do not turn off the speaker during the process. Wait patiently. It usually finishes within 60 secs." = "Wait for your speaker to connect to Wi-Fi network. Please do not turn off the speaker during the process. Wait patiently. It usually finishes within 60 secs.";
 "If you want to go back and retry? " = "If you want to go back and retry? ";
@@ -43,6 +43,7 @@
 "1 Please move your speaker closer to Router " = "1 Please move your speaker closer to Router ";
 "2 Change to another Wi-Fi AP" = "2 Change to another Wi-Fi AP";
 "What color is your Copenhagen speaker? " = "What color is your Copenhagen speaker? ";
+"Long" = "Long Press the";
 "Please, spin the wheel to select it." = "Please, spin the wheel to select it.";
 "A MATTER OF COLOR" = "A MATTER OF COLOR";
 "RENAME YOUR PRODUCT" = "RENAME YOUR PRODUCT";
@@ -97,6 +98,7 @@
 "Light Dimming" = "Light Dimming";
 "Wi-Fi Strength" = "Wi-Fi Strength";
 "Startup Volume" = "Startup Volume";
+
 "Firmware" = "Firmware";
 "LED intensity" = "LED intensity";
 "Check for new" = "Check for new";

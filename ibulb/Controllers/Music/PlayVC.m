@@ -17,6 +17,7 @@
 #import "NowVC.h"
 #import "ArtWorkModel.h"
 #import "UIImageView+WebCache.h"
+#import "SDWebImageManager.h"
 @interface PlayVC ()<WiimuUPnPObserver>
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;
 @property (weak, nonatomic) IBOutlet UISlider *timeProgress;
@@ -37,7 +38,7 @@
     NSTimeInterval allsec;
     dispatch_source_t timer;
     NSMutableArray *artworks;
-    
+    BOOL home;
 }
 - (id)initWithMPMediaItemProperty:(NSString *)property name:(NSString *)name{
     
@@ -215,6 +216,15 @@
     }
     return self;
 }
+- (id)initWithHome:(BOOL)ishome{
+    
+    self = [super init];
+    if (self) {
+        
+        home = ishome;
+    }
+    return self;
+}
 - (void)updateUI{
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -230,8 +240,47 @@
 //            self.playBtn.selected = ![result[@"OutCurrentTransportState"] isEqualToString:@"PLAYING"];
 
             //progress
-            if([self secondFromTimeString:result[@"OutTrackDuration"]] != 0)
+            if([self secondFromTimeString:result[@"OutTrackDuration"]] != 0 && home)
             {
+                if (timer) dispatch_source_cancel(timer);
+                __block NSTimeInterval nowsec = [self secondFromTimeString:result[@"OutTrackDuration"]];
+                if (allsec != nowsec) {
+                    
+                    
+                    __block CGFloat begin = (CGFloat)[self secondFromTimeString:result[@"OutRelTime"]];
+                    
+                    self.timeProgress.maximumValue = (CGFloat)nowsec;
+                    timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+                    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0.1 * NSEC_PER_SEC);
+                    dispatch_source_set_event_handler(timer, ^{
+                        
+                        
+                        if ((nowsec - begin)>0) {
+                            
+                            begin++;
+                            self.timeProgress.value = begin;
+                            
+                            
+                        }
+                        else{
+                            allsec = nowsec;
+                            dispatch_source_cancel(timer);
+                        }
+                    });
+                    dispatch_source_set_cancel_handler(timer, ^{
+                        
+                    });
+                    dispatch_resume(timer);
+                    
+                }
+                else{
+                    allsec = 0;
+                    self.timeProgress.value = 0.0f;
+                    
+                }
+                home = NO;
+                
+                
 //                _timeProgress.value = [self secondFromTimeString:result[@"OutRelTime"]]/[self secondFromTimeString:result[@"OutTrackDuration"]];
             }
             
@@ -268,21 +317,9 @@
             if([NSURL URLWithString:[[trackItem elementForName:@"upnp:albumArtURI"] stringValue]] != nil)
             {
                 NSString *uri =[[trackItem elementForName:@"upnp:albumArtURI"] stringValue];
-                if ([uri containsString:@"_artwork"]) {
-                    
-                    for (ArtWorkModel *model in artworks) {
-                        
-                        if ([model.file isEqualToString:uri]) {
-                            
-                            self.imageV.image = model.artworkImage;
-                        }
-                    }
-                    
-                }
-                else{
-                    
-                    [self.imageV sd_setImageWithURL:[NSURL URLWithString:uri]placeholderImage:[UIImage imageNamed:@"121"]];
-                }
+  
+                [self.imageV sd_setImageWithURL:[NSURL URLWithString:uri]placeholderImage:[UIImage imageNamed:@"121"]];
+                
 
             }
          });
@@ -292,6 +329,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    if (home) {
+        
+        [self updateUI];
+    }
+    
     if (radioUrl.length>0) {
         
         self.timeProgress.hidden = YES;
@@ -318,7 +360,6 @@
     [[WiimuUPnP sharedInstance] removeObserver:self];
 }
 #pragma mark - WiimuUPnPObserver methods
-
 - (void)UPnPDeviceEvent:(id<WiimuDeviceProtocol>)device event:(NSString *)event
 {
 //    NSLog(@"%@",event);
@@ -391,8 +432,6 @@
     });
 }
 #pragma mark privacy
-
-
 - (NSString *)makeQueueContextWithTracks{
     
     NSString *queuecontext = @"<PlayList><ListName>Test</ListName><ListInfo><SourceName></SourceName><TrackNumber>2</TrackNumber><SearchUrl>searchurl</SearchUrl></ListInfo><Tracks></Tracks></PlayList>";
@@ -409,7 +448,11 @@
 //
     MPMediaItemArtwork *work =[item valueForProperty: MPMediaItemPropertyArtwork];
     UIImage *artworkImage = [work imageWithSize: _imageV.bounds.size];
+    
     NSString *imgurl = [NSString stringWithFormat:@"http://%@:%d/%@_artwork",[GlobalInfo sharedInstance].httpServerIP,[GlobalInfo sharedInstance].httpServerPort,fileName];
+    
+    [[SDWebImageManager sharedManager]saveImageToCache:artworkImage forURL:[NSURL URLWithString:imgurl]];
+    
     ArtWorkModel *model = [[ArtWorkModel alloc]init];
     if (artworkImage) {
         model.file = imgurl;
@@ -523,7 +566,7 @@
         NSDictionary *infoDic = [delegate.devices firstObject];
         [UPnPDevice(infoDic[@"uuid"]) sendPlay:^(NSDictionary *result) {
             
-            dispatch_resume(timer);
+           if (timer)  dispatch_resume(timer);
         }];
     }
     else
@@ -533,7 +576,7 @@
         NSDictionary *infoDic = [delegate.devices firstObject];
         [UPnPDevice(infoDic[@"uuid"]) sendPause:^(NSDictionary *result) {
             
-            dispatch_suspend(timer);
+            if (timer) dispatch_suspend(timer);
         }];
     }
     sender.selected = !sender.isSelected;

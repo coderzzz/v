@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ColorVC : BaseViewController
-
+@property (nonatomic, copy) NSString *type;
 @end

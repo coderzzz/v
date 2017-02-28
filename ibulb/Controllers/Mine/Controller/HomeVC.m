@@ -105,7 +105,11 @@
     for (int a = 0; a<36; a++) {
         
         UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%d白色",a]];
-        [images addObject:img];
+        if (img) {
+            
+          [images addObject:img];
+            
+        }
         
     }
     
@@ -117,7 +121,7 @@
     self.slab.text = NSLocalizedString(@"Searching", nil);
     self.nlab.text = NSLocalizedString(@"FOR SPEAKERS NEARBY", nil);
     self.searchinglab.text =NSLocalizedString(@"Searching", nil);
-    
+
 
 }
 
@@ -201,13 +205,17 @@
             auth =@"OPEN";
             encry =@"NONE";
         }
-
-        NSDictionary * infoDic = @{@"ip":[device ip],@"uuid":[device uuid],@"ssid":statusDic[@"ssid"]?:@"",@"name":statusDic[@"DeviceName"]?:@"",@"ch":statusDic[@"WifiChannel"],@"securemode":securemode,@"auth":auth,@"encry":encry,@"pwd":pwd,@"SlaveList":result[@"SlaveList"]};
+        NSString *slavestr = result[@"SlaveList"];
+        NSString *isgroup = @"0";
+        
+        if (slavestr.length>20) {
+            isgroup = @"1";
+        }
+        NSDictionary * infoDic = @{@"ip":[device ip],@"uuid":[device uuid],@"ssid":statusDic[@"ssid"]?:@"",@"name":statusDic[@"DeviceName"]?:@"",@"ch":statusDic[@"WifiChannel"],@"securemode":securemode,@"auth":auth,@"encry":encry,@"pwd":pwd,@"SlaveList":result[@"SlaveList"],@"grouping":isgroup};
         
 //        [dataArray addObject:infoDic];
         [self dataAarrayAddObject:infoDic];
         
-        NSString *slavestr = result[@"SlaveList"];
         if (slavestr.length>10) {
             
             NSData *data = [slavestr dataUsingEncoding:NSUTF8StringEncoding];

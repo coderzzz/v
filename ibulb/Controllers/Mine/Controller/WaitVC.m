@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 /**********************************************/
 #import "WiimuUPnP.h"
+#import "ColorVC.h"
 @interface WaitVC ()<WiimuUPnPObserver>
 {
     NSMutableArray * dataArray;
@@ -143,8 +144,13 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            LowViewController *vc = [[LowViewController alloc]init];
+            
+            ColorVC *vc = [[ColorVC alloc]init];
+            vc.type = self.type;
             [self.navigationController pushViewController:vc animated:YES];
+            
+//            LowViewController *vc = [[LowViewController alloc]init];
+//            [self.navigationController pushViewController:vc animated:YES];
             
         });
     }];

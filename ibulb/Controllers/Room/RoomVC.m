@@ -14,7 +14,9 @@
 #import "DDXML.h"
 #import "DDXMLElementAdditions.h"
 #import "AppDelegate.h"
-@interface RoomVC ()<UITableViewDataSource,UITableViewDelegate>
+
+
+@interface RoomVC ()<UITableViewDataSource,UITableViewDelegate,WiimuUPnPObserver>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) IBOutlet UIView *headview;
@@ -23,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UISlider *volumeProgress;
 @property (weak, nonatomic) IBOutlet UILabel *ilab;
 @property (weak, nonatomic) IBOutlet UILabel *vlabv;
+
+
+
 
 
 @end
@@ -39,13 +44,22 @@
     
     [super viewWillAppear:animated];
     [self updateUI];
+
+    [[WiimuUPnP sharedInstance] addObserver:self];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [[WiimuUPnP sharedInstance] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableview setTableHeaderView:self.headview];
     
     self.ilab.text = NSLocalizedString(@"INTERNET", nil);
-    self.vlabv.text =NSLocalizedString(@"Volumn", nil);
+    self.vlabv.text = NSLocalizedString(@"Volumn", nil);
+   
     
     list = [@[NSLocalizedString(@"Tuning and Placement", nil),NSLocalizedString(@"Information", nil),NSLocalizedString(@"Settings", nil)]mutableCopy];
 }
@@ -67,7 +81,8 @@
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
-
+   
+    
     [UPnPDevice(infoDic[@"uuid"]) GetControlDeviceInfo:^(NSDictionary *result) {
         if([result[@"statuscode"] intValue] != 0)
         {
@@ -98,7 +113,6 @@
             return;
         }
 
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             
 //            self.navigationItem.title
@@ -109,6 +123,7 @@
             if ([result[@"InternetAccess"] intValue] == 1) {
                 
                 _connectlab.text = NSLocalizedString(@"CONNECTED", nil);
+                
             }
             else{
                 
@@ -118,7 +133,14 @@
         });
 
     }];
+}
+#pragma mark - WiimuUPnPObserver methods
 
+- (void)UPnPDeviceEvent:(id<WiimuDeviceProtocol>)device event:(NSString *)event
+{
+    NSLog(@"%@",event);
+    [self updateUI];
+    
 }
 #pragma mark UITableViewDataSource
 

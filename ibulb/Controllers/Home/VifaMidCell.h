@@ -11,4 +11,9 @@
 @interface VifaMidCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *namelab;
+@property (weak, nonatomic) IBOutlet UIButton *btn;
+@property (weak, nonatomic) IBOutlet UIButton *groupbtn;
+@property (weak, nonatomic) IBOutlet UIImageView *imgv;
+
+
 @end
