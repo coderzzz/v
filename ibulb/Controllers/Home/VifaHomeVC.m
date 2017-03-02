@@ -377,6 +377,15 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
+    else{
+        
+        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+        [delegate.devices exchangeObjectAtIndex:indexPath.row withObjectAtIndex:0];
+        self.dataSource = [delegate.devices mutableCopy];
+        
+        [self.collectview reloadData];
+        [self updateUI];
+    }
     
 }
 #pragma mark UICollectionViewDelegateFlowLayout

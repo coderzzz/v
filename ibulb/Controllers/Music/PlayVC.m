@@ -80,6 +80,7 @@
             if (![[NSFileManager defaultManager]fileExistsAtPath:exportFile]) {
                 
                 AVURLAsset *songAsset= [AVURLAsset URLAssetWithURL:url options:nil];
+                //init export, here you must set "presentName" argument to "AVAssetExportPresetPassthrough". If not, you will can't export mp3 correct.
                 AVAssetExportSession *mExporter= [[AVAssetExportSession alloc] initWithAsset:songAsset presetName:AVAssetExportPresetAppleM4A];
                 mExporter.outputFileType = AVFileTypeAppleM4A;
                 NSURL *exportURL = [NSURL fileURLWithPath:exportFile];
@@ -276,7 +277,6 @@
                 else{
                     allsec = 0;
                     self.timeProgress.value = 0.0f;
-                    
                 }
                 home = NO;
                 
