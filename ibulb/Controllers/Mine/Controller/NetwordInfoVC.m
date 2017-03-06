@@ -29,6 +29,7 @@
     [self.nextbtn setTitle:NSLocalizedString(@"NEXT", nil) forState:UIControlStateNormal];
     self.passlab.text = NSLocalizedString(@"Password", nil);
     self.sholab.text = NSLocalizedString(@"Show Password", nil);
+    self.checkboxBtn.selected = YES;
 }
 - (IBAction)action:(id)sender {
     

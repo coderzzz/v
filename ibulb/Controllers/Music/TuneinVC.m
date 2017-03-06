@@ -35,11 +35,13 @@
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     infoDic = [delegate.devices firstObject];
     list = [NSMutableArray array];
+    [self showHudWithString:NSLocalizedString(@"wait", nil)];
     [UPnPDevice(infoDic[@"uuid"]) getTuneinRootData:^(NSDictionary *result) {
         
         NSLog(@"%@",result);
         if([result[@"statuscode"] intValue] != 0)
         {
+            [self hideHud];
             return;
         }
         
@@ -63,7 +65,7 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            
+            [self hideHud];
             [self.tableview reloadData];
             
         });

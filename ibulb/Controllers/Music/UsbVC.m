@@ -26,9 +26,13 @@
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices lastObject];
+    [self showHudWithString:NSLocalizedString(@"wait", nil)];
     [UPnPDevice(infoDic[@"uuid"]) BrowseQueue:@"USBDiskQueue" result:^(NSDictionary *result) {
        
+      
         if ([result[@"statuscode"] intValue] < 0) {
+            
+            [self hideHud];
             return;
         }
         
@@ -65,6 +69,7 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self hideHud];
             [self.tableview reloadData];
         });
     }];

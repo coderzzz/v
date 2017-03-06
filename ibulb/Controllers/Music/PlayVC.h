@@ -10,6 +10,8 @@
 
 @interface PlayVC : BaseViewController
 
+@property (assign, nonatomic) int selectindex;
+
 - (id)initWithMPMediaItemProperty:(NSString *)property name:(NSString *)name;
 
 - (id)initWithPlayQueue:(NSString *)queueName playIndex:(int)index;

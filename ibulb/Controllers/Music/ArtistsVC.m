@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     list = [@[]mutableCopy];
+    [self showHudWithString:NSLocalizedString(@"wait", nil)];
     dispatch_async(dispatch_queue_create("query", NULL), ^{
         
         MPMediaQuery *myQuery = [[MPMediaQuery alloc] init];
@@ -52,6 +53,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
            
+            [self hideHud];
             [self.tableview reloadData];
             
         });
@@ -134,8 +136,10 @@
         
         name = list[indexPath.row];
     }
+
     
     PlayVC *vc = [[PlayVC alloc]initWithMPMediaItemProperty:self.mediaItemProperty name:name];
+    vc.selectindex = (int)indexPath.row;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

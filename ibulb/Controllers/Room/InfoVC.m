@@ -35,9 +35,11 @@
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
+    [self showHudWithString:NSLocalizedString(@"wait", nil)];
     [UPnPDevice(infoDic[@"uuid"]) GetControlDeviceInfo:^(NSDictionary *result) {
         if([result[@"statuscode"] intValue] != 0)
         {
+            [self hideHud];
             return;
         }
         NSString *jsonstr = result[@"status"];
@@ -60,6 +62,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
+            [self hideHud];
             [self.tableview reloadData];
             
         });

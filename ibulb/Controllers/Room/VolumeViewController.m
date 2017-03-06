@@ -34,6 +34,7 @@
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
+    
     [UPnPDevice(infoDic[@"uuid"]) GetInfoEx:^(NSDictionary *result) {
         if([result[@"statuscode"] intValue] != 0)
         {

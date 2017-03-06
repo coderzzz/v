@@ -20,7 +20,11 @@
     for (int a = 0; a<36; a++) {
         
         UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%d白色",a]];
-        [images addObject:img];
+        if (img) {
+            
+            [images addObject:img];
+            
+        }
         
     }
     

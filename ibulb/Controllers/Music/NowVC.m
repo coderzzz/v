@@ -113,8 +113,10 @@
             if([result[@"statuscode"] intValue] != 0)
             {
                 [self showHudWithString:NSLocalizedString(@"success", nil)];
+                [self hideHud];
             }else{
                 [self showHudWithString:NSLocalizedString(@"failure", nil)];
+                [self hideHud];
                 [sender setTitle:[NSString stringWithFormat:@"%ld %@",(long)sender.tag+1,currentName] forState:UIControlStateNormal];
             }
             

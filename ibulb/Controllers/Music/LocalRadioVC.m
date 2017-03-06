@@ -32,6 +32,8 @@
     NSString *currentUrl;
     NSString *currentPicUrl;
     NSMutableArray *titles;
+    NSString *currentTitle;
+    NSURL *radioUrl;
 
 }
 
@@ -40,7 +42,9 @@
     self = [super init];
     if (self) {
         
-        [self loaddatawithtitle:title url:url];
+        currentTitle = title;
+        radioUrl = url;
+        
     }
     return self;
 }
@@ -50,6 +54,7 @@
     
     self.title = title;
     list = [NSMutableArray array];
+    [self showHudWithString:NSLocalizedString(@"wait", nil)];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
@@ -57,6 +62,7 @@
         DDXMLDocument *xmlDoc = [[DDXMLDocument alloc] initWithData:data options:0 error:nil];
         if (!xmlDoc)
         {
+            [self hideHud];
             return;
         }
         
@@ -82,6 +88,7 @@
         NSLog(@"%@",list);
         dispatch_async(dispatch_get_main_queue(), ^{
             
+            [self hideHud];
             [self.tableview reloadData];
             
         });
@@ -92,6 +99,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loaddatawithtitle:currentTitle url:radioUrl];
     selectIndex = 999;
     UINib *nib = [UINib nibWithNibName:@"LCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"lcell"];
@@ -320,9 +328,9 @@
                 if([result[@"statuscode"] intValue] != 0)
                 {
                     NSLog(@"设置失败");
-                    [self showHudWithString:@"设置失败"];
+//                    [self showHudWithString:@"设置失败"];
                 }else{
-                    [self showHudWithString:@"设置成功"];
+//                    [self showHudWithString:@"设置成功"];
                     [self.navigationController popToRootViewControllerAnimated:YES];
                     
                 }

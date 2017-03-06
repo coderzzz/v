@@ -107,7 +107,7 @@
         UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%d白色",a]];
         if (img) {
             
-          [images addObject:img];
+            [images addObject:img];
             
         }
         

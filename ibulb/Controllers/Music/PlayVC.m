@@ -38,127 +38,26 @@
     NSTimeInterval allsec;
     dispatch_source_t timer;
     NSMutableArray *artworks;
+    
+    NSString *myproperty;
+    NSString *myname;
+    
     BOOL home;
+    
+    NSString *myqueue;
+    int myindex;
+    
+    NSDictionary *radioModel;
+    
+    
 }
 - (id)initWithMPMediaItemProperty:(NSString *)property name:(NSString *)name{
     
     self = [super init];
     if (self) {
         
-        artworks =[NSMutableArray array];
-        NSArray *itemsFromArtistQuery;
-        if ([property isEqualToString:@"playlist"]) {
-            
-            MPMediaQuery *myPlaylistsQuery = [MPMediaQuery playlistsQuery];
-            NSArray *playlists = [myPlaylistsQuery collections];
-            for (MPMediaPlaylist *playlist in playlists) {
-                if ([name isEqualToString:[playlist valueForProperty: MPMediaPlaylistPropertyName]]) {
-                    
-                    itemsFromArtistQuery = [playlist items];
-                }
-            }
-        }
-        else{
-
-            MPMediaPropertyPredicate *artistNamePredicate =[MPMediaPropertyPredicate predicateWithValue:name forProperty:property];
-            MPMediaQuery *myArtistQuery = [[MPMediaQuery alloc] init];
-            [myArtistQuery addFilterPredicate: artistNamePredicate];
-            itemsFromArtistQuery = [myArtistQuery items];
-        }
-    
-        NSString *queuecontext = [NSString stringWithFormat:@"<PlayList><ListName>Test</ListName><ListInfo><SourceName></SourceName><TrackNumber>%lu</TrackNumber><SearchUrl>searchurl</SearchUrl></ListInfo><Tracks>",(unsigned long)itemsFromArtistQuery.count];
-        [self showHud];
-        for (int a=0;a<itemsFromArtistQuery.count;a++) {
-            
-            MPMediaItem *curItem = itemsFromArtistQuery[a];
-            NSURL *url= [curItem valueForProperty:MPMediaItemPropertyAssetURL];
-            NSString *fileName = [self getFileNameWithMediaItem:curItem];
-            NSArray *paths= NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-            NSString *exportFile = [[paths firstObject] stringByAppendingPathComponent:fileName];
-            NSString *trackStr = [self makeTrackStringWihtMediaItem:curItem fileName:fileName index:a];
-            queuecontext = [queuecontext stringByAppendingString:trackStr];
-            if (![[NSFileManager defaultManager]fileExistsAtPath:exportFile]) {
-                
-                AVURLAsset *songAsset= [AVURLAsset URLAssetWithURL:url options:nil];
-                //init export, here you must set "presentName" argument to "AVAssetExportPresetPassthrough". If not, you will can't export mp3 correct.
-                AVAssetExportSession *mExporter= [[AVAssetExportSession alloc] initWithAsset:songAsset presetName:AVAssetExportPresetAppleM4A];
-                mExporter.outputFileType = AVFileTypeAppleM4A;
-                NSURL *exportURL = [NSURL fileURLWithPath:exportFile];
-                mExporter.outputURL = exportURL;
-                dispatch_semaphore_t wait = dispatch_semaphore_create(0l);
-                [mExporter exportAsynchronouslyWithCompletionHandler:^{
-                    
-                    int exportStatus = mExporter.status;
-                    switch (exportStatus)
-                    {
-                        case AVAssetExportSessionStatusFailed:
-                        {
-                            // log error to text view
-                            NSError *exportError = mExporter.error;
-                            NSLog (@"AVAssetExportSessionStatusFailed: %@", exportError);
-                            break;
-                        }
-                        case AVAssetExportSessionStatusCompleted:
-                        {
-                            NSLog (@"AVAssetExportSessionStatusCompleted");
-                            
-                            break;
-                        }
-                        case AVAssetExportSessionStatusUnknown:
-                        {
-                            NSLog (@"AVAssetExportSessionStatusUnknown");
-                            break;
-                        }
-                        case AVAssetExportSessionStatusExporting:
-                        {
-                            NSLog (@"AVAssetExportSessionStatusExporting");
-                            break;
-                        }
-                        case AVAssetExportSessionStatusCancelled:
-                        {
-                            NSLog (@"AVAssetExportSessionStatusCancelled");
-                            break;
-                        }
-                        case AVAssetExportSessionStatusWaiting:
-                        {
-                            NSLog (@"AVAssetExportSessionStatusWaiting");
-                            break;
-                        }
-                        default:
-                        {
-                            NSLog (@"didn't get export status");
-                            break;
-                        }
-                    }
-                    dispatch_semaphore_signal(wait);
-                    
-                }];
-                long timeout = dispatch_semaphore_wait(wait, DISPATCH_TIME_FOREVER);
-                if (timeout) {
-                    NSLog(@"timeout.");
-                }
-                if (wait) {
-                    //dispatch_release(wait);
-                    wait = nil;
-                }
-            }
-        }
-        [self hideHud];
-        queuecontext = [queuecontext stringByAppendingString:@"</Tracks></PlayList>"];
-        NSLog(@"queuecontext =%@",queuecontext);
-        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
-        NSDictionary *infoDic = [delegate.devices firstObject];
-        [UPnPDevice(infoDic[@"uuid"]) CreateQueue:queuecontext result:^(NSDictionary *result) {
-            if([result[@"statuscode"] intValue]!= 0)
-            {
-                return;
-            }
-            
-            [UPnPDevice(infoDic[@"uuid"]) PlayQueueWithIndex:@"Test" index:1 result:^(NSDictionary *result) {
-                
-                [self updateUI];
-            }];
-        }];
+        myproperty = property;
+        myname = name;
     }
 
     return self;
@@ -169,15 +68,8 @@
     self = [super init];
     if (self) {
         
-        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
-        NSDictionary *infoDic = [delegate.devices firstObject];
-        [UPnPDevice(infoDic[@"uuid"]) PlayQueueWithIndex:queueName index:index result:^(NSDictionary *result) {
-            if([result[@"statuscode"] intValue] == 0)
-            {
-                NSLog(@"play success");
-                [self updateUI];
-            }
-        }];
+        myqueue = queueName;
+        myindex = index;
     }
     return self;
     
@@ -187,33 +79,7 @@
     self = [super init];
     if (self) {
         
-     
-        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
-        NSDictionary *infoDic = [delegate.devices firstObject];
-        NSString *url = model[@"URL"];
-        NSArray *ary = [url componentsSeparatedByString:@"&"];
-        NSString *first = [NSString stringWithFormat:@"%@&amp;",ary[0]];
-        radioUrl = [NSString stringWithFormat:@"%@%@",first,ary[1]];
-        radioName = model[@"text"];
-        radioImageUrl = model[@"image"];
-        NSString * queuecontext = [NSString stringWithFormat:@"<PlayList><ListName>Radio</ListName><ListInfo><SourceName></SourceName><TrackNumber>1</TrackNumber><SearchUrl>searchurl</SearchUrl><Radio>1</Radio></ListInfo><Tracks><Track1><URL>%@</URL><Source></Source><Metadata>&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;&lt;DIDL-Lite xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:upnp=\"urn:schemas-upnp-org:metadata-1-0/upnp/\" xmlns:song=\"www.wiimu.com/song/\" xmlns:custom=\"www.wiimu.com/custom/\" xmlns=\"urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/\"&gt;&lt;upnp:class&gt;object.item.audioItem.musicTrack&lt;/upnp:class&gt;&lt;item&gt;&lt;dc:title&gt;%@&lt;/dc:title&gt;&lt;upnp:artist&gt;%@&lt;/upnp:artist&gt;&lt;upnp:album&gt;%@&lt;/upnp:album&gt;&lt;upnp:albumArtURI&gt;%@&lt;/upnp:albumArtURI&gt;&lt;custom:url&gt;%@&lt;/custom:url&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</Metadata></Track1></Tracks></PlayList>",radioUrl,model[@"text"],model[@"subtext"],@"专辑",model[@"image"],@"url"];
-        
-        NSLog(@"queuecontext =%@",queuecontext);
-        [UPnPDevice(infoDic[@"uuid"]) CreateQueue:queuecontext result:^(NSDictionary *result) {
-            
-            if([result[@"statuscode"] intValue] != 0)
-            {
-                NSLog(@"播放失败");
-                return;
-            }
-            
-            [UPnPDevice(infoDic[@"uuid"]) PlayQueueWithIndex:@"Radio" index:1 result:^(NSDictionary *result) {
-                
-                [self updateUI];
-                
-                
-            }];
-        }];
+        radioModel = model;
     }
     return self;
 }
@@ -226,6 +92,7 @@
     }
     return self;
 }
+
 - (void)updateUI{
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -326,38 +193,228 @@
     }];
     
 }
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    if (home) {
-        
-        [self updateUI];
-    }
-    
-    if (radioUrl.length>0) {
-        
-        self.timeProgress.hidden = YES;
-        self.randomBtn.selected = YES;
-        self.randomBtn.userInteractionEnabled = NO;
-        self.orderBtn.selected = YES;
-        self.orderBtn.userInteractionEnabled = NO;
-        self.prevBtn.selected = YES;
-        self.prevBtn.userInteractionEnabled = NO;
-        self.nextBtn.selected = YES;
-        self.nextBtn.userInteractionEnabled = NO;
-        UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"45"] style:UIBarButtonItemStylePlain target:self action:@selector(more)];
-        self.navigationItem.rightBarButtonItem = item;
-    }
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"NOW PLAY", nil);
     allsec = 0;
     [[WiimuUPnP sharedInstance] addObserver:self];
+    
+    if (myproperty) [self layoutMPMediaItem];
+    if (myqueue) [self layoutQueue];
+    if (radioModel) [self layoutRadio];
+    if (home) [self layoutHome];
 }
+
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    [[WiimuUPnP sharedInstance] removeObserver:self];
+    if (timer) dispatch_source_cancel(timer);
+}
+
+
+- (void)layoutHome{
+    
+     [self updateUI];
+}
+
+- (void)layoutMPMediaItem{
+    
+    [self showHudWithString:NSLocalizedString(@"wa", nil)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        artworks =[NSMutableArray array];
+        int index = 1;
+        NSMutableArray *itemsFromArtistQuery = [NSMutableArray array];
+        if ([myproperty isEqualToString:@"playlist"]) {
+            
+            MPMediaQuery *myPlaylistsQuery = [MPMediaQuery playlistsQuery];
+            NSArray *playlists = [myPlaylistsQuery collections];
+            for (MPMediaPlaylist *playlist in playlists) {
+                if ([myname isEqualToString:[playlist valueForProperty: MPMediaPlaylistPropertyName]]) {
+                    
+                    itemsFromArtistQuery = [[playlist items]mutableCopy];
+                }
+            }
+        }
+        else if([myproperty isEqualToString:@"title"]){
+
+            MPMediaQuery *myQuery = [[MPMediaQuery alloc] init];
+            [itemsFromArtistQuery addObjectsFromArray:[myQuery items]];
+            index = self.selectindex;
+        }
+        else{
+            
+            MPMediaPropertyPredicate *artistNamePredicate =[MPMediaPropertyPredicate predicateWithValue:myname forProperty:myproperty];
+            MPMediaQuery *myArtistQuery = [[MPMediaQuery alloc] init];
+            [myArtistQuery addFilterPredicate: artistNamePredicate];
+            itemsFromArtistQuery = [[myArtistQuery items]mutableCopy];
+
+        }
+        
+        NSString *queuecontext = [NSString stringWithFormat:@"<PlayList><ListName>Test</ListName><ListInfo><SourceName></SourceName><TrackNumber>%lu</TrackNumber><SearchUrl>searchurl</SearchUrl></ListInfo><Tracks>",(unsigned long)itemsFromArtistQuery.count];
+        
+        for (int a=0;a<itemsFromArtistQuery.count;a++) {
+            
+            MPMediaItem *curItem = itemsFromArtistQuery[a];
+            NSURL *url= [curItem valueForProperty:MPMediaItemPropertyAssetURL];
+            NSString *fileName = [self getFileNameWithMediaItem:curItem];
+            NSArray *paths= NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+            NSString *exportFile = [[paths firstObject] stringByAppendingPathComponent:fileName];
+            NSString *trackStr = [self makeTrackStringWihtMediaItem:curItem fileName:fileName index:a];
+            queuecontext = [queuecontext stringByAppendingString:trackStr];
+            if (![[NSFileManager defaultManager]fileExistsAtPath:exportFile]) {
+                
+                AVURLAsset *songAsset= [AVURLAsset URLAssetWithURL:url options:nil];
+                //init export, here you must set "presentName" argument to "AVAssetExportPresetPassthrough". If not, you will can't export mp3 correct.
+                AVAssetExportSession *mExporter= [[AVAssetExportSession alloc] initWithAsset:songAsset presetName:AVAssetExportPresetAppleM4A];
+                mExporter.outputFileType = AVFileTypeAppleM4A;
+                NSURL *exportURL = [NSURL fileURLWithPath:exportFile];
+                mExporter.outputURL = exportURL;
+                dispatch_semaphore_t wait = dispatch_semaphore_create(0l);
+                [mExporter exportAsynchronouslyWithCompletionHandler:^{
+                    
+                    int exportStatus = mExporter.status;
+                    switch (exportStatus)
+                    {
+                        case AVAssetExportSessionStatusFailed:
+                        {
+                            // log error to text view
+                            NSError *exportError = mExporter.error;
+                            NSLog (@"AVAssetExportSessionStatusFailed: %@", exportError);
+                            break;
+                        }
+                        case AVAssetExportSessionStatusCompleted:
+                        {
+                            NSLog (@"AVAssetExportSessionStatusCompleted");
+                            
+                            break;
+                        }
+                        case AVAssetExportSessionStatusUnknown:
+                        {
+                            NSLog (@"AVAssetExportSessionStatusUnknown");
+                            break;
+                        }
+                        case AVAssetExportSessionStatusExporting:
+                        {
+                            NSLog (@"AVAssetExportSessionStatusExporting");
+                            break;
+                        }
+                        case AVAssetExportSessionStatusCancelled:
+                        {
+                            NSLog (@"AVAssetExportSessionStatusCancelled");
+                            break;
+                        }
+                        case AVAssetExportSessionStatusWaiting:
+                        {
+                            NSLog (@"AVAssetExportSessionStatusWaiting");
+                            break;
+                        }
+                        default:
+                        {
+                            NSLog (@"didn't get export status");
+                            break;
+                        }
+                    }
+                    dispatch_semaphore_signal(wait);
+                    
+                }];
+                long timeout = dispatch_semaphore_wait(wait, DISPATCH_TIME_FOREVER);
+                if (timeout) {
+                    NSLog(@"timeout.");
+                }
+                if (wait) {
+                    //dispatch_release(wait);
+                    wait = nil;
+                }
+            }
+        }
+        [self hideHud];
+        queuecontext = [queuecontext stringByAppendingString:@"</Tracks></PlayList>"];
+        NSLog(@"queuecontext =%@",queuecontext);
+        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSDictionary *infoDic = [delegate.devices firstObject];
+        [UPnPDevice(infoDic[@"uuid"]) CreateQueue:queuecontext result:^(NSDictionary *result) {
+            if([result[@"statuscode"] intValue]!= 0)
+            {
+                return;
+            }
+            
+            [UPnPDevice(infoDic[@"uuid"]) PlayQueueWithIndex:@"Test" index:index result:^(NSDictionary *result) {
+                
+                [self updateUI];
+            }];
+        }];
+
+        
+    });
+    
+}
+
+- (void)layoutQueue{
+    
+    [self showHudWithString:NSLocalizedString(@"wa", nil)];
+    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSDictionary *infoDic = [delegate.devices firstObject];
+    [UPnPDevice(infoDic[@"uuid"]) PlayQueueWithIndex:myqueue index:myindex result:^(NSDictionary *result) {
+        
+        [self hideHud];
+        if([result[@"statuscode"] intValue] == 0)
+        {
+            NSLog(@"play success");
+            [self updateUI];
+        }
+    }];
+}
+
+- (void)layoutRadio{
+    
+    self.timeProgress.hidden = YES;
+    self.randomBtn.selected = YES;
+    self.randomBtn.userInteractionEnabled = NO;
+    self.orderBtn.selected = YES;
+    self.orderBtn.userInteractionEnabled = NO;
+    self.prevBtn.selected = YES;
+    self.prevBtn.userInteractionEnabled = NO;
+    self.nextBtn.selected = YES;
+    self.nextBtn.userInteractionEnabled = NO;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"45"] style:UIBarButtonItemStylePlain target:self action:@selector(more)];
+    self.navigationItem.rightBarButtonItem = item;
+    
+    [self showHudWithString:NSLocalizedString(@"wa", nil)];
+    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSDictionary *infoDic = [delegate.devices firstObject];
+    NSString *url = radioModel[@"URL"];
+    NSArray *ary = [url componentsSeparatedByString:@"&"];
+    NSString *first = [NSString stringWithFormat:@"%@&amp;",ary[0]];
+    radioUrl = [NSString stringWithFormat:@"%@%@",first,ary[1]];
+    radioName = radioModel[@"text"];
+    radioImageUrl = radioModel[@"image"];
+    NSString * queuecontext = [NSString stringWithFormat:@"<PlayList><ListName>Radio</ListName><ListInfo><SourceName></SourceName><TrackNumber>1</TrackNumber><SearchUrl>searchurl</SearchUrl><Radio>1</Radio></ListInfo><Tracks><Track1><URL>%@</URL><Source></Source><Metadata>&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;&lt;DIDL-Lite xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:upnp=\"urn:schemas-upnp-org:metadata-1-0/upnp/\" xmlns:song=\"www.wiimu.com/song/\" xmlns:custom=\"www.wiimu.com/custom/\" xmlns=\"urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/\"&gt;&lt;upnp:class&gt;object.item.audioItem.musicTrack&lt;/upnp:class&gt;&lt;item&gt;&lt;dc:title&gt;%@&lt;/dc:title&gt;&lt;upnp:artist&gt;%@&lt;/upnp:artist&gt;&lt;upnp:album&gt;%@&lt;/upnp:album&gt;&lt;upnp:albumArtURI&gt;%@&lt;/upnp:albumArtURI&gt;&lt;custom:url&gt;%@&lt;/custom:url&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;</Metadata></Track1></Tracks></PlayList>",radioUrl,radioModel[@"text"],radioModel[@"subtext"],@"专辑",radioModel[@"image"],@"url"];
+    
+    NSLog(@"queuecontext =%@",queuecontext);
+    [UPnPDevice(infoDic[@"uuid"]) CreateQueue:queuecontext result:^(NSDictionary *result) {
+        
+        
+        [self hideHud];
+        if([result[@"statuscode"] intValue] != 0)
+        {
+            NSLog(@"播放失败");
+            return;
+        }
+        
+        [UPnPDevice(infoDic[@"uuid"]) PlayQueueWithIndex:@"Radio" index:1 result:^(NSDictionary *result) {
+            
+            [self updateUI];
+            
+            
+        }];
+    }];
+}
+
 - (void)dealloc{
     
-    [[WiimuUPnP sharedInstance] removeObserver:self];
 }
 #pragma mark - WiimuUPnPObserver methods
 - (void)UPnPDeviceEvent:(id<WiimuDeviceProtocol>)device event:(NSString *)event

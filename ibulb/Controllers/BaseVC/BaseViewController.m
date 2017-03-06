@@ -85,9 +85,13 @@
 
 - (void)hideHud{
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [mbpHud hide:YES];
+         mbpHud = nil;
+    });
     
-    [mbpHud hide:YES];
-     mbpHud = nil;
+    
 }
 
 - (void)showHudWithString:(NSString *)string{
@@ -95,17 +99,15 @@
     
     AppDelegate *dele = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
-    MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:dele.window];
+    mbpHud = [[MBProgressHUD alloc]initWithView:dele.window];
     
-    [dele.window addSubview:hud];
+    [dele.window addSubview:mbpHud];
     
-    hud.mode = MBProgressHUDModeText;
+    mbpHud.mode = MBProgressHUDModeText;
     
-    hud.labelText = string;
+    mbpHud.labelText = string;
     
-    [hud show:YES];
-    
-    [hud hide:YES afterDelay:1.2];
+    [mbpHud show:YES];
     
     
 }
