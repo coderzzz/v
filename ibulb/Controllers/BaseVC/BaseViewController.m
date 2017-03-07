@@ -19,6 +19,9 @@
 
 {
     MBProgressHUD *mbpHud;
+    
+    UIButton *tipBtn;
+    NSString *method;
 }
 
 - (id)init{
@@ -93,6 +96,40 @@
     
     
 }
+
+- (void)showTipWithView:(UIView *)view action:(NSString *)action{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [mbpHud hide:YES];
+         mbpHud = nil;
+        
+        AppDelegate *dele = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+        mbpHud = [[MBProgressHUD alloc]initWithView:dele.window];
+        
+        [dele.window addSubview:mbpHud];
+        
+        mbpHud.mode = MBProgressHUDModeText;
+        
+        mbpHud.labelText = NSLocalizedString(@"fa", nil);
+        
+        [mbpHud show:YES];
+        [mbpHud hide:YES afterDelay:1.7];
+        
+        tipBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
+        method = action;
+        [tipBtn addTarget:self action:@selector(reload) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:tipBtn];
+    });
+    
+}
+
+- (void)reload{
+    
+    [self performSelector:NSSelectorFromString(method)];
+    [tipBtn removeFromSuperview];
+}
+
 
 - (void)showHudWithString:(NSString *)string{
     

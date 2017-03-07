@@ -23,7 +23,7 @@
 "Name" = "名称";
 "wait" = "数据加载中，请稍等...";
 "wa" = "数据缓冲中...";
-
+"fa" = "加载失败，请点击页面空白处重新加载";
 
 "Password" = "密码";
 "Show Password" = "显示密码";
@@ -85,7 +85,12 @@
 "Albums" = "专辑";
 "Songs" = "歌曲";
 "unknow" = "未知";
-"Now Play" ="正在播放";
+
+"stockholm 2.0" = "stockholm 2.0";
+"COPENHAGEN 2.0" = "COPENHAGEN 2.0";
+
+
+"NOW PLAY" ="正在播放";
 "success" = "设置成功";
 "failure" = "设置失败";
 "EDIT PRESETS" = "编辑预设";

@@ -44,6 +44,8 @@
     
     BOOL home;
     
+    __block CGFloat begin;
+    
     NSString *myqueue;
     int myindex;
     
@@ -108,6 +110,13 @@
 //            self.playBtn.selected = ![result[@"OutCurrentTransportState"] isEqualToString:@"PLAYING"];
 
             //progress
+            NSString *type = result[@"PlayMedium"];
+            if ([type hasPrefix:@"RADIO"]) {
+                
+                self.timeProgress.userInteractionEnabled = NO;
+            }
+            
+            
             if([self secondFromTimeString:result[@"OutTrackDuration"]] != 0 && home)
             {
                 if (timer) dispatch_source_cancel(timer);
@@ -370,7 +379,7 @@
 
 - (void)layoutRadio{
     
-    self.timeProgress.hidden = YES;
+    self.timeProgress.userInteractionEnabled = NO;
     self.randomBtn.selected = YES;
     self.randomBtn.userInteractionEnabled = NO;
     self.orderBtn.selected = YES;
@@ -436,7 +445,7 @@
                 if (allsec != nowsec) {
                     
 
-                    __block CGFloat begin = 0.f;
+                    begin = 0.f;
                     
                     self.timeProgress.maximumValue = (CGFloat)nowsec;
                     timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
@@ -550,14 +559,32 @@
         
     }];
 }
-- (IBAction)changeTimeAction:(UISlider *)sender {
+- (IBAction)changeTime:(UISlider *)sender {
+    
+  
+    [self showHudWithString:NSLocalizedString(@"wa", nil)];
+    if (timer) dispatch_suspend(timer);
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
     [UPnPDevice(infoDic[@"uuid"]) sendProgress:sender.value result:^(NSDictionary *result) {
         
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self hideHud];
+//            if([result[@"statuscode"] intValue]!= 0)
+//            {
+//                if (timer) dispatch_resume(timer);
+//                return;
+//            }
+            begin = sender.value;
+            if (timer) dispatch_resume(timer);
+
+        });
+        
     }];
 }
+
 - (IBAction)changeVolumeAction:(UISlider *)sender {
     
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;

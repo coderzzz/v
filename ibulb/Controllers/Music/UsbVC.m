@@ -65,7 +65,17 @@
                     [song setObject:child.stringValue?:@"" forKey:@"Source"];
                 }
             }
-            [list addObject:song];
+            
+            NSString *title = song[@"title"];
+            NSString *artist = song[@"artist"];
+            
+            if ([artist hasPrefix:@"._"] || [title hasPrefix:@"._"]) {
+                
+                
+            }else{
+                
+                [list addObject:song];
+            }
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{

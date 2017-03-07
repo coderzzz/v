@@ -50,19 +50,19 @@
 }
 
 
-- (void)loaddatawithtitle:(NSString *)title url:(NSURL *)url{
+- (void)loaddata{
     
-    self.title = title;
+    self.title = currentTitle;
     list = [NSMutableArray array];
     [self showHudWithString:NSLocalizedString(@"wait", nil)];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:radioUrl];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         NSData *data =[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         DDXMLDocument *xmlDoc = [[DDXMLDocument alloc] initWithData:data options:0 error:nil];
         if (!xmlDoc)
         {
-            [self hideHud];
+            [self showTipWithView:self.tableview action:@"loaddata"];
             return;
         }
         
@@ -95,11 +95,12 @@
     });
 }
 
+
 #pragma mark ViewLife cyle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loaddatawithtitle:currentTitle url:radioUrl];
+    [self loaddata];
     selectIndex = 999;
     UINib *nib = [UINib nibWithNibName:@"LCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"lcell"];
@@ -271,7 +272,11 @@
             else{
                 
                 NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",model[@"URL"]]];
-                [self loaddatawithtitle:model[@"text"] url:url];
+                
+                currentTitle = model[@"text"];
+                radioUrl = url;
+//                [self loaddatawithtitle:model[@"text"] url:url];
+                [self loaddata];
             }
             
             

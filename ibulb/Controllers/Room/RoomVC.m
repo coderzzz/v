@@ -15,7 +15,7 @@
 #import "DDXMLElementAdditions.h"
 #import "AppDelegate.h"
 
-
+#import <MediaPlayer/MediaPlayer.h>
 @interface RoomVC ()<UITableViewDataSource,UITableViewDelegate,WiimuUPnPObserver>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -63,6 +63,8 @@
     
     list = [@[NSLocalizedString(@"Tuning and Placement", nil),NSLocalizedString(@"Information", nil),NSLocalizedString(@"Settings", nil)]mutableCopy];
 }
+    
+    
 
 #pragma mark Action
 - (IBAction)changeVolumeAction:(UISlider *)sender {

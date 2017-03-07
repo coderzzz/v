@@ -95,7 +95,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"SPEAKER GROUP EMMA'S ROOM";
+    self.title = NSLocalizedString(@"SPEAKER GROUP EMMA'S ROOM", nil);
     self.alab.text = NSLocalizedString(@"ADD MORE", nil);
     UINib *nib = [UINib nibWithNibName:@"LeftCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"leftCell"];
@@ -219,7 +219,7 @@
     }
     cell.leftbtn.tag = indexPath.row;
     cell.rightbtn.tag = indexPath.row;
-    
+    cell.titlelab.text =dic[@"name"];
     [cell.leftbtn addTarget:self action:@selector(left:) forControlEvents:UIControlEventTouchUpInside];
     [cell.rightbtn addTarget:self action:@selector(right:) forControlEvents:UIControlEventTouchUpInside];
     cell.slider.tag = indexPath.row;

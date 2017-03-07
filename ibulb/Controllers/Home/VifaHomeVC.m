@@ -87,9 +87,42 @@
     [self.collectview addGestureRecognizer:ges];
     
     
+    MPVolumeView *volumeView = [MPVolumeView new];
+    volumeView.frame = CGRectMake(0, -200, 10, 10);
+    [self.view addSubview:volumeView];
+    
+    
+    [self addNotifi];
+}
+#pragma mark notification
+- (void)addNotifi{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(volumeChanged:)
+                                                 name:@"AVSystemController_SystemVolumeDidChangeNotification"
+                                               object:nil];
+}
+- (void)volumeChanged:(NSNotification *)notification
+{
+    
+    float volume =
+    [[[notification userInfo]
+      objectForKey:@"AVSystemController_AudioVolumeNotificationParameter"]
+     floatValue];
+    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSDictionary *infoDic = [delegate.devices firstObject];
+    [UPnPDevice(infoDic[@"uuid"]) sendVolume:(volume * 100) result:^(NSDictionary *result) {
+        
+         NSLog(@"current volume = %f",volume * 100);
+        
+    }];
+   
     
 }
 
+
+
+#pragma mark action
 - (void)hidepop{
     
     if (!self.popTableview.isHidden) {
@@ -204,10 +237,14 @@
             }
             if (playing) {
                 
-                [cell.playbtn setImage:[UIImage imageNamed:@"142"] forState:UIControlStateNormal];
+                cell.playwebview.hidden = NO;
+                cell.playimgv.hidden = YES;
+          
             }else{
                 cell.bgimgv.image = nil;
-                [cell.playbtn setImage:[UIImage imageNamed:@"home_music"] forState:UIControlStateNormal];
+                cell.playwebview.hidden = YES;
+                cell.playimgv.hidden =NO;
+//                [cell.playbtn setImage:[UIImage imageNamed:@"home_music"] forState:UIControlStateNormal];
             }
         });
         
@@ -223,7 +260,7 @@
     
 }
 
-- (void)play{
+- (void)playaction{
 
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
@@ -322,8 +359,12 @@
     if (indexPath.row == 0) {
         
         VifaTopCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"vitfaTop" forIndexPath:indexPath];
-        [cell.playbtn addTarget:self action:@selector(play) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.gs addTarget:self action:@selector(playaction)];
         cell.namelab.text = dic[@"name"];
+        UITapGestureRecognizer *ges  = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(playaction)];
+        [cell.playview addGestureRecognizer:ges];
+        
+        
         if ([type isEqualToString:@"1"]) {
             
             [cell.btn setImage:[UIImage imageNamed:@"44"] forState:UIControlStateNormal];
@@ -444,11 +485,12 @@
     if (indexPath.row ==0) {
         
         Netconfig *vc = [[Netconfig alloc]init];
-        vc.title = @"NETWORK CONFIGURATION";
+        vc.title = NSLocalizedString(@"NETWORK CONFIGURATION", nil);
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
+        
     }
-    if (indexPath.row == 1) {
+    else if (indexPath.row == 1) {
         
         [[AFHttp shareInstanced]joinGroupWithIP:infoDic[@"ip"] completionBlock:^(id obj) {
             

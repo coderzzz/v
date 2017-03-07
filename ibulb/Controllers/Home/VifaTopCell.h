@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @interface VifaTopCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIButton *playbtn;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *donebtn;
 @property (weak, nonatomic) IBOutlet UILabel *namelab;
 @property (weak, nonatomic) IBOutlet UIImageView *bgimgv;
 @property (weak, nonatomic) IBOutlet UIButton *btn;
+
+
+@property (weak, nonatomic) IBOutlet UIView *playview;
+
+@property (weak, nonatomic) IBOutlet UIImageView *playimgv;
+@property (weak, nonatomic) IBOutlet UIImageView *playwebview;
+
 
 @end

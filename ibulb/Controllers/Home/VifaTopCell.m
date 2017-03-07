@@ -12,6 +12,25 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+
+    self.playwebview.hidden = YES;
+    NSMutableArray *images = [NSMutableArray array];
+    for (int a = 1; a<42; a++) {
+        
+        UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"图层-%d",a]];
+        if (img) {
+            
+            [images addObject:img];
+            
+        }
+        
+    }
+    
+    self.playwebview.animationImages = images;
+    self.playwebview.animationDuration = 2;
+    self.playwebview.animationRepeatCount = 0;
+    [self.playwebview startAnimating];
+    
     
 }
 

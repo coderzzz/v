@@ -32,6 +32,18 @@
     [super viewDidLoad];
     
     
+    [self loaddata];
+    
+}
+
+
+
+
+
+
+#pragma mark Action
+- (void)loaddata{
+    
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     infoDic = [delegate.devices firstObject];
     list = [NSMutableArray array];
@@ -41,7 +53,7 @@
         NSLog(@"%@",result);
         if([result[@"statuscode"] intValue] != 0)
         {
-            [self hideHud];
+            [self showTipWithView:self.tableview action:@"loaddata"];
             return;
         }
         
@@ -65,8 +77,8 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self hideHud];
-            [self.tableview reloadData];
+             [self hideHud];
+             [self.tableview reloadData];
             
         });
         
@@ -74,14 +86,6 @@
         
     }];
 }
-
-
-
-
-
-
-#pragma mark Action
-
 
 
 

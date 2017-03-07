@@ -64,13 +64,14 @@
         
         cell.img1.hidden = YES;
         cell.imag2.hidden = NO;
-        cell.lab.text = @"stockholm 2.0";
+        cell.lab.text = NSLocalizedString(@"stockholm 2.0", nil);
     }
     else{
         
         cell.img1.hidden = NO;
         cell.imag2.hidden = YES;
-        cell.lab.text = @"COPENHAGEN 2.0";
+        
+        cell.lab.text = NSLocalizedString(@"COPENHAGEN 2.0", nil);;
     }
     return cell;
 }

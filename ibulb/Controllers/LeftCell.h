@@ -15,4 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *rightbtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgv;
+
+@property (weak, nonatomic) IBOutlet UILabel *titlelab;
+
+
+
 @end

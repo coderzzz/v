@@ -115,7 +115,7 @@
     
     self.imgv.animationImages = images;
     self.imgv.animationDuration = 2;
-    self.imgv.animationRepeatCount = 99999999;
+    self.imgv.animationRepeatCount = 0;
     [self.imgv startAnimating];
     
     self.slab.text = NSLocalizedString(@"Searching", nil);

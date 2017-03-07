@@ -23,6 +23,13 @@
 "Name" = "Name";
 "wait" = "Please wait...";
 "wa" = "Please wait...";
+
+"stockholm 2.0" = "stockholm 2.0";
+"COPENHAGEN 2.0" = "COPENHAGEN 2.0";
+
+
+"fa" = "Load failed, please click the page blank to reload";
+
 "Password" = "Password";
 "Show Password" = "Show Password";
 "CHOOSE YOUR SPEAKER TYPE" = "CHOOSE YOUR SPEAKER TYPE";

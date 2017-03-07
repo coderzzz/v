@@ -11,7 +11,7 @@
 @interface BaseViewController : UIViewController
 @property (nonatomic,strong) UIBarButtonItem *commonbackItem;
 - (void)showHudWithString:(NSString *)string;
-
+- (void)showTipWithView:(UIView *)view action:(NSString *)action;
 - (void)showHud;
 
 - (void)hideHud;

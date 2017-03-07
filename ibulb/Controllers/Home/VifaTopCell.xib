@@ -26,14 +26,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl8-gB-jgv">
-                        <rect key="frame" x="21" y="15" width="50" height="39"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="39" id="grU-cZ-HpB"/>
-                            <constraint firstAttribute="width" constant="50" id="xEe-Qt-acU"/>
-                        </constraints>
-                        <state key="normal" image="home_music"/>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0n-zB-o3f">
                         <rect key="frame" x="229" y="15" width="50" height="39"/>
                         <constraints>
@@ -51,13 +43,26 @@
                         </constraints>
                         <state key="normal" image="44"/>
                     </button>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9YG-Wr-nBP">
+                        <rect key="frame" x="13" y="15" width="40" height="40"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f4n-Mt-g4p">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_music" translatesAutoresizingMaskIntoConstraints="NO" id="C3w-BF-hsO">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="lsM-Ul-l8O" secondAttribute="bottom" constant="63" id="1bZ-Z3-9EY"/>
-                <constraint firstItem="Fl8-gB-jgv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="21" id="2VL-33-jrP"/>
                 <constraint firstItem="U0Y-5K-Zc5" firstAttribute="top" secondItem="U0n-zB-o3f" secondAttribute="bottom" constant="26" id="7ZH-kK-bxh"/>
                 <constraint firstAttribute="bottom" secondItem="zgY-29-z4p" secondAttribute="bottom" id="ABr-hs-3p2"/>
                 <constraint firstItem="U0Y-5K-Zc5" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" constant="7" id="K8I-K1-Z3V"/>
@@ -65,7 +70,6 @@
                 <constraint firstItem="zgY-29-z4p" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TqL-LB-y1w"/>
                 <constraint firstAttribute="trailing" secondItem="U0n-zB-o3f" secondAttribute="trailing" constant="16" id="V0q-g7-maA"/>
                 <constraint firstItem="U0n-zB-o3f" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="iHU-68-KnN"/>
-                <constraint firstItem="Fl8-gB-jgv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="jSK-9d-gK4"/>
                 <constraint firstItem="lsM-Ul-l8O" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="oMg-Zk-cCz"/>
                 <constraint firstAttribute="trailing" secondItem="zgY-29-z4p" secondAttribute="trailing" id="t19-bo-EgY"/>
             </constraints>
@@ -75,7 +79,9 @@
                 <outlet property="btn" destination="U0Y-5K-Zc5" id="mXj-A0-jiu"/>
                 <outlet property="donebtn" destination="U0n-zB-o3f" id="Uqd-WY-lZH"/>
                 <outlet property="namelab" destination="lsM-Ul-l8O" id="ujr-eK-jTS"/>
-                <outlet property="playbtn" destination="Fl8-gB-jgv" id="Lfq-UX-eba"/>
+                <outlet property="playimgv" destination="C3w-BF-hsO" id="CwC-IK-izv"/>
+                <outlet property="playview" destination="9YG-Wr-nBP" id="FGe-64-Bp1"/>
+                <outlet property="playwebview" destination="f4n-Mt-g4p" id="TWA-Y5-9nl"/>
             </connections>
             <point key="canvasLocation" x="485.5" y="313"/>
         </collectionViewCell>
