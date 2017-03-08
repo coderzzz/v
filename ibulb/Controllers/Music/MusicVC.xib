@@ -87,17 +87,10 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXJ-BF-w7w">
-                    <rect key="frame" x="39" y="376" width="106" height="105"/>
+                    <rect key="frame" x="39" y="376" width="103" height="103"/>
                     <state key="normal" image="119"/>
                     <connections>
                         <action selector="btnAction:" destination="-1" eventType="touchUpInside" id="PEt-jB-OAf"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTS-PG-Xre">
-                    <rect key="frame" x="39" y="229" width="106" height="105"/>
-                    <state key="normal" image="117"/>
-                    <connections>
-                        <action selector="btnAction:" destination="-1" eventType="touchUpInside" id="pSM-8d-fPa"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVu-vy-Dg6">
@@ -131,11 +124,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKX-LY-kPf">
-                    <rect key="frame" x="195" y="229" width="106" height="105"/>
+                    <rect key="frame" x="195" y="229" width="103" height="103"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="105" id="QJB-GY-7QO"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="105" id="Xr5-fO-VzW"/>
-                        <constraint firstAttribute="width" constant="106" id="wc1-im-MTL"/>
+                        <constraint firstAttribute="height" constant="103" id="QJB-GY-7QO"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="103" id="Xr5-fO-VzW"/>
+                        <constraint firstAttribute="width" constant="103" id="wc1-im-MTL"/>
                     </constraints>
                     <state key="normal" image="118"/>
                     <connections>
@@ -152,6 +145,13 @@
                         <action selector="localAction:" destination="-1" eventType="touchUpInside" id="djs-R4-K4e"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTS-PG-Xre">
+                    <rect key="frame" x="39" y="229" width="103" height="103"/>
+                    <state key="normal" image="117"/>
+                    <connections>
+                        <action selector="btnAction:" destination="-1" eventType="touchUpInside" id="pSM-8d-fPa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -165,7 +165,7 @@
                 <constraint firstAttribute="trailing" secondItem="Yik-ey-ZH7" secondAttribute="trailing" constant="19" id="RO8-dp-mcD"/>
                 <constraint firstAttribute="trailing" secondItem="Luc-5s-LrH" secondAttribute="trailing" constant="19" id="Wtg-h6-6eX"/>
                 <constraint firstAttribute="trailing" secondItem="aZj-95-lgr" secondAttribute="trailing" constant="19" id="Zq6-mr-eRm"/>
-                <constraint firstItem="Luc-5s-LrH" firstAttribute="trailing" secondItem="vKX-LY-kPf" secondAttribute="trailing" id="hGV-KZ-dcc"/>
+                <constraint firstItem="Luc-5s-LrH" firstAttribute="trailing" secondItem="vKX-LY-kPf" secondAttribute="trailing" constant="3" id="hGV-KZ-dcc"/>
                 <constraint firstItem="Yik-ey-ZH7" firstAttribute="top" secondItem="ctr-fJ-mgM" secondAttribute="top" constant="209" id="rFr-VZ-Qhw"/>
                 <constraint firstItem="zGT-Vt-bNj" firstAttribute="top" secondItem="aZj-95-lgr" secondAttribute="bottom" constant="20" id="xaf-Yx-HrE"/>
                 <constraint firstItem="8WU-xI-1FC" firstAttribute="top" secondItem="ctr-fJ-mgM" secondAttribute="top" constant="47" id="ypR-ES-ofx"/>

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *slab;
 @property (weak, nonatomic) IBOutlet UILabel *nlab;
 @property (weak, nonatomic) IBOutlet UILabel *searchinglab;
+@property (weak, nonatomic) IBOutlet UILabel *aulab;
 
 @end

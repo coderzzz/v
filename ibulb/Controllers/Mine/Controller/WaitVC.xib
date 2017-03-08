@@ -19,13 +19,6 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="6Ee-r8-gwS">
-                    <rect key="frame" x="132" y="138" width="56" height="57"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="57" id="W6n-OC-pVr"/>
-                        <constraint firstAttribute="width" constant="56" id="wDv-ZG-4Ba"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you want to go back and retry? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvU-Gu-sDo">
                     <rect key="frame" x="22" y="289" width="277" height="21"/>
                     <constraints>
@@ -64,14 +57,21 @@ patiently. It usually finishes within
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="6Ee-r8-gwS">
+                    <rect key="frame" x="141" y="149" width="38" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="W6n-OC-pVr"/>
+                        <constraint firstAttribute="width" constant="38" id="wDv-ZG-4Ba"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="6Ee-r8-gwS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4YJ-Wv-Jww"/>
-                <constraint firstItem="6Ee-r8-gwS" firstAttribute="top" secondItem="a52-jN-maD" secondAttribute="bottom" constant="21" id="Npr-FL-8eC"/>
+                <constraint firstItem="6Ee-r8-gwS" firstAttribute="top" secondItem="a52-jN-maD" secondAttribute="bottom" constant="32" id="Npr-FL-8eC"/>
                 <constraint firstItem="hvU-Gu-sDo" firstAttribute="top" secondItem="pwI-Me-hbo" secondAttribute="bottom" constant="15" id="d7H-e2-f2D"/>
                 <constraint firstItem="a52-jN-maD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gsc-66-2iT"/>
-                <constraint firstItem="pwI-Me-hbo" firstAttribute="top" secondItem="6Ee-r8-gwS" secondAttribute="bottom" constant="34" id="iac-K9-CnT"/>
+                <constraint firstItem="pwI-Me-hbo" firstAttribute="top" secondItem="6Ee-r8-gwS" secondAttribute="bottom" constant="28" id="iac-K9-CnT"/>
                 <constraint firstItem="pwI-Me-hbo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nNC-uo-oed"/>
                 <constraint firstItem="hvU-Gu-sDo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ro3-ES-B4D"/>
                 <constraint firstItem="a52-jN-maD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="tbH-K8-yG5"/>

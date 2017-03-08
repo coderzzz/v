@@ -20,13 +20,6 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="EVK-sy-tIV">
-                    <rect key="frame" x="132" y="54" width="56" height="57"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="56" id="ESi-eO-hbD"/>
-                        <constraint firstAttribute="height" constant="57" id="UvH-8f-5K5"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vifa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPb-6E-QRO">
                     <rect key="frame" x="88" y="424" width="145" height="21"/>
                     <constraints>
@@ -92,6 +85,13 @@ SPEAKER ?</string>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="EVK-sy-tIV">
+                    <rect key="frame" x="141" y="59" width="38" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="ESi-eO-hbD"/>
+                        <constraint firstAttribute="height" constant="52" id="UvH-8f-5K5"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -101,7 +101,7 @@ SPEAKER ?</string>
                 <constraint firstItem="cLb-hY-dwn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="M0Y-8E-YNj"/>
                 <constraint firstItem="LPb-6E-QRO" firstAttribute="top" secondItem="cLb-hY-dwn" secondAttribute="bottom" constant="34" id="Njw-NP-dIj"/>
                 <constraint firstItem="H6W-c5-ppI" firstAttribute="top" secondItem="GhA-Vv-KYf" secondAttribute="bottom" id="OIw-7R-PIY"/>
-                <constraint firstItem="EVK-sy-tIV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="54" id="QLZ-4V-rKo"/>
+                <constraint firstItem="EVK-sy-tIV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="QLZ-4V-rKo"/>
                 <constraint firstAttribute="bottom" secondItem="LPb-6E-QRO" secondAttribute="bottom" constant="59" id="Tzc-Eu-Sbt"/>
                 <constraint firstItem="LPb-6E-QRO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YKj-Mw-cDi"/>
                 <constraint firstItem="H6W-c5-ppI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dHg-fM-Ryv"/>
