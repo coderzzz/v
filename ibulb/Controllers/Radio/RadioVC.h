@@ -10,4 +10,5 @@
 
 @interface RadioVC : BaseViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *soundlab;
 @end

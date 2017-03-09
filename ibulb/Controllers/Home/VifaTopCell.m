@@ -14,6 +14,13 @@
     [super awakeFromNib];
 
     self.playwebview.hidden = YES;
+    
+    
+    
+}
+
+- (void)start{
+    
     NSMutableArray *images = [NSMutableArray array];
     for (int a = 1; a<42; a++) {
         
@@ -30,8 +37,12 @@
     self.playwebview.animationDuration = 2;
     self.playwebview.animationRepeatCount = 0;
     [self.playwebview startAnimating];
+}
+
+- (void)stop{
     
-    
+    self.playwebview.animationImages = nil;
+    [self.playwebview stopAnimating];
 }
 
 @end

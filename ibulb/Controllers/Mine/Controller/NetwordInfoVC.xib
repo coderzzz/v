@@ -61,7 +61,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5e-jW-Six">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5e-jW-Six" customClass="BaseButton">
                     <rect key="frame" x="68" y="297" width="184" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="0Jy-zZ-Mi4"/>

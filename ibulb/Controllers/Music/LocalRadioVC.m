@@ -131,20 +131,20 @@
             titles = [NSMutableArray array];
             for (int a = 0; a<3; a++) {
                 
-                NSString *radioName = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/Name",a] error:nil] firstObject] stringValue];
-                NSString *url = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/Url",a] error:nil] firstObject] stringValue];
+                NSString *radioName = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/Name",a+1] error:nil] firstObject] stringValue];
+                NSString *url = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/Url",a+1] error:nil] firstObject] stringValue];
 //                NSArray *ary = [url componentsSeparatedByString:@"&"];
 //                NSString *first = [NSString stringWithFormat:@"%@&amp;",ary[0]];
 //                NSString *radioUrl = [NSString stringWithFormat:@"%@%@",first,ary[1]];
-                NSString *radioUrl = [url stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
-                NSString *image = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/PicUrl",a] error:nil] firstObject] stringValue];
+                NSString *radio = [url stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+                NSString *image = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/PicUrl",a+1] error:nil] firstObject] stringValue];
                 if (!(radioName.length>0)) {
                     radioName = @"";
                     [keyList addObject:radioName];
                 }
                 else{
                     
-                    NSString *keystr = [self makeKeyStrWithName:radioName url:radioUrl imgUrl:image index:a];
+                    NSString *keystr = [self makeKeyStrWithName:radioName url:radio imgUrl:image index:a+1];
                     [keyList addObject:keystr];
                     
                 }
@@ -175,7 +175,7 @@
         
         if ([currentIndex intValue] == a) {
             
-            NSString *currentkey = [self makeKeyStrWithName:currentName url:currentUrl imgUrl:currentPicUrl index:a];
+            NSString *currentkey = [self makeKeyStrWithName:currentName url:currentUrl imgUrl:currentPicUrl index:a+1];
             [keyList replaceObjectAtIndex:a withObject:currentkey];
         }
         context = [context stringByAppendingString:keyList[a]];

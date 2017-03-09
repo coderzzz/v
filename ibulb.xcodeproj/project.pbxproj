@@ -150,6 +150,7 @@
 		E2A60DB21DC74DD7000F810E /* LocalRadioVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A60DB01DC74DD7000F810E /* LocalRadioVC.xib */; };
 		E2A60DB61DC83D31000F810E /* NowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A60DB41DC83D31000F810E /* NowVC.m */; };
 		E2A60DB71DC83D31000F810E /* NowVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A60DB51DC83D31000F810E /* NowVC.xib */; };
+		E2ADD24F1E70FAEA003E34FF /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ADD24E1E70FAEA003E34FF /* BaseButton.m */; };
 		E2BC22951DD2F31500161EEB /* LCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC22931DD2F31500161EEB /* LCell.m */; };
 		E2BC22961DD2F31500161EEB /* LCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BC22941DD2F31500161EEB /* LCell.xib */; };
 		E2BCDCE11DD4416E00DC8BF9 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BCDCB81DD4416E00DC8BF9 /* DDAbstractDatabaseLogger.m */; };
@@ -476,6 +477,8 @@
 		E2A60DB31DC83D31000F810E /* NowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowVC.h; sourceTree = "<group>"; };
 		E2A60DB41DC83D31000F810E /* NowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowVC.m; sourceTree = "<group>"; };
 		E2A60DB51DC83D31000F810E /* NowVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowVC.xib; sourceTree = "<group>"; };
+		E2ADD24D1E70FAEA003E34FF /* BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
+		E2ADD24E1E70FAEA003E34FF /* BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
 		E2BC22921DD2F31500161EEB /* LCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCell.h; sourceTree = "<group>"; };
 		E2BC22931DD2F31500161EEB /* LCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCell.m; sourceTree = "<group>"; };
 		E2BC22941DD2F31500161EEB /* LCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCell.xib; sourceTree = "<group>"; };
@@ -826,6 +829,8 @@
 				E24A1EF51C3E3C4A009711C2 /* BaseNavigationController.m */,
 				E24A1EF61C3E3C4A009711C2 /* BaseViewController.h */,
 				E24A1EF71C3E3C4A009711C2 /* BaseViewController.m */,
+				E2ADD24D1E70FAEA003E34FF /* BaseButton.h */,
+				E2ADD24E1E70FAEA003E34FF /* BaseButton.m */,
 			);
 			path = BaseVC;
 			sourceTree = "<group>";
@@ -1512,6 +1517,7 @@
 				E2BCDCF11DD4416E00DC8BF9 /* HTTPRedirectResponse.m in Sources */,
 				E267C8B21DC2FAB7008A604D /* ChosespeakerVC.m in Sources */,
 				E2A60DB61DC83D31000F810E /* NowVC.m in Sources */,
+				E2ADD24F1E70FAEA003E34FF /* BaseButton.m in Sources */,
 				E2BCDCED1DD4416E00DC8BF9 /* HTTPDataResponse.m in Sources */,
 				E267C8AD1DC2F70C008A604D /* Netconfig.m in Sources */,
 				E268F8C01DC98F550029D287 /* TuningSetVC.m in Sources */,

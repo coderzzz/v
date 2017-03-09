@@ -86,7 +86,15 @@
     progess =[@[_volumeProgress,_volume2,_volume3]mutableCopy];
     btns = [@[_playBtn,_palybtn2,_palybtn3]mutableCopy];
     images = [@[_imageV,_imgv2,_imgv3]mutableCopy];
+    [self.volumeProgress setThumbImage:[UIImage imageNamed:@"Oval3"] forState:UIControlStateNormal];
+    [self.volume2 setThumbImage:[UIImage imageNamed:@"Oval3"] forState:UIControlStateNormal];
+    [self.volume3 setThumbImage:[UIImage imageNamed:@"Oval3"] forState:UIControlStateNormal];
+    [self.pagec setValue:[UIImage imageNamed:@"Oval"] forKeyPath:@"_pageImage"];
+    [self.pagec setValue:[UIImage imageNamed:@"Oval3"] forKeyPath:@"_currentPageImage"];
     titls = [@[_titlelab,_title2,_title3]mutableCopy];
+    self.soundlab.frame = CGRectMake(-30, 210, 101, 21);
+    [self.scrollview addSubview:self.soundlab];
+    self.soundlab.transform = CGAffineTransformRotate (self.soundlab.transform, -M_PI_2);
 }
 
 - (void)loadPreset{
@@ -112,13 +120,13 @@
             }
             for (int a = 0; a<3; a++) {
                 
-                NSString *radioName = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/Name",a] error:nil] firstObject] stringValue];
-                NSString *url = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/Url",a] error:nil] firstObject] stringValue];
+                NSString *radioName = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/Name",a+1] error:nil] firstObject] stringValue];
+                NSString *url = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/Url",a+1] error:nil] firstObject] stringValue];
                 NSString *radioUrl =[url stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
 //                NSArray *ary = [url componentsSeparatedByString:@"&"];
 //                NSString *first = [NSString stringWithFormat:@"%@&amp;",ary[0]];
 //                NSString *radioUrl = [NSString stringWithFormat:@"%@%@",first,ary[1]];
-                NSString *image = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/PicUrl",a] error:nil] firstObject] stringValue];
+                NSString *image = [[[xmlDoc nodesForXPath:[NSString stringWithFormat:@"KeyList/Key%d/PicUrl",a+1] error:nil] firstObject] stringValue];
                 if (!image) {
                     image = @"";
                 }

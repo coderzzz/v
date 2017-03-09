@@ -124,7 +124,7 @@
                 if (allsec != nowsec) {
                     
                     
-                    __block CGFloat begin = (CGFloat)[self secondFromTimeString:result[@"OutRelTime"]];
+                    begin = (CGFloat)[self secondFromTimeString:result[@"OutRelTime"]];
                     
                     self.timeProgress.maximumValue = (CGFloat)nowsec;
                     timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());

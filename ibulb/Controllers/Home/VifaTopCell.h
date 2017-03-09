@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *playimgv;
 @property (weak, nonatomic) IBOutlet UIImageView *playwebview;
 
-
+- (void)start;
+- (void)stop;
 @end

@@ -130,6 +130,30 @@
     [tipBtn removeFromSuperview];
 }
 
+- (void)showTipWithString:(NSString *)str{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [mbpHud hide:YES];
+        mbpHud = nil;
+        
+        AppDelegate *dele = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+        mbpHud = [[MBProgressHUD alloc]initWithView:dele.window];
+        
+        [dele.window addSubview:mbpHud];
+        
+        mbpHud.mode = MBProgressHUDModeText;
+        
+        mbpHud.labelText =str;
+        
+        [mbpHud show:YES];
+        [mbpHud hide:YES afterDelay:1.7];
+
+    });
+    
+}
+
+
 
 - (void)showHudWithString:(NSString *)string{
     

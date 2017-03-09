@@ -32,7 +32,8 @@
       
         if ([result[@"statuscode"] intValue] < 0) {
             
-            [self hideHud];
+            [self showTipWithString:NSLocalizedString(@"co", nil)];
+            
             return;
         }
         

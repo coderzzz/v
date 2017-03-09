@@ -29,7 +29,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sv-KQ-rTZ">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sv-KQ-rTZ" customClass="BaseButton">
                     <rect key="frame" x="45" y="145" width="231" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="CFd-JH-InF"/>
@@ -42,7 +42,7 @@
                         <action selector="action:" destination="-1" eventType="touchUpInside" id="JSK-Wi-4jT"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9r-ej-f1h">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9r-ej-f1h" customClass="BaseButton">
                     <rect key="frame" x="45" y="223" width="231" height="48"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="231" id="d8L-Sg-Iko"/>

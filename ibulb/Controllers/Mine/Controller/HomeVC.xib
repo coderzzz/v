@@ -27,7 +27,7 @@
                         <constraint firstAttribute="height" constant="21" id="5Vh-AA-WoS"/>
                         <constraint firstAttribute="width" constant="145" id="b70-5J-PSH"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -37,7 +37,7 @@
                         <constraint firstAttribute="height" constant="21" id="G4g-Iu-4jn"/>
                         <constraint firstAttribute="width" constant="236" id="c40-LV-uI6"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

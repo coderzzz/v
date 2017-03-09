@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WOI-K6-Tfo">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <rect key="frame" x="26" y="14" width="268" height="486"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="4Em-vk-ujy"/>
@@ -27,10 +27,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="WOI-K6-Tfo" secondAttribute="bottom" id="3Y2-8u-Ajd"/>
-                <constraint firstItem="WOI-K6-Tfo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5M5-MR-yrW"/>
-                <constraint firstAttribute="trailing" secondItem="WOI-K6-Tfo" secondAttribute="trailing" id="fmT-jB-EL0"/>
-                <constraint firstItem="WOI-K6-Tfo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gGJ-Be-BMw"/>
+                <constraint firstAttribute="bottom" secondItem="WOI-K6-Tfo" secondAttribute="bottom" constant="4" id="3Y2-8u-Ajd"/>
+                <constraint firstItem="WOI-K6-Tfo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="26" id="5M5-MR-yrW"/>
+                <constraint firstAttribute="trailing" secondItem="WOI-K6-Tfo" secondAttribute="trailing" constant="26" id="fmT-jB-EL0"/>
+                <constraint firstItem="WOI-K6-Tfo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="gGJ-Be-BMw"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

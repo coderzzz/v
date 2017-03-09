@@ -14,7 +14,7 @@
 
 #define BaseColor  [UIColor colorWithRed:254.0/255.0 green:251.0/255.0 blue:246.0/255.0 alpha:1]
 
-
+#define YellowColor  [UIColor colorWithRed:216.0/255.0 green:159.0/255.0 blue:96.0/255.0 alpha:1]
 //获取设备的物理高度
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 

@@ -238,10 +238,12 @@
             if (playing) {
                 
                 cell.playwebview.hidden = NO;
+                [cell start];
                 cell.playimgv.hidden = YES;
           
             }else{
                 cell.bgimgv.image = nil;
+                [cell stop];
                 cell.playwebview.hidden = YES;
                 cell.playimgv.hidden =NO;
 //                [cell.playbtn setImage:[UIImage imageNamed:@"home_music"] forState:UIControlStateNormal];

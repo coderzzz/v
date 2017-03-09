@@ -27,7 +27,7 @@
 "stockholm 2.0" = "stockholm 2.0";
 "COPENHAGEN 2.0" = "COPENHAGEN 2.0";
 
-
+"co" = "The content is empty";
 "fa" = "Load failed, please click the page blank to reload";
 
 "Password" = "Password";
@@ -38,7 +38,7 @@
 "PLEASE WAIT" = "PLEASE WAIT";
 "Wait for your speaker to connect to Wi-Fi network. Please do not turn off the speaker during the process. Wait patiently. It usually finishes within 60 secs." = "Wait for your speaker to connect to Wi-Fi network. Please do not turn off the speaker during the process. Wait patiently. It usually finishes within 60 secs.";
 "If you want to go back and retry? " = "If you want to go back and retry? ";
-"don’t show this agin。" = "don’t show this agin。";
+"don’t show this agin。" = "Don’t show this agin。";
 "RUN NOW" = "RUN NOW";
 "You can replace DR P3 radio preset by navigating to the category" = "You can replace DR P3 radio preset by navigating to the category";
 "Save this Radio to your" = "Save this Radio to your";
@@ -88,7 +88,8 @@
 "Net Music Storage" = "Net Music Storage";
 "USB Disk" = "USB Disk";
 "STREAMING SERVICE" = "STREAMING SERVICE";
-"Spotify Premium lets you listen to millions of songs ad-free - the artists you love, the latest hits and discoveries just for you. Simply hit play to hear any song you like, at the highest sound quality. millions of songs. Your new device has Spotify Connect built in. You'll need Spotify Premium to use Connect. Learn more at spotify.com/connect O Play any song in Spotify app. O Tap the song image in the bottom left of the screen. @ Tap the Connect icon @ Pick your speaker from the list." = "Spotify Premium lets you listen to millions of songs ad-free - the artists you love, the latest hits and discoveries just for you. Simply hit play to hear any song you like, at the highest sound quality. millions of songs. Your new device has Spotify Connect built in. You'll need Spotify Premium to use Connect. Learn more at spotify.com/connect O Play any song in Spotify app. O Tap the song image in the bottom left of the screen. @ Tap the Connect icon @ Pick your speaker from the list.";
+"Spotify Premium lets you listen to millions of songs ad-free - the artists you love, the latest hits and discoveries just for you. Simply hit play to hear any song you like, at the highest sound quality. millions of songs. Your new device has Spotify Connect built in. You'll need Spotify Premium to use Connect. Learn more at spotify.com/connect O Play any song in Spotify app. O Tap the song image in the bottom left of the screen. @ Tap the Connect icon @ Pick your speaker from the list." = "Spotify Premium lets you listen to\nmillions of songs ad-free - the\n\n artists you love, the latest hits and \ndiscoveries just for you. Simply hit\n\n play to hear any song you like, at the\n highest sound quality. millions of songs. \n\nYour new device has Spotify Connect built in. \n\nYou'll need Spotify Premium to use \nConnect. Learn more at spotify.com/connect \n\n\n① Play any song in Spotify app.\n② Tap the song image in the bottom left of the screen. \n③ Tap the Connect icon ";
+"ss"="\n④ Pick your speaker from the list.";
 "Playlists" = "Playlists";
 "Artists" = "Artists";
 "Albums" = "Albums";

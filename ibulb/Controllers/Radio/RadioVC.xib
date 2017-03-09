@@ -16,6 +16,7 @@
                 <outlet property="palybtn3" destination="R04-au-Led" id="3JF-hE-Oph"/>
                 <outlet property="playBtn" destination="5n6-lB-G2U" id="l4z-rl-zAt"/>
                 <outlet property="scrollview" destination="opF-cA-oTu" id="65z-6y-fjK"/>
+                <outlet property="soundlab" destination="9Ex-Gz-eCM" id="udO-5B-EZj"/>
                 <outlet property="title2" destination="C9H-nJ-W7i" id="63K-2o-86V"/>
                 <outlet property="title3" destination="1ad-9a-fga" id="d8F-dO-AL0"/>
                 <outlet property="titlelab" destination="zZJ-hs-6lP" id="efJ-nw-I7i"/>
@@ -135,7 +136,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9H-nJ-W7i">
-                    <rect key="frame" x="10" y="279" width="300" height="46"/>
+                    <rect key="frame" x="10" y="287" width="300" height="46"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="WX7-AW-yZ4"/>
                         <constraint firstAttribute="height" constant="46" id="ejr-uf-xZj"/>
@@ -145,7 +146,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-TI-uWt">
-                    <rect key="frame" x="126" y="356" width="68" height="68"/>
+                    <rect key="frame" x="126" y="364" width="68" height="68"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="68" id="quq-IL-OYy"/>
                         <constraint firstAttribute="height" constant="68" id="wwy-2O-PLZ"/>
@@ -156,15 +157,8 @@
                         <action selector="playaction:" destination="-1" eventType="touchUpInside" id="A6h-ZC-mLb"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="121" translatesAutoresizingMaskIntoConstraints="NO" id="OMo-fd-Swd">
-                    <rect key="frame" x="10" y="8" width="300" height="270"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="270" id="JIc-kD-4a4"/>
-                        <constraint firstAttribute="width" constant="300" id="R53-Bw-5el"/>
-                    </constraints>
-                </imageView>
                 <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" minimumValueImage="86" maximumValueImage="88" translatesAutoresizingMaskIntoConstraints="NO" id="KcI-kP-cI9">
-                    <rect key="frame" x="8" y="324" width="304" height="31"/>
+                    <rect key="frame" x="8" y="332" width="304" height="31"/>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="PBZ-5P-4o2"/>
@@ -174,13 +168,20 @@
                         <action selector="changeVolumeAction:" destination="-1" eventType="valueChanged" id="aZL-xq-UGf"/>
                     </connections>
                 </slider>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="121" translatesAutoresizingMaskIntoConstraints="NO" id="OMo-fd-Swd">
+                    <rect key="frame" x="12" y="15" width="296" height="271"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="271" id="JIc-kD-4a4"/>
+                        <constraint firstAttribute="width" constant="296" id="R53-Bw-5el"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="0wa-TI-uWt" firstAttribute="top" secondItem="C9H-nJ-W7i" secondAttribute="bottom" constant="31" id="0Jg-mD-0Ba"/>
                 <constraint firstItem="OMo-fd-Swd" firstAttribute="centerX" secondItem="XpD-DK-a3m" secondAttribute="centerX" id="16B-UD-jRu"/>
                 <constraint firstItem="OMo-fd-Swd" firstAttribute="leading" secondItem="C9H-nJ-W7i" secondAttribute="leading" id="5T6-wu-G76"/>
-                <constraint firstItem="OMo-fd-Swd" firstAttribute="top" secondItem="XpD-DK-a3m" secondAttribute="topMargin" id="Cak-s0-TQd"/>
+                <constraint firstItem="OMo-fd-Swd" firstAttribute="top" secondItem="XpD-DK-a3m" secondAttribute="topMargin" constant="7" id="Cak-s0-TQd"/>
                 <constraint firstItem="C9H-nJ-W7i" firstAttribute="centerX" secondItem="XpD-DK-a3m" secondAttribute="centerX" id="D8I-nf-Cl6"/>
                 <constraint firstItem="C9H-nJ-W7i" firstAttribute="leading" secondItem="KcI-kP-cI9" secondAttribute="leading" id="aKZ-o8-i9B"/>
                 <constraint firstItem="0wa-TI-uWt" firstAttribute="top" secondItem="KcI-kP-cI9" secondAttribute="bottom" constant="2" id="g7F-Zd-Bjy"/>
@@ -268,6 +269,14 @@
             </variation>
             <point key="canvasLocation" x="1073" y="64"/>
         </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autentic sound" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Ex-Gz-eCM">
+            <rect key="frame" x="0.0" y="0.0" width="101" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="173.5" y="0.0"/>
+        </label>
     </objects>
     <resources>
         <image name="121" width="296" height="271"/>

@@ -28,6 +28,8 @@
   
         
     }
+    
+    
     self.toplab.text = NSLocalizedString(@"Your speaker will be configured to the same network as your mobil device.", nil);
     [self.btn setTitle:NSLocalizedString(@"NEXT", nil) forState:UIControlStateNormal];
     self.butlab.text = NSLocalizedString(@"It is important that the speaker has a reliable connection to your router. You can placing the speaker and your phone near the router during the setup process. Check if your router is configuredfor 2.4 GHz, if in doubt, go to your mobil phone's Wi-Fi settings.", nil);

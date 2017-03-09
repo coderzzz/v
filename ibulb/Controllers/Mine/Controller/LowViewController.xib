@@ -40,13 +40,12 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="highlightedColor" red="0.72336632010000002" green="0.72336632010000002" blue="0.72336632010000002" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gR7-HD-3nl">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gR7-HD-3nl" customClass="BaseButton">
                     <rect key="frame" x="74" y="431" width="172" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="ARh-mM-Pc3"/>
                         <constraint firstAttribute="width" constant="172" id="Rrd-uN-TcL"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="NEXT" backgroundImage="03">
                         <color key="titleColor" red="0.88235294119999996" green="0.7843137255" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>

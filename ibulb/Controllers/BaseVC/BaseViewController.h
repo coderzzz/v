@@ -13,7 +13,7 @@
 - (void)showHudWithString:(NSString *)string;
 - (void)showTipWithView:(UIView *)view action:(NSString *)action;
 - (void)showHud;
-
+- (void)showTipWithString:(NSString *)str;
 - (void)hideHud;
 
 - (UIColor *) colorWithHexString: (NSString *)color;

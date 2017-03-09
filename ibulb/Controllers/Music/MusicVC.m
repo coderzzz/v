@@ -13,7 +13,7 @@
 #import "IphoneVC.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "GlobalInfo.h"
-
+#import "AppDelegate.h"
 #import "DDXML.h"
 #import "WiimuUPnP.h"
 @interface MusicVC ()
@@ -25,11 +25,17 @@
 
 @implementation MusicVC
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSDictionary *infoDic = [delegate.devices firstObject];
+    self.navigationItem.title= infoDic[@"name"];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.scrollview.contentSize = CGSizeMake(ScreenWidth, 500);
-    self.contentview.frame = CGRectMake(0, 0, ScreenWidth, 500);
+    self.scrollview.contentSize = CGSizeMake(ScreenWidth, 534);
+    self.contentview.frame = CGRectMake(0, 0, ScreenWidth, 534);
     [self.scrollview addSubview:self.contentview];
     [self getAllmusics];
     
