@@ -13,9 +13,11 @@
                 <outlet property="playBtn" destination="JXU-Td-4Av" id="Vic-YX-9N0"/>
                 <outlet property="prevBtn" destination="dP2-DZ-bKz" id="qyV-kq-uIl"/>
                 <outlet property="randomBtn" destination="Apo-1c-m3V" id="TpR-UV-edi"/>
+                <outlet property="slab" destination="X8q-9m-Z8y" id="NGu-LE-OU4"/>
                 <outlet property="timeProgress" destination="1hS-rf-alB" id="E4s-uF-ZYA"/>
                 <outlet property="titlelab" destination="HzR-Cm-RIl" id="EUB-Yu-xr6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vlab" destination="Tq9-0H-HMO" id="AaW-oD-bwb"/>
                 <outlet property="volumeProgress" destination="mAa-ES-wVt" id="bQp-sB-nBr"/>
             </connections>
         </placeholder>
@@ -60,7 +62,7 @@
                         <constraint firstAttribute="height" constant="24" id="h7k-mL-lob"/>
                         <constraint firstAttribute="width" constant="36" id="qKs-t6-8Fu"/>
                     </constraints>
-                    <state key="normal" image="92"/>
+                    <state key="normal" image="Shuffle"/>
                     <state key="selected" image="133"/>
                     <connections>
                         <action selector="randomAction:" destination="-1" eventType="touchUpInside" id="E2o-MT-Asb"/>
@@ -72,7 +74,7 @@
                         <constraint firstAttribute="height" constant="24" id="4a7-1c-ilM"/>
                         <constraint firstAttribute="width" constant="36" id="Jkh-Zt-S04"/>
                     </constraints>
-                    <state key="normal" image="87"/>
+                    <state key="normal" image="Replay"/>
                     <state key="selected" image="134"/>
                     <connections>
                         <action selector="orderAction:" destination="-1" eventType="touchUpInside" id="YB9-WS-nUg"/>
@@ -91,10 +93,10 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR P3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzR-Cm-RIl">
-                    <rect key="frame" x="75" y="287" width="170" height="41"/>
+                    <rect key="frame" x="65" y="287" width="191" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="41" id="exd-0B-oC1"/>
-                        <constraint firstAttribute="width" constant="170" id="hF9-6C-8Gn"/>
+                        <constraint firstAttribute="width" constant="191" id="hF9-6C-8Gn"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -123,14 +125,45 @@
                         <action selector="changeTime:" destination="-1" eventType="touchUpInside" id="Bba-jU-hdo"/>
                     </connections>
                 </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oih-0I-q6K">
+                    <rect key="frame" x="151" y="193" width="20" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="i0j-y1-d1C"/>
+                        <constraint firstAttribute="height" constant="2" id="iGk-hv-jqJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tq9-0H-HMO">
+                    <rect key="frame" x="67" y="164" width="186" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Ehy-cL-t4N"/>
+                        <constraint firstAttribute="width" constant="186" id="lv2-2M-9SC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Autentic sound" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8q-9m-Z8y">
+                    <rect key="frame" x="-44" y="205" width="140" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Tq9-0H-HMO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1Xj-t6-eIB"/>
                 <constraint firstItem="mAa-ES-wVt" firstAttribute="top" secondItem="1XZ-Hz-9Ra" secondAttribute="bottom" constant="5" id="4vx-B0-dgK"/>
                 <constraint firstItem="mAa-ES-wVt" firstAttribute="top" secondItem="Apo-1c-m3V" secondAttribute="bottom" constant="4" id="5Hi-9H-ldJ"/>
+                <constraint firstItem="oih-0I-q6K" firstAttribute="top" secondItem="Tq9-0H-HMO" secondAttribute="bottom" constant="8" id="7Q5-pF-PNO"/>
+                <constraint firstItem="Tq9-0H-HMO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="164" id="7aK-Zb-wyj"/>
                 <constraint firstItem="JXU-Td-4Av" firstAttribute="top" secondItem="mAa-ES-wVt" secondAttribute="bottom" constant="8" id="8yq-fS-XFO"/>
                 <constraint firstItem="JXU-Td-4Av" firstAttribute="leading" secondItem="dP2-DZ-bKz" secondAttribute="trailing" constant="40" id="FXu-Jy-zHk"/>
-                <constraint firstItem="HzR-Cm-RIl" firstAttribute="leading" secondItem="Apo-1c-m3V" secondAttribute="trailing" constant="31" id="GDN-rA-yqU"/>
+                <constraint firstItem="HzR-Cm-RIl" firstAttribute="leading" secondItem="Apo-1c-m3V" secondAttribute="trailing" constant="21" id="GDN-rA-yqU"/>
+                <constraint firstItem="oih-0I-q6K" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1" id="IwG-Rt-mRk"/>
                 <constraint firstItem="E3J-hT-GRh" firstAttribute="top" secondItem="mAa-ES-wVt" secondAttribute="bottom" constant="26" id="KMz-EM-FEa"/>
                 <constraint firstItem="1hS-rf-alB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="2" id="Kd6-wl-cvp"/>
                 <constraint firstItem="dP2-DZ-bKz" firstAttribute="top" secondItem="mAa-ES-wVt" secondAttribute="bottom" constant="26" id="LFh-0p-NAj"/>
@@ -140,7 +173,7 @@
                 <constraint firstItem="X6v-vs-Mhk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="cyH-6N-qb4"/>
                 <constraint firstItem="X6v-vs-Mhk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="2" id="dUf-Br-7Im"/>
                 <constraint firstItem="1hS-rf-alB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="266" id="dk7-cG-vmO"/>
-                <constraint firstItem="1XZ-Hz-9Ra" firstAttribute="leading" secondItem="HzR-Cm-RIl" secondAttribute="trailing" constant="29" id="fiV-WP-5En"/>
+                <constraint firstItem="1XZ-Hz-9Ra" firstAttribute="leading" secondItem="HzR-Cm-RIl" secondAttribute="trailing" constant="18" id="fiV-WP-5En"/>
                 <constraint firstItem="E3J-hT-GRh" firstAttribute="leading" secondItem="JXU-Td-4Av" secondAttribute="trailing" constant="37" id="hjt-AV-ET9"/>
                 <constraint firstItem="HzR-Cm-RIl" firstAttribute="top" secondItem="X6v-vs-Mhk" secondAttribute="bottom" constant="8" id="lfL-y6-mBJ"/>
                 <constraint firstItem="JXU-Td-4Av" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yEa-os-Fb0"/>
@@ -148,7 +181,7 @@
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="368" y="155"/>
+            <point key="canvasLocation" x="499" y="157"/>
         </view>
     </objects>
     <resources>
@@ -159,11 +192,11 @@
         <image name="136" width="18" height="23"/>
         <image name="144" width="68" height="68"/>
         <image name="86" width="9" height="16"/>
-        <image name="87" width="18" height="13"/>
         <image name="88" width="21" height="20"/>
-        <image name="92" width="17" height="14"/>
         <image name="93" width="68" height="68"/>
         <image name="94" width="17" height="23"/>
         <image name="95" width="18" height="23"/>
+        <image name="Replay" width="18" height="16"/>
+        <image name="Shuffle" width="17" height="15"/>
     </resources>
 </document>

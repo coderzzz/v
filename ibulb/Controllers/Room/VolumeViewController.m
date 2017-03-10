@@ -23,45 +23,45 @@
     [super viewWillAppear:animated];
     [self updateUI];
     
-    [[WiimuUPnP sharedInstance] addObserver:self];
+//    [[WiimuUPnP sharedInstance] addObserver:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     
-    [[WiimuUPnP sharedInstance] removeObserver:self];
+//    [[WiimuUPnP sharedInstance] removeObserver:self];
 }
 - (void)updateUI{
     
-    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSDictionary *infoDic = [delegate.devices firstObject];
-    
-    [UPnPDevice(infoDic[@"uuid"]) GetInfoEx:^(NSDictionary *result) {
-        if([result[@"statuscode"] intValue] != 0)
-        {
-            return;
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            //            self.navigationItem.title
-            //volume
-            _slider.value = [result[@"OutCurrentVolume"] floatValue];
-            
-            _lab.text = [NSString stringWithFormat:@"%.f%%",[result[@"OutCurrentVolume"] floatValue]];
-            
-            
-        });
-        
-    }];
+//    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+//    NSDictionary *infoDic = [delegate.devices firstObject];
+//    
+//    [UPnPDevice(infoDic[@"uuid"]) GetInfoEx:^(NSDictionary *result) {
+//        if([result[@"statuscode"] intValue] != 0)
+//        {
+//            return;
+//        }
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            //            self.navigationItem.title
+//            //volume
+//            _slider.value = [result[@"OutCurrentVolume"] floatValue];
+//            
+//            _lab.text = [NSString stringWithFormat:@"%.f%%",[result[@"OutCurrentVolume"] floatValue]];
+//            
+//            
+//        });
+//        
+//    }];
 }
 #pragma mark - WiimuUPnPObserver methods
 
-- (void)UPnPDeviceEvent:(id<WiimuDeviceProtocol>)device event:(NSString *)event
-{
-    NSLog(@"%@",event);
-    [self updateUI];
-    
-}
+//- (void)UPnPDeviceEvent:(id<WiimuDeviceProtocol>)device event:(NSString *)event
+//{
+//    NSLog(@"%@",event);
+//    [self updateUI];
+//    
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -79,8 +79,12 @@
 - (void)back{
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(didUpdateStartupVolume:type:)]) {
-        
+        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSDictionary *infoDic = [delegate.devices firstObject];
         [self.delegate didUpdateStartupVolume:self.slider.value type:self.type];
+        NSString *value = [NSString stringWithFormat:@"%f",self.slider.value];
+        [[NSUserDefaults standardUserDefaults]setObject:value forKey:[NSString stringWithFormat:@"start%@",infoDic[@"uuid"]]];
+        [[NSUserDefaults standardUserDefaults]synchronize];
         
     }
     [self.navigationController popViewControllerAnimated:YES];

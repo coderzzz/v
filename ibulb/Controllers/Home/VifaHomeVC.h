@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface VifaHomeVC : BaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *aulab;
 
 @end

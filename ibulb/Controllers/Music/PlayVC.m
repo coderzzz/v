@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *orderBtn;
 @property (weak, nonatomic) IBOutlet UIButton *prevBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+@property (weak, nonatomic) IBOutlet UILabel *vlab;
+@property (weak, nonatomic) IBOutlet UILabel *slab;
 @end
 
 @implementation PlayVC
@@ -111,6 +113,7 @@
 
             //progress
             NSString *type = result[@"PlayMedium"];
+            self.slab.text = type;
             if ([type hasPrefix:@"RADIO"]) {
                 
                 self.timeProgress.userInteractionEnabled = NO;
@@ -205,7 +208,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"NOW PLAY", nil);
+    
+    
+    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSDictionary *infoDic = [delegate.devices firstObject];
+    self.vlab.text = infoDic[@"name"];
+    self.title = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"NOW PLAY", nil),infoDic[@"name"]];
+    [self.timeProgress setThumbImage:[UIImage imageNamed:@"Oval2-1"] forState:UIControlStateNormal];
+    [self.volumeProgress setThumbImage:[UIImage imageNamed:@"Oval3"] forState:UIControlStateNormal];
+    self.slab.transform = CGAffineTransformRotate (self.slab.transform, -M_PI_2);
     allsec = 0;
     [[WiimuUPnP sharedInstance] addObserver:self];
     

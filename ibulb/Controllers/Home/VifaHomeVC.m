@@ -68,13 +68,14 @@
     self.popTableview.layer.borderWidth = 1.f;
     [self.view addSubview:self.popTableview];
     
+    self.aulab.transform = CGAffineTransformRotate (self.aulab.transform, -M_PI_2);
 
     UINib *nib = [UINib nibWithNibName:@"VifaTopCell" bundle:nil];
     [self.collectview registerNib:nib forCellWithReuseIdentifier:@"vitfaTop"];
     
     UINib *nib2 = [UINib nibWithNibName:@"VifaMidCell" bundle:nil];
     [self.collectview registerNib:nib2 forCellWithReuseIdentifier:@"midCell"];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"79"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeft)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Group"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeft)];
     self.navigationItem.leftBarButtonItem = item;
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"+"] style:UIBarButtonItemStylePlain target:self action:@selector(showgroup)];
     self.navigationItem.rightBarButtonItem = item2;
@@ -82,7 +83,7 @@
     NSArray *itemsFromGenericQuery = [everything items];
 
     
-    self.collectview.frame = CGRectMake(40, 0, ScreenWidth-80, ScreenHeight-64);
+    self.collectview.frame = CGRectMake(40, 16, ScreenWidth-80, ScreenHeight-80-49);
     UILongPressGestureRecognizer *ges = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longpress:)];
     [self.collectview addGestureRecognizer:ges];
     
@@ -376,7 +377,6 @@
         }
    
         cell.donebtn.hidden = ![dic[@"grouping"] boolValue];
-      
         cell.backgroundColor = color;
         return cell;
     }
@@ -388,11 +388,11 @@
         cell.groupbtn.hidden = ![dic[@"grouping"] boolValue];
         if ([type isEqualToString:@"1"]) {
             
-            
-            cell.imgv.image = [UIImage imageNamed:@"44"];
+            [cell.imgbtn setImage:[UIImage imageNamed:@"S1"] forState:UIControlStateNormal];
         }
         else{
-            cell.imgv.image = [UIImage imageNamed:@"157"];
+
+            [cell.imgbtn setImage:[UIImage imageNamed:@"C1"] forState:UIControlStateNormal];
         }
         return cell;
     }
@@ -400,6 +400,70 @@
 }
 
 
+
+
+- (void)drawLinearGradient:(CGContextRef)context
+                      path:(CGPathRef)path
+                startColor:(CGColorRef)startColor
+                  endColor:(CGColorRef)endColor
+{
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGFloat locations[] = { 0.0, 1.0 };
+    
+    NSArray *colors = @[(__bridge id) startColor, (__bridge id) endColor];
+    
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
+    
+    
+    CGRect pathRect = CGPathGetBoundingBox(path);
+    
+    //具体方向可根据需求修改
+    CGPoint startPoint = CGPointMake(CGRectGetMinX(pathRect), CGRectGetMidY(pathRect));
+    CGPoint endPoint = CGPointMake(CGRectGetMaxX(pathRect), CGRectGetMidY(pathRect));
+
+    
+    CGContextSaveGState(context);
+    CGContextAddPath(context, path);
+    CGContextClip(context);
+    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
+    CGContextRestoreGState(context);
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
+}
+
+
+- (UIImage *)getImageWithcolor:(UIColor *)mycolor{
+    
+    //创建CGContextRef
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    CGContextRef gc = UIGraphicsGetCurrentContext();
+    
+    //创建CGMutablePathRef
+    CGMutablePathRef path = CGPathCreateMutable();
+    
+    //绘制Path
+    CGRect rect = CGRectMake(0, 0, ScreenWidth - 80, 400);
+    CGPathMoveToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMinY(rect));
+    CGPathAddLineToPoint(path, NULL, CGRectGetMidX(rect), CGRectGetMaxY(rect));
+    CGPathAddLineToPoint(path, NULL, CGRectGetWidth(rect), CGRectGetMaxY(rect));
+    CGPathAddLineToPoint(path, NULL, CGRectGetWidth(rect), CGRectGetMinY(rect));
+    
+    CGPathCloseSubpath(path);
+  
+    //绘制渐变
+    UIColor *color = [UIColor colorWithRed:138.0/255.0 green:137.0/255.0 blue:136.0/255.0 alpha:1];
+    
+//    [self drawRadialGradient:gc path:path startColor:[UIColor redColor].CGColor endColor:mycolor.CGColor];
+     [self drawLinearGradient:gc path:path startColor:[UIColor greenColor].CGColor endColor:[UIColor redColor].CGColor];
+    //注意释放CGMutablePathRef
+    CGPathRelease(path);
+    
+    //从Context中获取图像，并显示在界面上
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
 #pragma mark UICollectionViewDelegate
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -435,9 +499,9 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row != 0) {
         
-        return CGSizeMake(([UIScreen mainScreen].bounds.size.width -80), 150);
+        return CGSizeMake(([UIScreen mainScreen].bounds.size.width -80), 128);
     }
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width -80, 345);
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width -80, 400);
 }
 //- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
 //    

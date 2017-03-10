@@ -29,6 +29,19 @@
     [super viewWillAppear:animated];
     AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
     NSDictionary *infoDic = [delegate.devices firstObject];
+    [UPnPDevice(infoDic[@"uuid"]) BrowseQueue:@"USBDiskQueue" result:^(NSDictionary *result) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if ([result[@"statuscode"] intValue] < 0) {
+
+                [self.ulab setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            }
+            else{
+                
+               [self.ulab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            }
+        });
+    }];
     self.navigationItem.title= infoDic[@"name"];
 }
 - (void)viewDidLoad {

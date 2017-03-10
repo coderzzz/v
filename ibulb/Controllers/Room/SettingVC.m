@@ -52,7 +52,12 @@
         
             
             NSString *name = dic[@"DeviceName"];
-            NSString *volume = [NSString stringWithFormat:@"%@%%",result[@"volume"]];
+            
+//           NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[NSString stringWithFormat:@"start%@",infoDic[@"uuid"]]];
+            NSString *volume;
+        
+            volume = @"60%";
+           
             NSString *light = @"70%";
             needUpdate = [NSString stringWithFormat:@"%@%%",result[@"VersionUpdate"]];
             firmware = dic[@"firmware"];
@@ -91,25 +96,33 @@
     
     if ([type isEqualToString:@"1"]) {
         
-        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
-        NSDictionary *infoDic = [delegate.devices firstObject];
-        [UPnPDevice(infoDic[@"uuid"]) sendVolume:value result:^(NSDictionary *result) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             
-            if([result[@"statuscode"] intValue] != 0)
-            {
-                return;
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                NSArray *ary = [contenlist firstObject];
-                NSString *volume = [NSString stringWithFormat:@"%.f%%",value];
-                contenlist = [@[@[ary[0],volume,ary[2]],@[@"",@""]]mutableCopy];
-                [self.tableview reloadData];
-                
-            });
+            NSArray *ary = [contenlist firstObject];
+            NSString *volume = [NSString stringWithFormat:@"%.f%%",value];
+            contenlist = [@[@[ary[0],volume,ary[2]],@[@"",@""]]mutableCopy];
+            [self.tableview reloadData];
             
-            
-        }];
+        });
+//        AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+//        NSDictionary *infoDic = [delegate.devices firstObject];
+//        [UPnPDevice(infoDic[@"uuid"]) sendVolume:value result:^(NSDictionary *result) {
+//            
+//            if([result[@"statuscode"] intValue] != 0)
+//            {
+//                return;
+//            }
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                
+//                NSArray *ary = [contenlist firstObject];
+//                NSString *volume = [NSString stringWithFormat:@"%.f%%",value];
+//                contenlist = [@[@[ary[0],volume,ary[2]],@[@"",@""]]mutableCopy];
+//                [self.tableview reloadData];
+//                
+//            });
+//            
+//            
+//        }];
 
     }
     else{

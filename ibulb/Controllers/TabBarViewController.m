@@ -51,27 +51,27 @@
 //        [self.tabBar setBackgroundColor:[UIColor blackColor]];
         UITabBarItem *item1 = [[UITabBarItem alloc] init];
         item1.tag = 1;
-        [item1 setImage:[UIImage imageNamed:@"592"]];
+        [item1 setImage:[UIImage imageNamed:@"Speakers"]];
         [item1 setSelectedImage:[[UIImage imageNamed:@"48"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
    
        
         
         UITabBarItem *item2 = [[UITabBarItem alloc] init];
         item2.tag = 2;
-        [item2 setImage:[UIImage imageNamed:@"51"]];
+        [item2 setImage:[UIImage imageNamed:@"Music sources"]];
         [item2 setSelectedImage:[[UIImage imageNamed:@"593"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
       
        
         
         UITabBarItem *item3 = [[UITabBarItem alloc] init];
         item3.tag = 3;
-        [item3 setImage:[UIImage imageNamed:@"50"]];
+        [item3 setImage:[UIImage imageNamed:@"Radio favorites"]];
         [item3 setSelectedImage:[[UIImage imageNamed:@"59"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
         
         UITabBarItem *item4 = [[UITabBarItem alloc] init];
         item4.tag = 4;
-        [item4 setImage:[UIImage imageNamed:@"49"]];
+        [item4 setImage:[UIImage imageNamed:@"Page1"]];
         [item4 setSelectedImage:[[UIImage imageNamed:@"594"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
         
