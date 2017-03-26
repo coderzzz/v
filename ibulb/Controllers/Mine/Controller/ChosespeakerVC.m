@@ -64,7 +64,7 @@
         
         cell.img1.hidden = YES;
         cell.imag2.hidden = NO;
-        cell.lab.text = NSLocalizedString(@"stockholm 2.0", nil);
+        cell.lab.text =@"STOCKHOLM 2.0";
     }
     else{
         

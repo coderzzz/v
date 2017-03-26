@@ -501,7 +501,7 @@
         
         return CGSizeMake(([UIScreen mainScreen].bounds.size.width -80), 128);
     }
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width -80, 400);
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width -80, 350);
 }
 //- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
 //    

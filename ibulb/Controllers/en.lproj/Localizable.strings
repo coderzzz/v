@@ -12,9 +12,9 @@
 "Make sure your iPhone is connected to Wi-Fi network. Click the image above to go to your Wifi Settings" = "Make sure your iPhone is connected to Wi-Fi network. Click the image above to go to your Wifi Settings";
 "Cancel" = "Cancel";
 "OK" = "OK";
-"Searching" = "Searching";
+"Searching" = "SEARCHING";
 "FOR SPEAKERS NEARBY" = "FOR SPEAKERS NEARBY ";
-"NOT FOUND ANY DEVICE\nADD A NEW VIP-A HOME\nSPEAKER ?" = "NOT FOUND ANY DEVICE\nADD A NEW VIP-A HOME\nSPEAKER ?";
+"NOT FOUND ANY DEVICE\nADD A NEW VIP-A HOME\nSPEAKER ?" = "NOT FOUND ANY DEVICE\nADD A NEW VIFA\nSPEAKER ?";
 "SETUP WIZARD" = "SETUP WIZARD";
 "NETWORK CONFIGURATION" = "NETWORK CONFIGURATION";
 "Your speaker will be configured to the same network as your mobil device." = "Your speaker will be configured to the same network as your mobil device.";
@@ -70,7 +70,7 @@
 
 
 
-"LIVINGROM" = "LIVINGROM";
+"LIVINGROM" = "LIVINGROOM";
 "GARAGE" = "GARAGE";
 "VIFA HOME" = "VIFA HOME";
 "MUSIC.BEDROOM" = "MUSIC.BEDROOM";
@@ -78,7 +78,7 @@
 "ROOM" = "ROOM";
 "SET UP NEW SPEAKER" = "SET UP NEW SPEAKER";
 "GROUP ALL" = "GROUP ALL";
-"PAUSE ALL" = "PAUSE ALL";
+"PAUSE ALL" = "UNGROUP ALL";
 "grouping" = "grouping";
 "grouping？" = "grouping？";
 "SPEAKER GROUP EMMA'S ROOM" = "SPEAKER GROUP EMMA'S ROOM";
@@ -111,12 +111,13 @@
 
 "Firmware" = "Firmware";
 "LED intensity" = "LED intensity";
-"Check for new" = "Check for new";
+"Check for new" = "Check for new firmware";
 "Set to Factory Default" = "Set to Factory Default";
 "FACTORY RESET" = "FACTORY RESET";
 "NEW FIRMWARE" = "NEW FIRMWARE";
 "Your speaker has the firmware version" = "Your speaker has the firmware version";
-"Are you sure you want to set the xxxx speaker to factory default (all user defined settings and network settings will be lost)? " = "Are you sure you want to set the xxxx speaker to factory default (all user defined settings and network settings will be lost)? ";
+"Are you sure you want to set the" = "Are you sure you want to set the";
+"speaker to factory default"= "speaker to factory default (all user defined settings and network settings will be lost)?"
 "NOT NOW" = "NOT NOW";
 "YES RESET" = "YES RESET";
 "The new firmware avaliable" = "The new firmware avaliable";

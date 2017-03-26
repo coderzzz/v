@@ -28,8 +28,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.clab.text = NSLocalizedString(@"Are you sure you want to set the xxxx speaker to factory default (all user defined settings and network settings will be lost)? ", nil);
-    NSLocalizedString(@"firmware", nil);
+    
+//    
+    
+    AppDelegate *delegate =(AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSDictionary *infoDic = [delegate.devices firstObject];
+    self.clab.text =[NSString stringWithFormat:@"%@%@%@", NSLocalizedString(@"Are you sure you want to set the", nil),infoDic[@"name"], NSLocalizedString(@"speaker to factory default", nil)];
     [self.nbtn setTitle:NSLocalizedString(@"NOT NOW", nil) forState:UIControlStateNormal];
     [self.yben setTitle:NSLocalizedString(@"YES RESET", nil) forState:UIControlStateNormal];
     

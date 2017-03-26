@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    list = [@[NSLocalizedString(@"Model", nil),NSLocalizedString(@"Source", nil),NSLocalizedString(@"Battery Level", nil),NSLocalizedString(@"Light Dimming", nil),NSLocalizedString(@"Wi-Fi Strength", nil),NSLocalizedString(@"Startup Volume", nil),@"ID",@"MAC",NSLocalizedString(@"Firmware", nil)]mutableCopy];
+    list = [@[NSLocalizedString(@"Model", nil),NSLocalizedString(@"Source", nil),NSLocalizedString(@"Battery Level", nil),NSLocalizedString(@"Light Dimming", nil),NSLocalizedString(@"Wi-Fi Strength", nil),NSLocalizedString(@"Startup Volume", nil),@"ID",@"MAC",NSLocalizedString(@"Firmware", nil),@"IP"]mutableCopy];
     
 
     
@@ -47,17 +47,19 @@
         NSError *err;
         NSDictionary *dic =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
         if (!err) {
-            NSString *mode = dic[@"DeviceName"];
+            
+            NSString *type =[[NSUserDefaults standardUserDefaults]objectForKey:[NSString stringWithFormat:@"type%@",dic[@"uuid"]]];
+            NSString *mode = [type isEqualToString:@"1"]?@"STOCKHOLM 2.0":@"COPENHAGEN 2.0";
             NSString *source = @"WI-FI";
             NSString *battery = [NSString stringWithFormat:@"%@%%",dic[@"battery"]];
             NSString *light = @"70%";
-            NSString *wifi = @"Excellen";
+            NSString *wifi = @"Excellent";
             NSString *volume = [NSString stringWithFormat:@"%@%%",result[@"volume"]];
             
             NSString *d =dic[@"ssid"];
             NSString *mac = dic[@"MAC"];
             NSString *firmware = dic[@"firmware"];
-            contenlist = [@[mode,source,battery,light,wifi,volume,d,mac,firmware]mutableCopy];
+            contenlist = [@[mode,source,battery,light,wifi,volume,d,mac,firmware,dic[@"ip"]]mutableCopy];
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
