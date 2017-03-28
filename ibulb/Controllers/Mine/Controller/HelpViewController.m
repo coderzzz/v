@@ -42,10 +42,7 @@
     
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
-    
-   
-}
+
 /*
 #pragma mark - Navigation
 

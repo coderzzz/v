@@ -25,6 +25,8 @@
 {
     NSMutableArray * dataArray;
 }
+@property (weak, nonatomic) IBOutlet UILabel *lab;
+
 @end
 
 @implementation HomeVC
@@ -123,7 +125,7 @@
     self.slab.text = NSLocalizedString(@"Searching", nil);
     self.nlab.text = NSLocalizedString(@"FOR SPEAKERS NEARBY", nil);
     self.searchinglab.text =NSLocalizedString(@"Searching", nil);
-
+    self.lab.text = @"AUTHENTIC SOUND";
 
 }
 

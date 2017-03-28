@@ -56,9 +56,9 @@
 "Please, spin the wheel to select it." = "Please, spin the wheel to select it.";
 "A MATTER OF COLOR" = "A MATTER OF COLOR";
 "RENAME YOUR PRODUCT" = "RENAME YOUR PRODUCT";
-"BATHROM" = "BATHROM";
+"BATHROM" = "BATHROOM";
 "KITCHEN" = "KITCHEN";
-"BEDROM" = "BEDROM";
+"BEDROM" = "BEDROOM";
 "STUDY" = "STUDY";
 
 
@@ -70,7 +70,7 @@
 
 
 
-"LIVINGROM" = "LIVINGROOM";
+"LIVINGROM" = "LIVING ROOM";
 "GARAGE" = "GARAGE";
 "VIFA HOME" = "VIFA HOME";
 "MUSIC.BEDROOM" = "MUSIC.BEDROOM";
@@ -117,7 +117,7 @@
 "NEW FIRMWARE" = "NEW FIRMWARE";
 "Your speaker has the firmware version" = "Your speaker has the firmware version";
 "Are you sure you want to set the" = "Are you sure you want to set the";
-"speaker to factory default"= "speaker to factory default (all user defined settings and network settings will be lost)?"
+"speaker to factory default"= "speaker to factory default (all user defined settings and network settings will be lost)?";
 "NOT NOW" = "NOT NOW";
 "YES RESET" = "YES RESET";
 "The new firmware avaliable" = "The new firmware avaliable";
