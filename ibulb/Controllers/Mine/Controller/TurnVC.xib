@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TurnVC">
+            <connections>
+                <outlet property="lab" destination="wuE-0V-Xdc" id="2Ix-E4-g2m"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQr-QQ-cjA" customClass="BaseButton">
+                    <rect key="frame" x="62" y="260" width="184" height="45"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="184" id="di4-Af-mwU"/>
+                        <constraint firstAttribute="height" constant="45" id="vHf-a0-JQV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="NEXT" backgroundImage="03">
+                        <color key="titleColor" red="0.88235294119999996" green="0.7843137255" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="acton:" destination="-1" eventType="touchUpInside" id="gab-A3-5Ds"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuE-0V-Xdc">
+                    <rect key="frame" x="43" y="6" width="234" height="202"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="234" id="Hkn-Dn-8Jz"/>
+                        <constraint firstAttribute="height" constant="202" id="YLw-hx-KUB"/>
+                    </constraints>
+                    <string key="text">Labelmake sure your product is plugged into a power owlet and turn on if you have done it, please click the next button.
+
+if not, long press the  power button to turn it on, wait about 30
+secones until the product is ready click next.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mQr-QQ-cjA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dmQ-wz-ZBN"/>
+                <constraint firstItem="wuE-0V-Xdc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kee-An-4RZ"/>
+                <constraint firstItem="mQr-QQ-cjA" firstAttribute="top" secondItem="wuE-0V-Xdc" secondAttribute="bottom" constant="52" id="pAj-yD-MVs"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <point key="canvasLocation" x="35" y="-266"/>
+        </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lCM-3y-lTq">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <nil key="textColor"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="209" y="203"/>
+        </label>
+    </objects>
+    <resources>
+        <image name="03" width="183" height="45"/>
+    </resources>
+</document>

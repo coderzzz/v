@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221887921E9A72A700044B94 /* TurnVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 221887901E9A72A700044B94 /* TurnVC.m */; };
+		221887931E9A72A700044B94 /* TurnVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221887911E9A72A700044B94 /* TurnVC.xib */; };
 		DFA723F5C200AC172BB9E4B5 /* libPods-ibulb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC63AD4AE98AB8101E68A50 /* libPods-ibulb.a */; };
 		E2106DC21C965E4C00E55388 /* Wis.pages in Resources */ = {isa = PBXBuildFile; fileRef = E2106DC11C965E4C00E55388 /* Wis.pages */; };
 		E21A22321DBDAC4E0003BB4C /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A22301DBDAC4E0003BB4C /* HomeVC.m */; };
@@ -223,6 +225,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2218878F1E9A72A700044B94 /* TurnVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnVC.h; sourceTree = "<group>"; };
+		221887901E9A72A700044B94 /* TurnVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurnVC.m; sourceTree = "<group>"; };
+		221887911E9A72A700044B94 /* TurnVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnVC.xib; sourceTree = "<group>"; };
 		2CC63AD4AE98AB8101E68A50 /* libPods-ibulb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ibulb.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D0DB23117346A3B52073FA /* Pods-ibulb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ibulb.release.xcconfig"; path = "Pods/Target Support Files/Pods-ibulb/Pods-ibulb.release.xcconfig"; sourceTree = "<group>"; };
 		E2106DC11C965E4C00E55388 /* Wis.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wis.pages; sourceTree = "<group>"; };
@@ -917,6 +922,9 @@
 				E2D074BF1DD0634B00BC313A /* WifiVC.xib */,
 				E2E40FBE1DF2AFE60056CF3C /* CircleView.h */,
 				E2E40FBF1DF2AFE60056CF3C /* CircleView.m */,
+				2218878F1E9A72A700044B94 /* TurnVC.h */,
+				221887901E9A72A700044B94 /* TurnVC.m */,
+				221887911E9A72A700044B94 /* TurnVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1326,6 +1334,7 @@
 				E268F8DF1DCB18AC0029D287 /* NewFirVC.xib in Resources */,
 				E24A1ECC1C3E38AB009711C2 /* Assets.xcassets in Resources */,
 				E2E40FD71DF8082F0056CF3C /* VifaMidCell.xib in Resources */,
+				221887931E9A72A700044B94 /* TurnVC.xib in Resources */,
 				E24A20DF1C40A359009711C2 /* SettingSectionView.xib in Resources */,
 				E24A20EE1C40E290009711C2 /* ChoseCell.xib in Resources */,
 				E267C8B31DC2FAB7008A604D /* ChosespeakerVC.xib in Resources */,
@@ -1545,6 +1554,7 @@
 				E24A20201C3E3C4A009711C2 /* BaseNavigationController.m in Sources */,
 				E2E40F9B1DEEDAF20056CF3C /* CoupenCell.m in Sources */,
 				E22EA6E91C4F7D8F00D69A39 /* DataModel.m in Sources */,
+				221887921E9A72A700044B94 /* TurnVC.m in Sources */,
 				E2FA1D471E1E36F80072F2AB /* ArtWorkModel.m in Sources */,
 				E2A60D9D1DC740AF000F810E /* ArtistsVC.m in Sources */,
 				E22EA7321C50748100D69A39 /* NSManagedObject+MagicalAggregation.m in Sources */,

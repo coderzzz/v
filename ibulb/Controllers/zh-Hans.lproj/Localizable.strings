@@ -21,10 +21,12 @@
 "It is important that the speaker has a reliable connection to your router. You can placing the speaker and your phone near the router during the setup process. Check if your router is configuredfor 2.4 GHz, if in doubt, go to your mobil phone's Wi-Fi settings." = "让音响能可靠的连接到您的路由器是很重要的。您可以放置音响和你的手机在路由器附近，检查您的路由器被配置为2.4GHz，如果有疑问，请前往手机的Wi-Fi设定。";
 "Long" = "长按链接按钮";
 "Name" = "名称";
+"turn" = "打开音响";
+"make" = "确保您的产品已插入电源插座，如果您已经完成，请打开它，请点击下一个按钮。\n\如果没有，长按电源按钮将其打开，等待约30秒，直到产品准备好点击下一步。";
 "wait" = "数据加载中，请稍等...";
 "wa" = "数据缓冲中...";
 "fa" = "加载失败，请点击页面空白处重新加载";
-
+"please"= "请输入密码";
 "Password" = "密码";
 "Show Password" = "显示密码";
 "CHOOSE YOUR SPEAKER TYPE" = "请选择设备类型";

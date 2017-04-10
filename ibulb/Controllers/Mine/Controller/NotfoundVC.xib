@@ -21,7 +21,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="EVK-sy-tIV">
@@ -41,7 +41,7 @@
                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQz-Vf-2Fy">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQz-Vf-2Fy">
                     <rect key="frame" x="20" y="272" width="280" height="59"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="280" id="6xI-gl-BDd"/>
@@ -63,7 +63,7 @@ SPEAKER ?</string>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-hY-dwn" customClass="BaseButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLb-hY-dwn" customClass="BaseButton">
                     <rect key="frame" x="68" y="345" width="184" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="184" id="aoA-8q-EVz"/>
@@ -99,6 +99,7 @@ SPEAKER ?</string>
                 <constraint firstItem="GhA-Vv-KYf" firstAttribute="top" secondItem="EVK-sy-tIV" secondAttribute="bottom" constant="8" id="0Hn-97-Ihj"/>
                 <constraint firstItem="GhA-Vv-KYf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4wT-os-BVC"/>
                 <constraint firstItem="GQz-Vf-2Fy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="584-Qo-dct"/>
+                <constraint firstItem="GQz-Vf-2Fy" firstAttribute="top" secondItem="H6W-c5-ppI" secondAttribute="bottom" constant="111" id="8GV-y3-bsz"/>
                 <constraint firstItem="cLb-hY-dwn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="M0Y-8E-YNj"/>
                 <constraint firstItem="H6W-c5-ppI" firstAttribute="top" secondItem="GhA-Vv-KYf" secondAttribute="bottom" id="OIw-7R-PIY"/>
                 <constraint firstItem="EVK-sy-tIV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="QLZ-4V-rKo"/>

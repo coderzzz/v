@@ -98,7 +98,7 @@
     [super viewDidLoad];
     
     
-    self.aulab.transform = CGAffineTransformRotate (self.aulab.transform, -M_PI_2);
+//    self.aulab.transform = CGAffineTransformRotate (self.aulab.transform, -M_PI_2);
     
     [[WiimuUPnP sharedInstance] start];
     dataArray = [NSMutableArray array];

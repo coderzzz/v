@@ -9,6 +9,7 @@
 #import "ChosespeakerVC.h"
 #import "ChosespeakerCell.h"
 #import "PressVC.h"
+#import "TurnVC.h"
 @interface ChosespeakerVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -85,8 +86,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    PressVC *vc = [[PressVC alloc]init];
-    vc.title = NSLocalizedString(@"PRESS THE BUTTON", nil);
+    TurnVC *vc = [[TurnVC alloc]init];
     vc.password = self.password;
     vc.type = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];

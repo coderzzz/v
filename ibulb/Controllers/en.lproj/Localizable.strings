@@ -66,7 +66,7 @@
 "CONNECTED" = "CONNECTED";
 "Volumn" = "Volumn";
 "UNCONNECTED" = "UNCONNECTED";
-
+"please"= "Please enter Password";
 
 
 
@@ -79,9 +79,11 @@
 "SET UP NEW SPEAKER" = "SET UP NEW SPEAKER";
 "GROUP ALL" = "GROUP ALL";
 "PAUSE ALL" = "UNGROUP ALL";
-"grouping" = "grouping";
-"grouping？" = "grouping？";
+"grouping" = "Grouping";
+"grouping？" = "Make a speaker group？";
 "SPEAKER GROUP EMMA'S ROOM" = "SPEAKER GROUP EMMA'S ROOM";
+"turn" = "TURN YOUR SPEAKER ON";
+"make" = "Make sure your product is plugged into a power owlet and turn on if you have done it, please click the next button.\n\nif not, long press the  power button to turn it on, wait about 30secones until the product is ready click next.";
 "songs" = "songs";
 "LOCAL MUSIC" = "LOCAL MUSIC";
 "iPhone Music" = "iPhone Music";
